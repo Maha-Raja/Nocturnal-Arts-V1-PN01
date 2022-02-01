@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f96bbf5f7e9a4bc789bf8cbecc76db51" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event" Width="1.5" PointX="0.75" PointY="9.375" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Facility" Width="1.5" PointX="3" PointY="9.75" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Feedback" Width="1.5" PointX="3" PointY="2" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Seat" Width="1.5" PointX="5.25" PointY="21.875" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Seating_Plan" Width="1.5" PointX="3" PointY="21.875" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Ticket_Price" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Wait_List" Width="1.5" PointX="3" PointY="17.75" />
+        <AssociationConnector Association="EventModel.FK_EventID" />
+        <AssociationConnector Association="EventModel.FK_NAT_ES_Event_Facility_NAT_ES_Event" />
+        <AssociationConnector Association="EventModel.FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event" />
+        <AssociationConnector Association="EventModel.FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event" />
+        <AssociationConnector Association="EventModel.FK_NAT_ES_Event_Wait_List_NAT_ES_Event" />
+        <AssociationConnector Association="EventModel.FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Image" Width="1.5" PointX="3" PointY="27.5" />
+        <AssociationConnector Association="EventModel.FK_NAT_ES_Event_Image_ID_NAT_ES_Event" />
+        <EntityTypeShape EntityType="EventModel.NAT_TICKET_SUMMARY_VW" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EventModel.NAT_ES_Event_Iteration" Width="1.5" PointX="3" PointY="14" />
+        <AssociationConnector Association="EventModel.FK_NAT_ES_Event_Iteration_NAT_ES_Event" />
+        <EntityTypeShape EntityType="EventModel.NAT_BOOKED_TICKET_VW" Width="1.5" PointX="5.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

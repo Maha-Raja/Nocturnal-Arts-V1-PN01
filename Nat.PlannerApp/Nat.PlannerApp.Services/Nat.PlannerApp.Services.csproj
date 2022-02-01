@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AssemblyName>Nat.PlannerApp.Services</AssemblyName>
+    <RootNamespace>Nat.PlannerApp.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Apis.Calendar.v3" Version="1.42.0.1795" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="TLX.CloudCore.Exception" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.KendoX" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.DataMapper" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository.Ef6" Version="1.0.0.3" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Service" Version="1.0.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nat.Core\Nat.Core.csproj" />
+    <ProjectReference Include="..\Nat.PlannerApp.Models\Nat.PlannerApp.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Web.Extensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="key.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

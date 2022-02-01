@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="365a14d4919c4e6f952b47437470b384" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="LocationModel.NAT_LS_Address_Geography" Width="3.25" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LocationModel.NAT_LS_Deal_Site_Location_Association_Table" Width="1.5" PointX="3.625" PointY="1.875" />
+        <EntityTypeShape EntityType="LocationModel.NAT_LS_Location" Width="2.125" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="LocationModel.FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location" />
+        <EntityTypeShape EntityType="LocationModel.NAT_LS_LOCATION_VW" Width="1.5" PointX="3.375" PointY="5.75" />
+        <AssociationConnector Association="LocationModel.FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography" />
+        <EntityTypeShape EntityType="LocationModel.NAT_LS_LOCATION_GRID_VW" Width="1.5" PointX="5.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

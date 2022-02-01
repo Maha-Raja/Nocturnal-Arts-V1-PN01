@@ -1,0 +1,1697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VenueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NAT_VS_Venue">
+          <Key>
+            <PropertyRef Name="Venue_ID" />
+          </Key>
+          <Property Name="Venue_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_ID" Type="int" />
+          <Property Name="Venue_Category_LKP_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Venue_Status_LKP_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Venue_Name" Type="varchar" MaxLength="300" />
+          <Property Name="Min_Seating_Capacity" Type="int" />
+          <Property Name="Max_Seating_Capacity" Type="int" />
+          <Property Name="Venue_Tags" Type="varchar" MaxLength="800" />
+          <Property Name="Venue_Image_Url" Type="varchar" MaxLength="300" />
+          <Property Name="Verified_Flag" Type="varchar" MaxLength="1" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Planner_ID" Type="int" />
+          <Property Name="Location_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Hours_Per_Week" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="Facebook_Profile_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Twitter_Profile_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Instagram_Profile_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Google_Profile_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="255" />
+          <Property Name="Contact_Number" Type="varchar" MaxLength="30" />
+          <Property Name="Virtual" Type="bit" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime2" Precision="7" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="SIN" Type="varchar" MaxLength="20" />
+          <Property Name="Tax_Number" Type="varchar" MaxLength="20" />
+          <Property Name="Payment_Cycle_LKP_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Special_Instr" Type="nvarchar" MaxLength="255" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="255" />
+          <Property Name="Biz_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Venue_URl" Type="varchar" MaxLength="2084" />
+          <Property Name="Onboarded" Type="varchar" MaxLength="50" />
+          <Property Name="V_Event_Description" Type="varchar" MaxLength="255" />
+          <Property Name="Google_Map_URL" Type="varchar" MaxLength="2084" />
+          <Property Name="Company_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Company_Email" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_Line_1" Type="varchar" MaxLength="200" />
+          <Property Name="Address_Line_2" Type="varchar" MaxLength="200" />
+          <Property Name="Postal_Zip_Code" Type="varchar" MaxLength="50" />
+          <Property Name="City_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Address_Geography_ID" Type="int" />
+          <Property Name="Coordinates" Type="geography" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Artist_Preference">
+          <Key>
+            <PropertyRef Name="Artist_Preference_ID" />
+          </Key>
+          <Property Name="Artist_Preference_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Bank_Account">
+          <Key>
+            <PropertyRef Name="Venue_Bank_Account_ID" />
+          </Key>
+          <Property Name="Venue_Bank_Account_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Bank_Routing_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Effective_Start_Date" Type="date" />
+          <Property Name="Effective_End_Date" Type="date" />
+          <Property Name="Bank_LKP_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Bank_Account_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Address_ID" Type="int" />
+          <Property Name="Transit_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Institutional_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Account_Type" Type="varchar" MaxLength="255" />
+          <Property Name="Account_Name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Contact_Person">
+          <Key>
+            <PropertyRef Name="Venue_Contact_Person_ID" />
+          </Key>
+          <Property Name="Venue_Contact_Person_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Extension" Type="varchar" MaxLength="50" />
+          <Property Name="Date_Of_Birth" Type="date" />
+          <Property Name="Profile_Image_Link" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Middle_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="50" />
+          <Property Name="First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Billing_Address_ID" Type="int" />
+          <Property Name="Residential_Address_ID" Type="int" />
+          <Property Name="Gender_LKP_ID" Type="int" />
+          <Property Name="Shipping_Address_ID" Type="int" />
+          <Property Name="Contact_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Primary_VCP" Type="bit" />
+          <Property Name="Designation" Type="varchar" MaxLength="200" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Text_Flag" Type="bit" />
+          <Property Name="Greeting" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Document">
+          <Key>
+            <PropertyRef Name="Venue_Document_ID" />
+          </Key>
+          <Property Name="Venue_Document_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Document_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Document_Url" Type="varchar" MaxLength="500" />
+          <Property Name="File_Name" Type="varchar" MaxLength="800" />
+          <Property Name="File_Type" Type="varchar" MaxLength="500" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Event_Type_LKP_ID" Type="int" Nullable="false" />
+          <Property Name="Start_Time" Type="datetime" Nullable="false" />
+          <Property Name="End_Time" Type="datetime" Nullable="false" />
+          <Property Name="Reference_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Status_LKP_ID" Type="int" />
+          <Property Name="UDF" Type="nvarchar(max)" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Facility">
+          <Key>
+            <PropertyRef Name="Venue_Facility_ID" />
+          </Key>
+          <Property Name="Venue_Facility_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" Nullable="false" />
+          <Property Name="Facility_LKP_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Hall">
+          <Key>
+            <PropertyRef Name="Venue_Hall_ID" />
+          </Key>
+          <Property Name="Venue_Hall_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Venue_Hall_Status_LKP_ID" Type="int" />
+          <Property Name="Venue_Hall_Name" Type="varchar" MaxLength="300" />
+          <Property Name="Seating_Capacity" Type="int" />
+          <Property Name="Verified_Flag" Type="varchar" MaxLength="1" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Image">
+          <Key>
+            <PropertyRef Name="Venue_Image_ID" />
+          </Key>
+          <Property Name="Venue_Image_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Image_Type_LKP_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Image_Path" Type="varchar" MaxLength="500" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Metro_City_Mapping">
+          <Key>
+            <PropertyRef Name="Venue_Metro_City_Mapping_ID" />
+          </Key>
+          <Property Name="Venue_Metro_City_Mapping_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Metro_City_LKP_ID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Rating">
+          <Key>
+            <PropertyRef Name="Venue_Rating_ID" />
+          </Key>
+          <Property Name="Venue_Rating_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Average_Rating_Value" Type="float" Nullable="false" />
+          <Property Name="Number_Of_Ratings" Type="int" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Rating_Log">
+          <Key>
+            <PropertyRef Name="Venue_Rating_Log_ID" />
+          </Key>
+          <Property Name="Venue_Rating_Log_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="Review_Date" Type="datetime" />
+          <Property Name="Review_Title" Type="varchar" MaxLength="300" />
+          <Property Name="Review_Detail" Type="varchar(max)" />
+          <Property Name="Rating_Value" Type="float" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Seat">
+          <Key>
+            <PropertyRef Name="Seat_ID" />
+          </Key>
+          <Property Name="Seat_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seating_Plan_ID" Type="int" />
+          <Property Name="Seat_Type_LKP_ID" Type="int" />
+          <Property Name="Seat_Allocation_Type_LKP_ID" Type="int" />
+          <Property Name="Label" Type="varchar" MaxLength="100" />
+          <Property Name="Row_Number" Type="varchar" MaxLength="50" />
+          <Property Name="Seat_Number" Type="varchar" MaxLength="200" />
+          <Property Name="Offset_X" Type="int" />
+          <Property Name="Offset_Y" Type="int" />
+          <Property Name="Radius" Type="int" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Seating_Plan">
+          <Key>
+            <PropertyRef Name="Seating_Plan_ID" />
+          </Key>
+          <Property Name="Seating_Plan_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Venue_Hall_ID" Type="int" />
+          <Property Name="Event_Seating_Plan_Name" Type="varchar" MaxLength="500" />
+          <Property Name="Total_Seats" Type="int" />
+          <Property Name="Default_Plan" Type="bit" />
+          <Property Name="Background_Image" Type="varchar" MaxLength="255" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Tax_Flag" Type="bit" />
+          <Property Name="Gold_Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Silver_Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Basic_Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Extra_Price" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Notes" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nat-dev.dbo.NAT_Venue_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NAT_Venue_VW">
+          <Key>
+            <PropertyRef Name="Venue_ID" />
+            <PropertyRef Name="Active_Flag" />
+            <PropertyRef Name="Rating" />
+            <PropertyRef Name="Seating_Plan_Capacity" />
+          </Key>
+          <Property Name="Venue_ID" Type="int" Nullable="false" />
+          <Property Name="Planner_ID" Type="int" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime2" Precision="7" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Venue-Name-ID" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Market-Code" Type="varchar" MaxLength="8000" />
+          <Property Name="Venue_Name" Type="varchar" MaxLength="300" />
+          <Property Name="Location_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Rating" Type="float" Nullable="false" />
+          <Property Name="Parent_Location_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Upcoming_Events" Type="int" />
+          <Property Name="Last_Event_Date" Type="datetime" />
+          <Property Name="Next_Event_Date" Type="datetime" />
+          <Property Name="Next_Event_End_Time" Type="datetime" />
+          <Property Name="Last_Event_End_Time" Type="datetime" />
+          <Property Name="Events_Held" Type="int" />
+          <Property Name="Venue_Image_Url" Type="varchar" MaxLength="300" />
+          <Property Name="Location_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Seating_Plan_Capacity" Type="varchar" MaxLength="114" Nullable="false" />
+          <Property Name="Parent_Location_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Primary_Contact_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Primary_Contact_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Primary_Contact_Number" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__NAT_VS_Ve__Billi__30C33EC3">
+          <End Role="NAT_VS_Venue_Address" Type="Self.NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Contact_Person" Type="Self.NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Billing_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_VS_Ve__Resid__31B762FC">
+          <End Role="NAT_VS_Venue_Address" Type="Self.NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Contact_Person" Type="Self.NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Residential_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_VS_Ve__Shipp__32AB8735">
+          <End Role="NAT_VS_Venue_Address" Type="Self.NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Contact_Person" Type="Self.NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Shipping_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="1" />
+          <End Role="NAT_VS_Venue_Artist_Preference" Type="Self.NAT_VS_Venue_Artist_Preference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Artist_Preference">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Bank_Account" Type="Self.NAT_VS_Venue_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Bank_Account">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address">
+          <End Role="NAT_VS_Venue_Address" Type="Self.NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Bank_Account" Type="Self.NAT_VS_Venue_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Bank_Account">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Contact_Person_Venue_ID">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Contact_Person" Type="Self.NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Document_NAT_VS_Venue">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Document" Type="Self.NAT_VS_Venue_Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Document">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Facility_NAT_VS_Venue">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="1" />
+          <End Role="NAT_VS_Venue_Facility" Type="Self.NAT_VS_Venue_Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Facility">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Hall_Venue_ID">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Hall" Type="Self.NAT_VS_Venue_Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Hall">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Image_Venue_ID">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Image" Type="Self.NAT_VS_Venue_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Image">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Metro_City_Mapping" Type="Self.NAT_VS_Venue_Metro_City_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Metro_City_Mapping">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_NAT_VS_Venue_Address">
+          <End Role="NAT_VS_Venue_Address" Type="Self.NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="1" />
+          <End Role="NAT_VS_Venue_Event" Type="Self.NAT_VS_Venue_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Event">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Rating_Log" Type="Self.NAT_VS_Venue_Rating_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Rating_Log">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Rating_Venue_ID">
+          <End Role="NAT_VS_Venue" Type="Self.NAT_VS_Venue" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Rating" Type="Self.NAT_VS_Venue_Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Rating">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Seat_Seating_Plan_ID">
+          <End Role="NAT_VS_Venue_Seating_Plan" Type="Self.NAT_VS_Venue_Seating_Plan" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Seat" Type="Self.NAT_VS_Venue_Seat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Seating_Plan">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Seat">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID">
+          <End Role="NAT_VS_Venue_Hall" Type="Self.NAT_VS_Venue_Hall" Multiplicity="0..1" />
+          <End Role="NAT_VS_Venue_Seating_Plan" Type="Self.NAT_VS_Venue_Seating_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Hall">
+              <PropertyRef Name="Venue_Hall_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Seating_Plan">
+              <PropertyRef Name="Venue_Hall_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VenueModelStoreContainer">
+          <EntitySet Name="NAT_VS_Venue" EntityType="Self.NAT_VS_Venue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Address" EntityType="Self.NAT_VS_Venue_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Artist_Preference" EntityType="Self.NAT_VS_Venue_Artist_Preference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Bank_Account" EntityType="Self.NAT_VS_Venue_Bank_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Contact_Person" EntityType="Self.NAT_VS_Venue_Contact_Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Document" EntityType="Self.NAT_VS_Venue_Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Event" EntityType="Self.NAT_VS_Venue_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Facility" EntityType="Self.NAT_VS_Venue_Facility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Hall" EntityType="Self.NAT_VS_Venue_Hall" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Image" EntityType="Self.NAT_VS_Venue_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Metro_City_Mapping" EntityType="Self.NAT_VS_Venue_Metro_City_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Rating" EntityType="Self.NAT_VS_Venue_Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Rating_Log" EntityType="Self.NAT_VS_Venue_Rating_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Seat" EntityType="Self.NAT_VS_Venue_Seat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_VS_Venue_Seating_Plan" EntityType="Self.NAT_VS_Venue_Seating_Plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_Venue_VW" EntityType="Self.NAT_Venue_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NAT_Venue_VW].[Venue_ID] AS [Venue_ID], 
+    [NAT_Venue_VW].[Planner_ID] AS [Planner_ID], 
+    [NAT_Venue_VW].[Active_Flag] AS [Active_Flag], 
+    [NAT_Venue_VW].[Last_Updated_Date] AS [Last_Updated_Date], 
+    [NAT_Venue_VW].[Last_Updated_By] AS [Last_Updated_By], 
+    [NAT_Venue_VW].[Venue-Name-ID] AS [Venue-Name-ID], 
+    [NAT_Venue_VW].[Market-Code] AS [Market-Code], 
+    [NAT_Venue_VW].[Venue_Name] AS [Venue_Name], 
+    [NAT_Venue_VW].[Location_Code] AS [Location_Code], 
+    [NAT_Venue_VW].[Rating] AS [Rating], 
+    [NAT_Venue_VW].[Parent_Location_Code] AS [Parent_Location_Code], 
+    [NAT_Venue_VW].[Upcoming_Events] AS [Upcoming_Events], 
+    [NAT_Venue_VW].[Last_Event_Date] AS [Last_Event_Date], 
+    [NAT_Venue_VW].[Next_Event_Date] AS [Next_Event_Date], 
+    [NAT_Venue_VW].[Next_Event_End_Time] AS [Next_Event_End_Time], 
+    [NAT_Venue_VW].[Last_Event_End_Time] AS [Last_Event_End_Time], 
+    [NAT_Venue_VW].[Events_Held] AS [Events_Held], 
+    [NAT_Venue_VW].[Venue_Image_Url] AS [Venue_Image_Url], 
+    [NAT_Venue_VW].[Location_Name] AS [Location_Name], 
+    [NAT_Venue_VW].[Seating_Plan_Capacity] AS [Seating_Plan_Capacity], 
+    [NAT_Venue_VW].[Parent_Location_Name] AS [Parent_Location_Name], 
+    [NAT_Venue_VW].[Primary_Contact_Name] AS [Primary_Contact_Name], 
+    [NAT_Venue_VW].[Primary_Contact_Email] AS [Primary_Contact_Email], 
+    [NAT_Venue_VW].[Primary_Contact_Number] AS [Primary_Contact_Number]
+    FROM [dbo].[NAT_Venue_VW] AS [NAT_Venue_VW]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__NAT_VS_Ve__Billi__30C33EC3" Association="Self.FK__NAT_VS_Ve__Billi__30C33EC3">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_VS_Ve__Resid__31B762FC" Association="Self.FK__NAT_VS_Ve__Resid__31B762FC">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_VS_Ve__Shipp__32AB8735" Association="Self.FK__NAT_VS_Ve__Shipp__32AB8735">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue" Association="Self.FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Artist_Preference" EntitySet="NAT_VS_Venue_Artist_Preference" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue" Association="Self.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Bank_Account" EntitySet="NAT_VS_Venue_Bank_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address" Association="Self.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Bank_Account" EntitySet="NAT_VS_Venue_Bank_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Contact_Person_Venue_ID" Association="Self.FK_NAT_VS_Venue_Contact_Person_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Document_NAT_VS_Venue" Association="Self.FK_NAT_VS_Venue_Document_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Document" EntitySet="NAT_VS_Venue_Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Facility_NAT_VS_Venue" Association="Self.FK_NAT_VS_Venue_Facility_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Facility" EntitySet="NAT_VS_Venue_Facility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Hall_Venue_ID" Association="Self.FK_NAT_VS_Venue_Hall_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Hall" EntitySet="NAT_VS_Venue_Hall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Image_Venue_ID" Association="Self.FK_NAT_VS_Venue_Image_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Image" EntitySet="NAT_VS_Venue_Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue" Association="Self.FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Metro_City_Mapping" EntitySet="NAT_VS_Venue_Metro_City_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_NAT_VS_Venue_Address" Association="Self.FK_NAT_VS_Venue_NAT_VS_Venue_Address">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID" Association="Self.FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Event" EntitySet="NAT_VS_Venue_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue" Association="Self.FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Rating_Log" EntitySet="NAT_VS_Venue_Rating_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Rating_Venue_ID" Association="Self.FK_NAT_VS_Venue_Rating_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Rating" EntitySet="NAT_VS_Venue_Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Seat_Seating_Plan_ID" Association="Self.FK_NAT_VS_Venue_Seat_Seating_Plan_ID">
+            <End Role="NAT_VS_Venue_Seating_Plan" EntitySet="NAT_VS_Venue_Seating_Plan" />
+            <End Role="NAT_VS_Venue_Seat" EntitySet="NAT_VS_Venue_Seat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID" Association="Self.FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID">
+            <End Role="NAT_VS_Venue_Hall" EntitySet="NAT_VS_Venue_Hall" />
+            <End Role="NAT_VS_Venue_Seating_Plan" EntitySet="NAT_VS_Venue_Seating_Plan" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VenueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VenueEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NAT_VS_Venue" EntityType="VenueModel.NAT_VS_Venue" />
+          <EntitySet Name="NAT_VS_Venue_Address" EntityType="VenueModel.NAT_VS_Venue_Address" />
+          <EntitySet Name="NAT_VS_Venue_Event" EntityType="VenueModel.NAT_VS_Venue_Event" />
+          <EntitySet Name="NAT_VS_Venue_Facility" EntityType="VenueModel.NAT_VS_Venue_Facility" />
+          <EntitySet Name="NAT_VS_Venue_Hall" EntityType="VenueModel.NAT_VS_Venue_Hall" />
+          <EntitySet Name="NAT_VS_Venue_Rating" EntityType="VenueModel.NAT_VS_Venue_Rating" />
+          <EntitySet Name="NAT_VS_Venue_Seat" EntityType="VenueModel.NAT_VS_Venue_Seat" />
+          <EntitySet Name="NAT_VS_Venue_Seating_Plan" EntityType="VenueModel.NAT_VS_Venue_Seating_Plan" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Facility_NAT_VS_Venue" Association="VenueModel.FK_NAT_VS_Venue_Facility_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Facility" EntitySet="NAT_VS_Venue_Facility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Hall_Venue_ID" Association="VenueModel.FK_NAT_VS_Venue_Hall_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Hall" EntitySet="NAT_VS_Venue_Hall" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_NAT_VS_Venue_Address" Association="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Address">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID" Association="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Event" EntitySet="NAT_VS_Venue_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Rating_Venue_ID" Association="VenueModel.FK_NAT_VS_Venue_Rating_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Rating" EntitySet="NAT_VS_Venue_Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID" Association="VenueModel.FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID">
+            <End Role="NAT_VS_Venue_Hall" EntitySet="NAT_VS_Venue_Hall" />
+            <End Role="NAT_VS_Venue_Seating_Plan" EntitySet="NAT_VS_Venue_Seating_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Seat_Seating_Plan_ID" Association="VenueModel.FK_NAT_VS_Venue_Seat_Seating_Plan_ID">
+            <End Role="NAT_VS_Venue_Seating_Plan" EntitySet="NAT_VS_Venue_Seating_Plan" />
+            <End Role="NAT_VS_Venue_Seat" EntitySet="NAT_VS_Venue_Seat" />
+          </AssociationSet>
+          <EntitySet Name="NAT_VS_Venue_Image" EntityType="VenueModel.NAT_VS_Venue_Image" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Image_Venue_ID" Association="VenueModel.FK_NAT_VS_Venue_Image_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Image" EntitySet="NAT_VS_Venue_Image" />
+          </AssociationSet>
+          <EntitySet Name="NAT_VS_Venue_Rating_Log" EntityType="VenueModel.NAT_VS_Venue_Rating_Log" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue" Association="VenueModel.FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Rating_Log" EntitySet="NAT_VS_Venue_Rating_Log" />
+          </AssociationSet>
+          <EntitySet Name="NAT_VS_Venue_Contact_Person" EntityType="VenueModel.NAT_VS_Venue_Contact_Person" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Contact_Person_Venue_ID" Association="VenueModel.FK_NAT_VS_Venue_Contact_Person_Venue_ID">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_VS_Ve__Billi__30C33EC3" Association="VenueModel.FK__NAT_VS_Ve__Billi__30C33EC3">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_VS_Ve__Resid__31B762FC" Association="VenueModel.FK__NAT_VS_Ve__Resid__31B762FC">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_VS_Ve__Shipp__32AB8735" Association="VenueModel.FK__NAT_VS_Ve__Shipp__32AB8735">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Contact_Person" EntitySet="NAT_VS_Venue_Contact_Person" />
+          </AssociationSet>
+          <EntitySet Name="NAT_VS_Venue_Document" EntityType="VenueModel.NAT_VS_Venue_Document" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Document_NAT_VS_Venue" Association="VenueModel.FK_NAT_VS_Venue_Document_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Document" EntitySet="NAT_VS_Venue_Document" />
+          </AssociationSet>
+          <EntitySet Name="NAT_VS_Venue_Artist_Preference" EntityType="VenueModel.NAT_VS_Venue_Artist_Preference" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue" Association="VenueModel.FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Artist_Preference" EntitySet="NAT_VS_Venue_Artist_Preference" />
+          </AssociationSet>
+          <EntitySet Name="NAT_VS_Venue_Bank_Account" EntityType="VenueModel.NAT_VS_Venue_Bank_Account" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue" Association="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Bank_Account" EntitySet="NAT_VS_Venue_Bank_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address" Association="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address">
+            <End Role="NAT_VS_Venue_Address" EntitySet="NAT_VS_Venue_Address" />
+            <End Role="NAT_VS_Venue_Bank_Account" EntitySet="NAT_VS_Venue_Bank_Account" />
+          </AssociationSet>
+          <EntitySet Name="NAT_VS_Venue_Metro_City_Mapping" EntityType="VenueModel.NAT_VS_Venue_Metro_City_Mapping" />
+          <AssociationSet Name="FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue" Association="VenueModel.FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue">
+            <End Role="NAT_VS_Venue" EntitySet="NAT_VS_Venue" />
+            <End Role="NAT_VS_Venue_Metro_City_Mapping" EntitySet="NAT_VS_Venue_Metro_City_Mapping" />
+          </AssociationSet>
+          <EntitySet Name="NAT_Venue_VW" EntityType="VenueModel.NAT_Venue_VW" />
+          </EntityContainer>
+        <EntityType Name="NAT_VS_Venue">
+          <Key>
+            <PropertyRef Name="Venue_ID" />
+          </Key>
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_ID" Type="Int32" />
+          <Property Name="Venue_Category_LKP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Venue_Status_LKP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Venue_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Min_Seating_Capacity" Type="Int32" />
+          <Property Name="Max_Seating_Capacity" Type="Int32" />
+          <Property Name="Venue_Tags" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="Venue_Image_Url" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Verified_Flag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Planner_ID" Type="Int32" />
+          <Property Name="Location_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hours_Per_Week" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="Facebook_Profile_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Twitter_Profile_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Instagram_Profile_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Google_Profile_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Number" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Virtual" Type="Boolean" Nullable="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="7" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue_Facility" Relationship="VenueModel.FK_NAT_VS_Venue_Facility_NAT_VS_Venue" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Facility" />
+          <NavigationProperty Name="NAT_VS_Venue_Hall" Relationship="VenueModel.FK_NAT_VS_Venue_Hall_Venue_ID" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Hall" />
+          <NavigationProperty Name="NAT_VS_Venue_Address" Relationship="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Address" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Address" />
+          <NavigationProperty Name="NAT_VS_Venue_Event" Relationship="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Event" />
+          <NavigationProperty Name="NAT_VS_Venue_Rating" Relationship="VenueModel.FK_NAT_VS_Venue_Rating_Venue_ID" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Rating" />
+          <NavigationProperty Name="NAT_VS_Venue_Image" Relationship="VenueModel.FK_NAT_VS_Venue_Image_Venue_ID" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Image" />
+          <NavigationProperty Name="NAT_VS_Venue_Rating_Log" Relationship="VenueModel.FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Rating_Log" />
+          <NavigationProperty Name="NAT_VS_Venue_Contact_Person" Relationship="VenueModel.FK_NAT_VS_Venue_Contact_Person_Venue_ID" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Contact_Person" />
+          <Property Name="SIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Number" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Payment_Cycle_LKP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_VS_Venue_Document" Relationship="VenueModel.FK_NAT_VS_Venue_Document_NAT_VS_Venue" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Document" />
+          <Property Name="Special_Instr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NAT_VS_Venue_Artist_Preference" Relationship="VenueModel.FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Artist_Preference" />
+          <Property Name="Biz_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_VS_Venue_Bank_Account" Relationship="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Bank_Account" />
+          <NavigationProperty Name="NAT_VS_Venue_Metro_City_Mapping" Relationship="VenueModel.FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue" FromRole="NAT_VS_Venue" ToRole="NAT_VS_Venue_Metro_City_Mapping" />
+          <Property Name="Venue_URl" Type="String" MaxLength="2084" FixedLength="false" Unicode="false" />
+          <Property Name="Onboarded" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="V_Event_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Google_Map_URL" Type="String" MaxLength="2084" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_Line_1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Line_2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Postal_Zip_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Geography_ID" Type="Int32" />
+          <Property Name="Coordinates" Type="Geography" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Address" FromRole="NAT_VS_Venue_Address" ToRole="NAT_VS_Venue" />
+          <NavigationProperty Name="NAT_VS_Venue_Contact_Person" Relationship="VenueModel.FK__NAT_VS_Ve__Billi__30C33EC3" FromRole="NAT_VS_Venue_Address" ToRole="NAT_VS_Venue_Contact_Person" />
+          <NavigationProperty Name="NAT_VS_Venue_Contact_Person1" Relationship="VenueModel.FK__NAT_VS_Ve__Resid__31B762FC" FromRole="NAT_VS_Venue_Address" ToRole="NAT_VS_Venue_Contact_Person" />
+          <NavigationProperty Name="NAT_VS_Venue_Contact_Person2" Relationship="VenueModel.FK__NAT_VS_Ve__Shipp__32AB8735" FromRole="NAT_VS_Venue_Address" ToRole="NAT_VS_Venue_Contact_Person" />
+          <NavigationProperty Name="NAT_VS_Venue_Bank_Account" Relationship="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address" FromRole="NAT_VS_Venue_Address" ToRole="NAT_VS_Venue_Bank_Account" />
+          </EntityType>
+        <EntityType Name="NAT_VS_Venue_Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Type_LKP_ID" Type="Int32" Nullable="false" />
+          <Property Name="Start_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Reference_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status_LKP_ID" Type="Int32" />
+          <Property Name="UDF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID" FromRole="NAT_VS_Venue_Event" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Facility">
+          <Key>
+            <PropertyRef Name="Venue_Facility_ID" />
+          </Key>
+          <Property Name="Venue_Facility_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" />
+          <Property Name="Facility_LKP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Facility_NAT_VS_Venue" FromRole="NAT_VS_Venue_Facility" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Hall">
+          <Key>
+            <PropertyRef Name="Venue_Hall_ID" />
+          </Key>
+          <Property Name="Venue_Hall_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Venue_Hall_Status_LKP_ID" Type="Int32" />
+          <Property Name="Venue_Hall_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Seating_Capacity" Type="Int32" />
+          <Property Name="Verified_Flag" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Hall_Venue_ID" FromRole="NAT_VS_Venue_Hall" ToRole="NAT_VS_Venue" />
+          <NavigationProperty Name="NAT_VS_Venue_Seating_Plan" Relationship="VenueModel.FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID" FromRole="NAT_VS_Venue_Hall" ToRole="NAT_VS_Venue_Seating_Plan" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Rating">
+          <Key>
+            <PropertyRef Name="Venue_Rating_ID" />
+          </Key>
+          <Property Name="Venue_Rating_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Average_Rating_Value" Type="Double" Nullable="false" />
+          <Property Name="Number_Of_Ratings" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Rating_Venue_ID" FromRole="NAT_VS_Venue_Rating" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Seat">
+          <Key>
+            <PropertyRef Name="Seat_ID" />
+          </Key>
+          <Property Name="Seat_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seating_Plan_ID" Type="Int32" />
+          <Property Name="Seat_Type_LKP_ID" Type="Int32" />
+          <Property Name="Seat_Allocation_Type_LKP_ID" Type="Int32" />
+          <Property Name="Row_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Seat_Number" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue_Seating_Plan" Relationship="VenueModel.FK_NAT_VS_Venue_Seat_Seating_Plan_ID" FromRole="NAT_VS_Venue_Seat" ToRole="NAT_VS_Venue_Seating_Plan" />
+          <Property Name="Label" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Radius" Type="Int32" />
+          <Property Name="Offset_X" Type="Int32" />
+          <Property Name="Offset_Y" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NAT_VS_Venue_Seating_Plan">
+          <Key>
+            <PropertyRef Name="Seating_Plan_ID" />
+          </Key>
+          <Property Name="Seating_Plan_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_Hall_ID" Type="Int32" />
+          <Property Name="Event_Seating_Plan_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Seats" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue_Hall" Relationship="VenueModel.FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID" FromRole="NAT_VS_Venue_Seating_Plan" ToRole="NAT_VS_Venue_Hall" />
+          <NavigationProperty Name="NAT_VS_Venue_Seat" Relationship="VenueModel.FK_NAT_VS_Venue_Seat_Seating_Plan_ID" FromRole="NAT_VS_Venue_Seating_Plan" ToRole="NAT_VS_Venue_Seat" />
+          <Property Name="Default_Plan" Type="Boolean" />
+          <Property Name="Background_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Flag" Type="Boolean" />
+          <Property Name="Gold_Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Silver_Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Basic_Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Extra_Price" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Notes" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Facility_NAT_VS_Venue">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="1" />
+          <End Type="VenueModel.NAT_VS_Venue_Facility" Role="NAT_VS_Venue_Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Facility">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Hall_Venue_ID">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Hall" Role="NAT_VS_Venue_Hall" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Hall">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_NAT_VS_Venue_Address">
+          <End Type="VenueModel.NAT_VS_Venue_Address" Role="NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="1" />
+          <End Type="VenueModel.NAT_VS_Venue_Event" Role="NAT_VS_Venue_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Event">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Rating_Venue_ID">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Rating" Role="NAT_VS_Venue_Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Rating">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID">
+          <End Type="VenueModel.NAT_VS_Venue_Hall" Role="NAT_VS_Venue_Hall" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Seating_Plan" Role="NAT_VS_Venue_Seating_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Hall">
+              <PropertyRef Name="Venue_Hall_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Seating_Plan">
+              <PropertyRef Name="Venue_Hall_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Seat_Seating_Plan_ID">
+          <End Type="VenueModel.NAT_VS_Venue_Seating_Plan" Role="NAT_VS_Venue_Seating_Plan" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Seat" Role="NAT_VS_Venue_Seat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Seating_Plan">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Seat">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_VS_Venue_Image">
+          <Key>
+            <PropertyRef Name="Venue_Image_ID" />
+          </Key>
+          <Property Name="Venue_Image_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Image_Type_LKP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image_Path" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Image_Venue_ID" FromRole="NAT_VS_Venue_Image" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Image_Venue_ID">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Image" Role="NAT_VS_Venue_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Image">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_VS_Venue_Rating_Log">
+          <Key>
+            <PropertyRef Name="Venue_Rating_Log_ID" />
+          </Key>
+          <Property Name="Venue_Rating_Log_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Review_Date" Type="DateTime" Precision="3" />
+          <Property Name="Review_Title" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Review_Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Rating_Value" Type="Double" Nullable="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue" FromRole="NAT_VS_Venue_Rating_Log" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Rating_Log" Role="NAT_VS_Venue_Rating_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Rating_Log">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_VS_Venue_Contact_Person">
+          <Key>
+            <PropertyRef Name="Venue_Contact_Person_ID" />
+          </Key>
+          <Property Name="Venue_Contact_Person_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
+          <Property Name="Profile_Image_Link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Middle_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Billing_Address_ID" Type="Int32" />
+          <Property Name="Residential_Address_ID" Type="Int32" />
+          <Property Name="Gender_LKP_ID" Type="Int32" />
+          <Property Name="Shipping_Address_ID" Type="Int32" />
+          <Property Name="Contact_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Primary_VCP" Type="Boolean" />
+          <Property Name="Designation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Contact_Person_Venue_ID" FromRole="NAT_VS_Venue_Contact_Person" ToRole="NAT_VS_Venue" />
+          <NavigationProperty Name="NAT_VS_Venue_Address" Relationship="VenueModel.FK__NAT_VS_Ve__Billi__30C33EC3" FromRole="NAT_VS_Venue_Contact_Person" ToRole="NAT_VS_Venue_Address" />
+          <NavigationProperty Name="NAT_VS_Venue_Address1" Relationship="VenueModel.FK__NAT_VS_Ve__Resid__31B762FC" FromRole="NAT_VS_Venue_Contact_Person" ToRole="NAT_VS_Venue_Address" />
+          <NavigationProperty Name="NAT_VS_Venue_Address2" Relationship="VenueModel.FK__NAT_VS_Ve__Shipp__32AB8735" FromRole="NAT_VS_Venue_Contact_Person" ToRole="NAT_VS_Venue_Address" />
+          <Property Name="Text_Flag" Type="Boolean" />
+          <Property Name="Greeting" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Contact_Person_Venue_ID">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Contact_Person" Role="NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_VS_Ve__Billi__30C33EC3">
+          <End Type="VenueModel.NAT_VS_Venue_Address" Role="NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Contact_Person" Role="NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Billing_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_VS_Ve__Resid__31B762FC">
+          <End Type="VenueModel.NAT_VS_Venue_Address" Role="NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Contact_Person" Role="NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Residential_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_VS_Ve__Shipp__32AB8735">
+          <End Type="VenueModel.NAT_VS_Venue_Address" Role="NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Contact_Person" Role="NAT_VS_Venue_Contact_Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Contact_Person">
+              <PropertyRef Name="Shipping_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_VS_Venue_Document">
+          <Key>
+            <PropertyRef Name="Venue_Document_ID" />
+          </Key>
+          <Property Name="Venue_Document_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Document_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Document_Url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="File_Name" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="File_Type" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Document_NAT_VS_Venue" FromRole="NAT_VS_Venue_Document" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Document_NAT_VS_Venue">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Document" Role="NAT_VS_Venue_Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Document">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_VS_Venue_Artist_Preference">
+          <Key>
+            <PropertyRef Name="Artist_Preference_ID" />
+          </Key>
+          <Property Name="Artist_Preference_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" />
+          <Property Name="Artist_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue" FromRole="NAT_VS_Venue_Artist_Preference" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="1" />
+          <End Type="VenueModel.NAT_VS_Venue_Artist_Preference" Role="NAT_VS_Venue_Artist_Preference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Artist_Preference">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_VS_Venue_Bank_Account">
+          <Key>
+            <PropertyRef Name="Venue_Bank_Account_ID" />
+          </Key>
+          <Property Name="Venue_Bank_Account_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Bank_Routing_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Bank_LKP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Bank_Account_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Address_ID" Type="Int32" />
+          <Property Name="Transit_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue" FromRole="NAT_VS_Venue_Bank_Account" ToRole="NAT_VS_Venue" />
+          <NavigationProperty Name="NAT_VS_Venue_Address" Relationship="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address" FromRole="NAT_VS_Venue_Bank_Account" ToRole="NAT_VS_Venue_Address" />
+          <Property Name="Institutional_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Account_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Account_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Bank_Account" Role="NAT_VS_Venue_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Bank_Account">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address">
+          <End Type="VenueModel.NAT_VS_Venue_Address" Role="NAT_VS_Venue_Address" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Bank_Account" Role="NAT_VS_Venue_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Bank_Account">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_VS_Venue_Metro_City_Mapping">
+          <Key>
+            <PropertyRef Name="Venue_Metro_City_Mapping_ID" />
+          </Key>
+          <Property Name="Venue_Metro_City_Mapping_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Metro_City_LKP_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_VS_Venue" Relationship="VenueModel.FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue" FromRole="NAT_VS_Venue_Metro_City_Mapping" ToRole="NAT_VS_Venue" />
+        </EntityType>
+        <Association Name="FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue">
+          <End Type="VenueModel.NAT_VS_Venue" Role="NAT_VS_Venue" Multiplicity="0..1" />
+          <End Type="VenueModel.NAT_VS_Venue_Metro_City_Mapping" Role="NAT_VS_Venue_Metro_City_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_VS_Venue">
+              <PropertyRef Name="Venue_ID" />
+            </Principal>
+            <Dependent Role="NAT_VS_Venue_Metro_City_Mapping">
+              <PropertyRef Name="Venue_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_Venue_VW">
+          <Key>
+            <PropertyRef Name="Venue_ID" />
+            <PropertyRef Name="Active_Flag" />
+            <PropertyRef Name="Rating" />
+            <PropertyRef Name="Seating_Plan_Capacity" />
+          </Key>
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="7" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Venue_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Double" Nullable="false" />
+          <Property Name="Parent_Location_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Upcoming_Events" Type="Int32" />
+          <Property Name="Last_Event_Date" Type="DateTime" Precision="3" />
+          <Property Name="Events_Held" Type="Int32" />
+          <Property Name="Venue_Image_Url" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Parent_Location_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Planner_ID" Type="Int32" />
+          <Property Name="Next_Event_Date" Type="DateTime" Precision="3" />
+          <Property Name="Seating_Plan_Capacity" Type="String" Nullable="false" MaxLength="114" FixedLength="false" Unicode="false" />
+          <Property Name="Primary_Contact_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Primary_Contact_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Primary_Contact_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Next_Event_End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Last_Event_End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Venue_Name_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Market_Code" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VenueModelStoreContainer" CdmEntityContainer="VenueEntities">
+          <EntitySetMapping Name="NAT_VS_Venue">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue">
+                <ScalarProperty Name="Company_Email" ColumnName="Company_Email" />
+                <ScalarProperty Name="Company_Number" ColumnName="Company_Number" />
+                <ScalarProperty Name="Google_Map_URL" ColumnName="Google_Map_URL" />
+                <ScalarProperty Name="V_Event_Description" ColumnName="V_Event_Description" />
+                <ScalarProperty Name="Onboarded" ColumnName="Onboarded" />
+                <ScalarProperty Name="Venue_URl" ColumnName="Venue_URl" />
+                <ScalarProperty Name="Biz_Number" ColumnName="Biz_Number" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Special_Instr" ColumnName="Special_Instr" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Payment_Cycle_LKP_ID" ColumnName="Payment_Cycle_LKP_ID" />
+                <ScalarProperty Name="Tax_Number" ColumnName="Tax_Number" />
+                <ScalarProperty Name="SIN" ColumnName="SIN" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Virtual" ColumnName="Virtual" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Google_Profile_Url" ColumnName="Google_Profile_Url" />
+                <ScalarProperty Name="Instagram_Profile_Url" ColumnName="Instagram_Profile_Url" />
+                <ScalarProperty Name="Twitter_Profile_Url" ColumnName="Twitter_Profile_Url" />
+                <ScalarProperty Name="Facebook_Profile_Url" ColumnName="Facebook_Profile_Url" />
+                <ScalarProperty Name="Hours_Per_Week" ColumnName="Hours_Per_Week" />
+                <ScalarProperty Name="Location_Code" ColumnName="Location_Code" />
+                <ScalarProperty Name="Planner_ID" ColumnName="Planner_ID" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Verified_Flag" ColumnName="Verified_Flag" />
+                <ScalarProperty Name="Venue_Image_Url" ColumnName="Venue_Image_Url" />
+                <ScalarProperty Name="Venue_Tags" ColumnName="Venue_Tags" />
+                <ScalarProperty Name="Max_Seating_Capacity" ColumnName="Max_Seating_Capacity" />
+                <ScalarProperty Name="Min_Seating_Capacity" ColumnName="Min_Seating_Capacity" />
+                <ScalarProperty Name="Venue_Name" ColumnName="Venue_Name" />
+                <ScalarProperty Name="Venue_Status_LKP_ID" ColumnName="Venue_Status_LKP_ID" />
+                <ScalarProperty Name="Venue_Category_LKP_ID" ColumnName="Venue_Category_LKP_ID" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Address">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Address">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Address">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Coordinates" ColumnName="Coordinates" />
+                <ScalarProperty Name="Address_Geography_ID" ColumnName="Address_Geography_ID" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="Postal_Zip_Code" ColumnName="Postal_Zip_Code" />
+                <ScalarProperty Name="Address_Line_2" ColumnName="Address_Line_2" />
+                <ScalarProperty Name="Address_Line_1" ColumnName="Address_Line_1" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Event">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Event">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Event">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="UDF" ColumnName="UDF" />
+                <ScalarProperty Name="Status_LKP_ID" ColumnName="Status_LKP_ID" />
+                <ScalarProperty Name="Reference_ID" ColumnName="Reference_ID" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="Event_Type_LKP_ID" ColumnName="Event_Type_LKP_ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Facility">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Facility">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Facility">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Facility_LKP_ID" ColumnName="Facility_LKP_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Facility_ID" ColumnName="Venue_Facility_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Hall">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Hall">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Hall">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Verified_Flag" ColumnName="Verified_Flag" />
+                <ScalarProperty Name="Seating_Capacity" ColumnName="Seating_Capacity" />
+                <ScalarProperty Name="Venue_Hall_Name" ColumnName="Venue_Hall_Name" />
+                <ScalarProperty Name="Venue_Hall_Status_LKP_ID" ColumnName="Venue_Hall_Status_LKP_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Hall_ID" ColumnName="Venue_Hall_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Rating">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Rating">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Rating">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Number_Of_Ratings" ColumnName="Number_Of_Ratings" />
+                <ScalarProperty Name="Average_Rating_Value" ColumnName="Average_Rating_Value" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Rating_ID" ColumnName="Venue_Rating_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Seat">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Seat">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Seat">
+                <ScalarProperty Name="Offset_Y" ColumnName="Offset_Y" />
+                <ScalarProperty Name="Offset_X" ColumnName="Offset_X" />
+                <ScalarProperty Name="Radius" ColumnName="Radius" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Seat_Number" ColumnName="Seat_Number" />
+                <ScalarProperty Name="Row_Number" ColumnName="Row_Number" />
+                <ScalarProperty Name="Seat_Allocation_Type_LKP_ID" ColumnName="Seat_Allocation_Type_LKP_ID" />
+                <ScalarProperty Name="Seat_Type_LKP_ID" ColumnName="Seat_Type_LKP_ID" />
+                <ScalarProperty Name="Seating_Plan_ID" ColumnName="Seating_Plan_ID" />
+                <ScalarProperty Name="Seat_ID" ColumnName="Seat_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Seating_Plan">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Seating_Plan">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Seating_Plan">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Extra_Price" ColumnName="Extra_Price" />
+                <ScalarProperty Name="Basic_Price" ColumnName="Basic_Price" />
+                <ScalarProperty Name="Silver_Price" ColumnName="Silver_Price" />
+                <ScalarProperty Name="Gold_Price" ColumnName="Gold_Price" />
+                <ScalarProperty Name="Tax_Flag" ColumnName="Tax_Flag" />
+                <ScalarProperty Name="Background_Image" ColumnName="Background_Image" />
+                <ScalarProperty Name="Default_Plan" ColumnName="Default_Plan" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Total_Seats" ColumnName="Total_Seats" />
+                <ScalarProperty Name="Event_Seating_Plan_Name" ColumnName="Event_Seating_Plan_Name" />
+                <ScalarProperty Name="Venue_Hall_ID" ColumnName="Venue_Hall_ID" />
+                <ScalarProperty Name="Seating_Plan_ID" ColumnName="Seating_Plan_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Image">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Image">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Image">
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Image_Type_LKP_ID" ColumnName="Image_Type_LKP_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Image_ID" ColumnName="Venue_Image_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Rating_Log">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Rating_Log">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Rating_Log">
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Rating_Value" ColumnName="Rating_Value" />
+                <ScalarProperty Name="Review_Detail" ColumnName="Review_Detail" />
+                <ScalarProperty Name="Review_Title" ColumnName="Review_Title" />
+                <ScalarProperty Name="Review_Date" ColumnName="Review_Date" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Rating_Log_ID" ColumnName="Venue_Rating_Log_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Contact_Person">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Contact_Person">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Contact_Person">
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Greeting" ColumnName="Greeting" />
+                <ScalarProperty Name="Text_Flag" ColumnName="Text_Flag" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Primary_VCP" ColumnName="Primary_VCP" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="Shipping_Address_ID" ColumnName="Shipping_Address_ID" />
+                <ScalarProperty Name="Gender_LKP_ID" ColumnName="Gender_LKP_ID" />
+                <ScalarProperty Name="Residential_Address_ID" ColumnName="Residential_Address_ID" />
+                <ScalarProperty Name="Billing_Address_ID" ColumnName="Billing_Address_ID" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Middle_Name" ColumnName="Middle_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Profile_Image_Link" ColumnName="Profile_Image_Link" />
+                <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Contact_Person_ID" ColumnName="Venue_Contact_Person_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Document">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Document">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Document">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+                <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+                <ScalarProperty Name="Document_Url" ColumnName="Document_Url" />
+                <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Document_ID" ColumnName="Venue_Document_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Artist_Preference">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Artist_Preference">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Artist_Preference">
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Artist_Preference_ID" ColumnName="Artist_Preference_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Bank_Account">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Bank_Account">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Bank_Account">
+                <ScalarProperty Name="Account_Name" ColumnName="Account_Name" />
+                <ScalarProperty Name="Account_Type" ColumnName="Account_Type" />
+                <ScalarProperty Name="Institutional_Number" ColumnName="Institutional_Number" />
+                <ScalarProperty Name="Transit_Number" ColumnName="Transit_Number" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Bank_Account_Number" ColumnName="Bank_Account_Number" />
+                <ScalarProperty Name="Bank_LKP_ID" ColumnName="Bank_LKP_ID" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Bank_Routing_Number" ColumnName="Bank_Routing_Number" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Bank_Account_ID" ColumnName="Venue_Bank_Account_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_VS_Venue_Metro_City_Mapping">
+            <EntityTypeMapping TypeName="VenueModel.NAT_VS_Venue_Metro_City_Mapping">
+              <MappingFragment StoreEntitySet="NAT_VS_Venue_Metro_City_Mapping">
+                <ScalarProperty Name="Metro_City_LKP_ID" ColumnName="Metro_City_LKP_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Venue_Metro_City_Mapping_ID" ColumnName="Venue_Metro_City_Mapping_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_Venue_VW">
+            <EntityTypeMapping TypeName="VenueModel.NAT_Venue_VW">
+              <MappingFragment StoreEntitySet="NAT_Venue_VW">
+                <ScalarProperty Name="Market_Code" ColumnName="Market-Code" />
+                <ScalarProperty Name="Venue_Name_ID" ColumnName="Venue-Name-ID" />
+                <ScalarProperty Name="Last_Event_End_Time" ColumnName="Last_Event_End_Time" />
+                <ScalarProperty Name="Next_Event_End_Time" ColumnName="Next_Event_End_Time" />
+                <ScalarProperty Name="Primary_Contact_Number" ColumnName="Primary_Contact_Number" />
+                <ScalarProperty Name="Primary_Contact_Email" ColumnName="Primary_Contact_Email" />
+                <ScalarProperty Name="Primary_Contact_Name" ColumnName="Primary_Contact_Name" />
+                <ScalarProperty Name="Seating_Plan_Capacity" ColumnName="Seating_Plan_Capacity" />
+                <ScalarProperty Name="Next_Event_Date" ColumnName="Next_Event_Date" />
+                <ScalarProperty Name="Planner_ID" ColumnName="Planner_ID" />
+                <ScalarProperty Name="Parent_Location_Name" ColumnName="Parent_Location_Name" />
+                <ScalarProperty Name="Location_Name" ColumnName="Location_Name" />
+                <ScalarProperty Name="Venue_Image_Url" ColumnName="Venue_Image_Url" />
+                <ScalarProperty Name="Events_Held" ColumnName="Events_Held" />
+                <ScalarProperty Name="Last_Event_Date" ColumnName="Last_Event_Date" />
+                <ScalarProperty Name="Upcoming_Events" ColumnName="Upcoming_Events" />
+                <ScalarProperty Name="Parent_Location_Code" ColumnName="Parent_Location_Code" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Location_Code" ColumnName="Location_Code" />
+                <ScalarProperty Name="Venue_Name" ColumnName="Venue_Name" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

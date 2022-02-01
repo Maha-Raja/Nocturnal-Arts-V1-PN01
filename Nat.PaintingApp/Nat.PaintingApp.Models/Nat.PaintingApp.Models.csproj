@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FE9A96E0-A9E3-4088-8789-49B77765E3A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nat.PaintingApp.Models</RootNamespace>
+    <AssemblyName>Nat.PaintingApp.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFModel\NAT_Painting_Kit_Item.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Attachment.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Event.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Image.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Rating.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Rating_Log.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Requests.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Supply.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PS_Painting_Video.cs">
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interceptors\Configuration.cs" />
+    <Compile Include="EFModel\PaintingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaintingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\PaintingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaintingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\PaintingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaintingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelGeneration\ModelGeneration.cs">
+      <DependentUpon>ModelGeneration.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ModelGeneration\ModelGeneration1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PaintingRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nat.Common\Nat.Common.csproj">
+      <Project>{93e4d435-5d9e-467e-a08a-4096d0588558}</Project>
+      <Name>Nat.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Nat.Core\Nat.Core.csproj">
+      <Project>{367527ca-6238-4254-8076-5a68e82a7ff5}</Project>
+      <Name>Nat.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="EFModel\PaintingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PaintingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="EFModel\PaintingModel.edmx.diagram">
+      <DependentUpon>PaintingModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EFModel\PaintingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PaintingModel.Context.cs</LastGenOutput>
+      <DependentUpon>PaintingModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="EFModel\PaintingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaintingModel.edmx</DependentUpon>
+      <LastGenOutput>PaintingModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelGeneration\ModelGeneration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelGeneration.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelGeneration\NewServiceModels\" />
+    <Folder Include="ModelGeneration\NewViewModels\" />
+    <Folder Include="ModelGeneration\ServiceModelChanges\" />
+    <Folder Include="ModelGeneration\ViewModelChanges\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.SqlDatabase.ElasticScale.Client">
+      <Version>1.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository.Ef6">
+      <Version>1.0.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

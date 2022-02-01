@@ -1,0 +1,13 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;DefaultEndpointsProtocol=http;BlobEndpoint=http://172.17.40.196:10000/devstoreaccount1;QueueEndpoint=http://172.17.40.196:10001/devstoreaccount1;TableEndpoint=http://172.17.40.196:10002/devstoreaccount1;",
+    "LoggingQueue": "natloggingqueue",
+    "ServiceName": "LookupService"
+  },
+  "connectionStrings": {
+    "LookupEntities": {
+      "ConnectionString": "metadata=res://*/EFModel.LookupModel.csdl|res://*/EFModel.LookupModel.ssdl|res://*/EFModel.LookupModel.msl;provider=System.Data.SqlClient;provider connection string='data source=172.17.40.196;initial catalog=nat;persist security info=True;user id=sa;password=adm1n;MultipleActiveResultSets=True;App=EntityFramework'"
+    }
+  }
+}

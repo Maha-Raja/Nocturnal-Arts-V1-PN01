@@ -1,0 +1,704 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LocationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NAT_LS_Address_Geography">
+          <Key>
+            <PropertyRef Name="Address_Geography_ID" />
+          </Key>
+          <Property Name="Address_Geography_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Parent_Geography_Code" Type="varchar" MaxLength="150" />
+          <Property Name="Geography_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Geography_Description" Type="varchar" MaxLength="255" />
+          <Property Name="Geography_Short_Code" Type="varchar" MaxLength="150" />
+          <Property Name="Geography_Type_LKP" Type="varchar" MaxLength="50" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="New_Parent_Code" Type="varchar" MaxLength="150" />
+          <Property Name="New_Geography_Code" Type="varchar" MaxLength="150" />
+          <Property Name="Parent_Geography_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="NAT_LS_Deal_Site_Location_Association_Table">
+          <Key>
+            <PropertyRef Name="Deal_Site_ID" />
+          </Key>
+          <Property Name="Deal_Site_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location_ID" Type="int" Nullable="false" />
+          <Property Name="Sales_Tax_Collected" Type="decimal" Precision="4" Scale="3" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_LS_Location">
+          <Key>
+            <PropertyRef Name="Location_ID" />
+          </Key>
+          <Property Name="Location_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Parent_Location_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Location_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Location_Description" Type="varchar" MaxLength="255" />
+          <Property Name="Location_Short_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Location_Type_LKP" Type="varchar" MaxLength="50" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Sales_Tax_Applicable_Flag" Type="bit" />
+          <Property Name="Sales_Tax_Inclusive_Flag" Type="bit" />
+          <Property Name="Tax_Rate" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Facebook_Url" Type="varchar" MaxLength="2048" />
+          <Property Name="Twitter_Url" Type="varchar" MaxLength="2048" />
+          <Property Name="Instagram_Url" Type="varchar" MaxLength="2048" />
+          <Property Name="Address_Id" Type="int" />
+          <Property Name="Supplies_Tax" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="State_Tax" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Stripe_Api_Key" Type="varchar" MaxLength="255" />
+          <Property Name="Timezone" Type="varchar" MaxLength="20" />
+          <Property Name="Precision" Type="int" />
+          <Property Name="Currency" Type="varchar" MaxLength="50" />
+          <Property Name="Airport_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Google_Short_Code" Type="varchar" MaxLength="100" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Tax_3" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_4" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_5" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Daylight_Saving_Applicable" Type="bit" />
+          <Property Name="Daylight_Start_Time" Type="datetime" />
+          <Property Name="Daylight_End_Time" Type="datetime" />
+          <Property Name="Market_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Manager_ID" Type="bigint" />
+          <Property Name="Virtual_Tax" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Legal_Drinking_Age" Type="int" />
+          <Property Name="State_Tax_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_3_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_4_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_5_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Virtual_Tax_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_Include" Type="bit" />
+          <Property Name="State_Tax_Include" Type="bit" />
+          <Property Name="Tax_3_Include" Type="bit" />
+          <Property Name="Tax_4_Include" Type="bit" />
+          <Property Name="Tax_5_Include" Type="bit" />
+          <Property Name="Virtual_Tax_Area" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_Area" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_3_Area" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_4_Area" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_5_Area" Type="varchar" MaxLength="50" />
+          <Property Name="URL" Type="varchar" MaxLength="50" />
+          <Property Name="Virtual_Tax_Include" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nat-dev.dbo.NAT_LS_LOCATION_GRID_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NAT_LS_LOCATION_GRID_VW">
+          <Key>
+            <PropertyRef Name="City_ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="Country_ID" Type="int" />
+          <Property Name="Country_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Country_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Province_ID" Type="int" />
+          <Property Name="Province_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Province_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_1" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_1_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_2" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_2_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_3" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_3_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_4" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_4_Label" Type="varchar" MaxLength="50" />
+          <Property Name="Tax_Rate_5" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_5_Label" Type="varchar" MaxLength="50" />
+          <Property Name="City_ID" Type="int" Nullable="false" />
+          <Property Name="City_Name" Type="varchar" MaxLength="357" />
+          <Property Name="City_Short_Name" Type="varchar" MaxLength="255" />
+          <Property Name="City_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Legal_Drinking_Age" Type="int" />
+          <Property Name="Virtual_Tax" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Total_In_Person_Tax" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Market_ID" Type="varchar" MaxLength="50" />
+          <Property Name="Location_Short_Code" Type="varchar" MaxLength="50" />
+          <Property Name="StateCode" Type="varchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="varchar" MaxLength="50" />
+          <Property Name="DST_Time" Type="varchar" MaxLength="500" />
+          <Property Name="DST_Zone_Code" Type="varchar" MaxLength="500" />
+          <Property Name="Standard_Time" Type="varchar" MaxLength="6" />
+          <Property Name="Standard_Timezone_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Manager_Name" Type="varchar" MaxLength="511" />
+          <Property Name="Manager_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Manager_Email" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nat-dev.dbo.NAT_LS_LOCATION_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NAT_LS_LOCATION_VW">
+          <Key>
+            <PropertyRef Name="Location_ID" />
+            <PropertyRef Name="Active_Flag" />
+            <PropertyRef Name="Created_Date" />
+            <PropertyRef Name="Created_By" />
+          </Key>
+          <Property Name="Location_ID" Type="int" Nullable="false" />
+          <Property Name="Parent_Location_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Location_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Location_Description" Type="varchar" MaxLength="255" />
+          <Property Name="Location_Short_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Location_Type_LKP" Type="varchar" MaxLength="50" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Sales_Tax_Applicable_Flag" Type="bit" />
+          <Property Name="Sales_Tax_Inclusive_Flag" Type="bit" />
+          <Property Name="Tax_Rate" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Facebook_Url" Type="varchar" MaxLength="2048" />
+          <Property Name="Twitter_Url" Type="varchar" MaxLength="2048" />
+          <Property Name="Instagram_Url" Type="varchar" MaxLength="2048" />
+          <Property Name="Address_Id" Type="int" />
+          <Property Name="Supplies_Tax" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="State_Tax" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Stripe_Api_Key" Type="varchar" MaxLength="255" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Timezone" Type="varchar" MaxLength="8000" />
+          <Property Name="Visible_Value" Type="varchar" MaxLength="255" />
+          <Property Name="Currency" Type="varchar" MaxLength="50" />
+          <Property Name="Airport_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Precision" Type="int" />
+        </EntityType>
+        <Association Name="FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography">
+          <End Role="NAT_LS_Address_Geography" Type="Self.NAT_LS_Address_Geography" Multiplicity="0..1" />
+          <End Role="NAT_LS_Address_Geography1" Type="Self.NAT_LS_Address_Geography" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_LS_Address_Geography">
+              <PropertyRef Name="Address_Geography_ID" />
+            </Principal>
+            <Dependent Role="NAT_LS_Address_Geography1">
+              <PropertyRef Name="Parent_Geography_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location">
+          <End Role="NAT_LS_Location" Type="Self.NAT_LS_Location" Multiplicity="1" />
+          <End Role="NAT_LS_Deal_Site_Location_Association_Table" Type="Self.NAT_LS_Deal_Site_Location_Association_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_LS_Location">
+              <PropertyRef Name="Location_ID" />
+            </Principal>
+            <Dependent Role="NAT_LS_Deal_Site_Location_Association_Table">
+              <PropertyRef Name="Location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_NAT_LS_Location_NAT_LS_Location' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_NAT_LS_Location_NAT_LS_Location" />-->
+        <EntityContainer Name="LocationModelStoreContainer">
+          <EntitySet Name="NAT_LS_Address_Geography" EntityType="Self.NAT_LS_Address_Geography" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_LS_Deal_Site_Location_Association_Table" EntityType="Self.NAT_LS_Deal_Site_Location_Association_Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_LS_Location" EntityType="Self.NAT_LS_Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_LS_LOCATION_GRID_VW" EntityType="Self.NAT_LS_LOCATION_GRID_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NAT_LS_LOCATION_GRID_VW].[Country_ID] AS [Country_ID], 
+    [NAT_LS_LOCATION_GRID_VW].[Country_Name] AS [Country_Name], 
+    [NAT_LS_LOCATION_GRID_VW].[Country_Code] AS [Country_Code], 
+    [NAT_LS_LOCATION_GRID_VW].[Province_ID] AS [Province_ID], 
+    [NAT_LS_LOCATION_GRID_VW].[Province_Name] AS [Province_Name], 
+    [NAT_LS_LOCATION_GRID_VW].[Province_Code] AS [Province_Code], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_1] AS [Tax_Rate_1], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_1_Label] AS [Tax_Rate_1_Label], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_2] AS [Tax_Rate_2], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_2_Label] AS [Tax_Rate_2_Label], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_3] AS [Tax_Rate_3], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_3_Label] AS [Tax_Rate_3_Label], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_4] AS [Tax_Rate_4], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_4_Label] AS [Tax_Rate_4_Label], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_5] AS [Tax_Rate_5], 
+    [NAT_LS_LOCATION_GRID_VW].[Tax_Rate_5_Label] AS [Tax_Rate_5_Label], 
+    [NAT_LS_LOCATION_GRID_VW].[City_ID] AS [City_ID], 
+    [NAT_LS_LOCATION_GRID_VW].[City_Name] AS [City_Name], 
+    [NAT_LS_LOCATION_GRID_VW].[City_Short_Name] AS [City_Short_Name], 
+    [NAT_LS_LOCATION_GRID_VW].[City_Code] AS [City_Code], 
+    [NAT_LS_LOCATION_GRID_VW].[Active] AS [Active], 
+    [NAT_LS_LOCATION_GRID_VW].[Last_Updated_Date] AS [Last_Updated_Date], 
+    [NAT_LS_LOCATION_GRID_VW].[Last_Updated_By] AS [Last_Updated_By], 
+    [NAT_LS_LOCATION_GRID_VW].[Legal_Drinking_Age] AS [Legal_Drinking_Age], 
+    [NAT_LS_LOCATION_GRID_VW].[Virtual_Tax] AS [Virtual_Tax], 
+    [NAT_LS_LOCATION_GRID_VW].[Total_In_Person_Tax] AS [Total_In_Person_Tax], 
+    [NAT_LS_LOCATION_GRID_VW].[Market_ID] AS [Market_ID], 
+    [NAT_LS_LOCATION_GRID_VW].[Location_Short_Code] AS [Location_Short_Code], 
+    [NAT_LS_LOCATION_GRID_VW].[StateCode] AS [StateCode], 
+    [NAT_LS_LOCATION_GRID_VW].[CountryCode] AS [CountryCode], 
+    [NAT_LS_LOCATION_GRID_VW].[DST_Time] AS [DST_Time], 
+    [NAT_LS_LOCATION_GRID_VW].[DST_Zone_Code] AS [DST_Zone_Code], 
+    [NAT_LS_LOCATION_GRID_VW].[Standard_Time] AS [Standard_Time], 
+    [NAT_LS_LOCATION_GRID_VW].[Standard_Timezone_Code] AS [Standard_Timezone_Code], 
+    [NAT_LS_LOCATION_GRID_VW].[Manager_Name] AS [Manager_Name], 
+    [NAT_LS_LOCATION_GRID_VW].[Manager_Number] AS [Manager_Number], 
+    [NAT_LS_LOCATION_GRID_VW].[Manager_Email] AS [Manager_Email]
+    FROM [dbo].[NAT_LS_LOCATION_GRID_VW] AS [NAT_LS_LOCATION_GRID_VW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NAT_LS_LOCATION_VW" EntityType="Self.NAT_LS_LOCATION_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NAT_LS_LOCATION_VW].[Location_ID] AS [Location_ID], 
+    [NAT_LS_LOCATION_VW].[Parent_Location_Code] AS [Parent_Location_Code], 
+    [NAT_LS_LOCATION_VW].[Location_Name] AS [Location_Name], 
+    [NAT_LS_LOCATION_VW].[Location_Description] AS [Location_Description], 
+    [NAT_LS_LOCATION_VW].[Location_Short_Code] AS [Location_Short_Code], 
+    [NAT_LS_LOCATION_VW].[Location_Type_LKP] AS [Location_Type_LKP], 
+    [NAT_LS_LOCATION_VW].[Active_Flag] AS [Active_Flag], 
+    [NAT_LS_LOCATION_VW].[Sales_Tax_Applicable_Flag] AS [Sales_Tax_Applicable_Flag], 
+    [NAT_LS_LOCATION_VW].[Sales_Tax_Inclusive_Flag] AS [Sales_Tax_Inclusive_Flag], 
+    [NAT_LS_LOCATION_VW].[Tax_Rate] AS [Tax_Rate], 
+    [NAT_LS_LOCATION_VW].[Facebook_Url] AS [Facebook_Url], 
+    [NAT_LS_LOCATION_VW].[Twitter_Url] AS [Twitter_Url], 
+    [NAT_LS_LOCATION_VW].[Instagram_Url] AS [Instagram_Url], 
+    [NAT_LS_LOCATION_VW].[Address_Id] AS [Address_Id], 
+    [NAT_LS_LOCATION_VW].[Supplies_Tax] AS [Supplies_Tax], 
+    [NAT_LS_LOCATION_VW].[State_Tax] AS [State_Tax], 
+    [NAT_LS_LOCATION_VW].[Stripe_Api_Key] AS [Stripe_Api_Key], 
+    [NAT_LS_LOCATION_VW].[Created_Date] AS [Created_Date], 
+    [NAT_LS_LOCATION_VW].[Created_By] AS [Created_By], 
+    [NAT_LS_LOCATION_VW].[Last_Updated_Date] AS [Last_Updated_Date], 
+    [NAT_LS_LOCATION_VW].[Last_Updated_By] AS [Last_Updated_By], 
+    [NAT_LS_LOCATION_VW].[Timezone] AS [Timezone], 
+    [NAT_LS_LOCATION_VW].[Visible_Value] AS [Visible_Value], 
+    [NAT_LS_LOCATION_VW].[Currency] AS [Currency], 
+    [NAT_LS_LOCATION_VW].[Airport_Code] AS [Airport_Code], 
+    [NAT_LS_LOCATION_VW].[Precision] AS [Precision]
+    FROM [dbo].[NAT_LS_LOCATION_VW] AS [NAT_LS_LOCATION_VW]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography" Association="Self.FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography">
+            <End Role="NAT_LS_Address_Geography" EntitySet="NAT_LS_Address_Geography" />
+            <End Role="NAT_LS_Address_Geography1" EntitySet="NAT_LS_Address_Geography" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location" Association="Self.FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location">
+            <End Role="NAT_LS_Location" EntitySet="NAT_LS_Location" />
+            <End Role="NAT_LS_Deal_Site_Location_Association_Table" EntitySet="NAT_LS_Deal_Site_Location_Association_Table" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LocationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LocationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NAT_LS_Address_Geography" EntityType="LocationModel.NAT_LS_Address_Geography" />
+          <EntitySet Name="NAT_LS_Deal_Site_Location_Association_Table" EntityType="LocationModel.NAT_LS_Deal_Site_Location_Association_Table" />
+          <EntitySet Name="NAT_LS_Location" EntityType="LocationModel.NAT_LS_Location" />
+          <AssociationSet Name="FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location" Association="LocationModel.FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location">
+            <End Role="NAT_LS_Location" EntitySet="NAT_LS_Location" />
+            <End Role="NAT_LS_Deal_Site_Location_Association_Table" EntitySet="NAT_LS_Deal_Site_Location_Association_Table" />
+          </AssociationSet>
+          <EntitySet Name="NAT_LS_LOCATION_VW" EntityType="LocationModel.NAT_LS_LOCATION_VW" />
+          <AssociationSet Name="FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography" Association="LocationModel.FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography">
+            <End Role="NAT_LS_Address_Geography" EntitySet="NAT_LS_Address_Geography" />
+            <End Role="NAT_LS_Address_Geography1" EntitySet="NAT_LS_Address_Geography" />
+          </AssociationSet>
+          <EntitySet Name="NAT_LS_LOCATION_GRID_VW" EntityType="LocationModel.NAT_LS_LOCATION_GRID_VW" />
+        </EntityContainer>
+        <EntityType Name="NAT_LS_Address_Geography">
+          <Key>
+            <PropertyRef Name="Address_Geography_ID" />
+          </Key>
+          <Property Name="Address_Geography_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parent_Geography_Code" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Geography_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Geography_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Geography_Short_Code" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Geography_Type_LKP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Parent_Geography_ID" Type="Int32" />
+          <NavigationProperty Name="NAT_LS_Address_Geography_Children" Relationship="LocationModel.FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography" FromRole="NAT_LS_Address_Geography" ToRole="NAT_LS_Address_Geography1" />
+          <NavigationProperty Name="NAT_LS_Address_Geography_Parent" Relationship="LocationModel.FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography" FromRole="NAT_LS_Address_Geography1" ToRole="NAT_LS_Address_Geography" />
+          <Property Name="New_Parent_Code" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="New_Geography_Code" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NAT_LS_Deal_Site_Location_Association_Table">
+          <Key>
+            <PropertyRef Name="Deal_Site_ID" />
+          </Key>
+          <Property Name="Deal_Site_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location_ID" Type="Int32" Nullable="false" />
+          <Property Name="Sales_Tax_Collected" Type="Decimal" Nullable="false" Precision="4" Scale="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_LS_Location" Relationship="LocationModel.FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location" FromRole="NAT_LS_Deal_Site_Location_Association_Table" ToRole="NAT_LS_Location" />
+        </EntityType>
+        <EntityType Name="NAT_LS_Location">
+          <Key>
+            <PropertyRef Name="Location_ID" />
+          </Key>
+          <Property Name="Location_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parent_Location_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Short_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Type_LKP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Sales_Tax_Applicable_Flag" Type="Boolean" />
+          <Property Name="Sales_Tax_Inclusive_Flag" Type="Boolean" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Facebook_Url" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Twitter_Url" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Instagram_Url" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Id" Type="Int32" />
+          <Property Name="Supplies_Tax" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="State_Tax" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Timezone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_LS_Deal_Site_Location_Association_Table" Relationship="LocationModel.FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location" FromRole="NAT_LS_Location" ToRole="NAT_LS_Deal_Site_Location_Association_Table" />
+          <Property Name="Stripe_Api_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Precision" Type="Int32" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Airport_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Google_Short_Code" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_3" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_4" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_5" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Daylight_Saving_Applicable" Type="Boolean" />
+          <Property Name="Daylight_Start_Time" Type="DateTime" Precision="3" />
+          <Property Name="Daylight_End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Market_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Manager_ID" Type="Int64" />
+          <Property Name="Virtual_Tax" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Legal_Drinking_Age" Type="Int32" />
+          <Property Name="State_Tax_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_3_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_4_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_5_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Virtual_Tax_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_Include" Type="Boolean" />
+          <Property Name="State_Tax_Include" Type="Boolean" />
+          <Property Name="Tax_3_Include" Type="Boolean" />
+          <Property Name="Tax_4_Include" Type="Boolean" />
+          <Property Name="Tax_5_Include" Type="Boolean" />
+          <Property Name="Virtual_Tax_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_3_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_4_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_5_Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Virtual_Tax_Include" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_NAT_LS_Deal_Site_Location_Association_Table_NAT_LS_Location">
+          <End Type="LocationModel.NAT_LS_Location" Role="NAT_LS_Location" Multiplicity="1" />
+          <End Type="LocationModel.NAT_LS_Deal_Site_Location_Association_Table" Role="NAT_LS_Deal_Site_Location_Association_Table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_LS_Location">
+              <PropertyRef Name="Location_ID" />
+            </Principal>
+            <Dependent Role="NAT_LS_Deal_Site_Location_Association_Table">
+              <PropertyRef Name="Location_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_LS_LOCATION_VW">
+          <Key>
+            <PropertyRef Name="Location_ID" />
+            <PropertyRef Name="Active_Flag" />
+            <PropertyRef Name="Created_Date" />
+            <PropertyRef Name="Created_By" />
+          </Key>
+          <Property Name="Location_ID" Type="Int32" Nullable="false" />
+          <Property Name="Parent_Location_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Short_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Type_LKP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Sales_Tax_Applicable_Flag" Type="Boolean" />
+          <Property Name="Sales_Tax_Inclusive_Flag" Type="Boolean" />
+          <Property Name="Tax_Rate" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Facebook_Url" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Twitter_Url" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Instagram_Url" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Id" Type="Int32" />
+          <Property Name="Supplies_Tax" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="State_Tax" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Stripe_Api_Key" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Timezone" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Visible_Value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Airport_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Precision" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_NAT_LS_Address_Geography_NAT_LS_Address_Geography">
+          <End Type="LocationModel.NAT_LS_Address_Geography" Role="NAT_LS_Address_Geography" Multiplicity="0..1" />
+          <End Type="LocationModel.NAT_LS_Address_Geography" Role="NAT_LS_Address_Geography1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_LS_Address_Geography">
+              <PropertyRef Name="Address_Geography_ID" />
+            </Principal>
+            <Dependent Role="NAT_LS_Address_Geography1">
+              <PropertyRef Name="Parent_Geography_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_LS_LOCATION_GRID_VW">
+          <Key>
+            <PropertyRef Name="City_ID" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="Country_ID" Type="Int32" />
+          <Property Name="Country_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Country_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Province_ID" Type="Int32" />
+          <Property Name="Province_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Province_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_1" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_2" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_3" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_4" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Tax_Rate_5" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="City_ID" Type="Int32" Nullable="false" />
+          <Property Name="City_Name" Type="String" MaxLength="357" FixedLength="false" Unicode="false" />
+          <Property Name="City_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Legal_Drinking_Age" Type="Int32" />
+          <Property Name="Virtual_Tax" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Total_In_Person_Tax" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="Market_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Short_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CountryCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DST_Time" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="DST_Zone_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Standard_Time" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="Standard_Timezone_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Manager_Name" Type="String" MaxLength="511" FixedLength="false" Unicode="false" />
+          <Property Name="Manager_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Manager_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_1_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_2_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_3_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_4_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Rate_5_Label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City_Short_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LocationModelStoreContainer" CdmEntityContainer="LocationEntities">
+          <EntitySetMapping Name="NAT_LS_Address_Geography">
+            <EntityTypeMapping TypeName="LocationModel.NAT_LS_Address_Geography">
+              <MappingFragment StoreEntitySet="NAT_LS_Address_Geography">
+                <ScalarProperty Name="New_Geography_Code" ColumnName="New_Geography_Code" />
+                <ScalarProperty Name="New_Parent_Code" ColumnName="New_Parent_Code" />
+                <ScalarProperty Name="Parent_Geography_ID" ColumnName="Parent_Geography_ID" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Geography_Type_LKP" ColumnName="Geography_Type_LKP" />
+                <ScalarProperty Name="Geography_Short_Code" ColumnName="Geography_Short_Code" />
+                <ScalarProperty Name="Geography_Description" ColumnName="Geography_Description" />
+                <ScalarProperty Name="Geography_Name" ColumnName="Geography_Name" />
+                <ScalarProperty Name="Parent_Geography_Code" ColumnName="Parent_Geography_Code" />
+                <ScalarProperty Name="Address_Geography_ID" ColumnName="Address_Geography_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_LS_Deal_Site_Location_Association_Table">
+            <EntityTypeMapping TypeName="LocationModel.NAT_LS_Deal_Site_Location_Association_Table">
+              <MappingFragment StoreEntitySet="NAT_LS_Deal_Site_Location_Association_Table">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Sales_Tax_Collected" ColumnName="Sales_Tax_Collected" />
+                <ScalarProperty Name="Location_ID" ColumnName="Location_ID" />
+                <ScalarProperty Name="Deal_Site_ID" ColumnName="Deal_Site_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_LS_Location">
+            <EntityTypeMapping TypeName="LocationModel.NAT_LS_Location">
+              <MappingFragment StoreEntitySet="NAT_LS_Location">
+                <ScalarProperty Name="Virtual_Tax_Include" ColumnName="Virtual_Tax_Include" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Tax_5_Area" ColumnName="Tax_5_Area" />
+                <ScalarProperty Name="Tax_4_Area" ColumnName="Tax_4_Area" />
+                <ScalarProperty Name="Tax_3_Area" ColumnName="Tax_3_Area" />
+                <ScalarProperty Name="Tax_Rate_Area" ColumnName="Tax_Rate_Area" />
+                <ScalarProperty Name="Virtual_Tax_Area" ColumnName="Virtual_Tax_Area" />
+                <ScalarProperty Name="Tax_5_Include" ColumnName="Tax_5_Include" />
+                <ScalarProperty Name="Tax_4_Include" ColumnName="Tax_4_Include" />
+                <ScalarProperty Name="Tax_3_Include" ColumnName="Tax_3_Include" />
+                <ScalarProperty Name="State_Tax_Include" ColumnName="State_Tax_Include" />
+                <ScalarProperty Name="Tax_Rate_Include" ColumnName="Tax_Rate_Include" />
+                <ScalarProperty Name="Virtual_Tax_Label" ColumnName="Virtual_Tax_Label" />
+                <ScalarProperty Name="Tax_5_Label" ColumnName="Tax_5_Label" />
+                <ScalarProperty Name="Tax_4_Label" ColumnName="Tax_4_Label" />
+                <ScalarProperty Name="Tax_3_Label" ColumnName="Tax_3_Label" />
+                <ScalarProperty Name="Tax_Rate_Label" ColumnName="Tax_Rate_Label" />
+                <ScalarProperty Name="State_Tax_Label" ColumnName="State_Tax_Label" />
+                <ScalarProperty Name="Legal_Drinking_Age" ColumnName="Legal_Drinking_Age" />
+                <ScalarProperty Name="Virtual_Tax" ColumnName="Virtual_Tax" />
+                <ScalarProperty Name="Manager_ID" ColumnName="Manager_ID" />
+                <ScalarProperty Name="Market_ID" ColumnName="Market_ID" />
+                <ScalarProperty Name="Daylight_End_Time" ColumnName="Daylight_End_Time" />
+                <ScalarProperty Name="Daylight_Start_Time" ColumnName="Daylight_Start_Time" />
+                <ScalarProperty Name="Daylight_Saving_Applicable" ColumnName="Daylight_Saving_Applicable" />
+                <ScalarProperty Name="Tax_5" ColumnName="Tax_5" />
+                <ScalarProperty Name="Tax_4" ColumnName="Tax_4" />
+                <ScalarProperty Name="Tax_3" ColumnName="Tax_3" />
+                <ScalarProperty Name="Google_Short_Code" ColumnName="Google_Short_Code" />
+                <ScalarProperty Name="Airport_Code" ColumnName="Airport_Code" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Precision" ColumnName="Precision" />
+                <ScalarProperty Name="Stripe_Api_Key" ColumnName="Stripe_Api_Key" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="State_Tax" ColumnName="State_Tax" />
+                <ScalarProperty Name="Supplies_Tax" ColumnName="Supplies_Tax" />
+                <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+                <ScalarProperty Name="Instagram_Url" ColumnName="Instagram_Url" />
+                <ScalarProperty Name="Twitter_Url" ColumnName="Twitter_Url" />
+                <ScalarProperty Name="Facebook_Url" ColumnName="Facebook_Url" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax_Rate" />
+                <ScalarProperty Name="Sales_Tax_Inclusive_Flag" ColumnName="Sales_Tax_Inclusive_Flag" />
+                <ScalarProperty Name="Sales_Tax_Applicable_Flag" ColumnName="Sales_Tax_Applicable_Flag" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Location_Type_LKP" ColumnName="Location_Type_LKP" />
+                <ScalarProperty Name="Location_Short_Code" ColumnName="Location_Short_Code" />
+                <ScalarProperty Name="Location_Description" ColumnName="Location_Description" />
+                <ScalarProperty Name="Location_Name" ColumnName="Location_Name" />
+                <ScalarProperty Name="Parent_Location_Code" ColumnName="Parent_Location_Code" />
+                <ScalarProperty Name="Location_ID" ColumnName="Location_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_LS_LOCATION_VW">
+            <EntityTypeMapping TypeName="LocationModel.NAT_LS_LOCATION_VW">
+              <MappingFragment StoreEntitySet="NAT_LS_LOCATION_VW">
+                <ScalarProperty Name="Precision" ColumnName="Precision" />
+                <ScalarProperty Name="Airport_Code" ColumnName="Airport_Code" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Visible_Value" ColumnName="Visible_Value" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Stripe_Api_Key" ColumnName="Stripe_Api_Key" />
+                <ScalarProperty Name="State_Tax" ColumnName="State_Tax" />
+                <ScalarProperty Name="Supplies_Tax" ColumnName="Supplies_Tax" />
+                <ScalarProperty Name="Address_Id" ColumnName="Address_Id" />
+                <ScalarProperty Name="Instagram_Url" ColumnName="Instagram_Url" />
+                <ScalarProperty Name="Twitter_Url" ColumnName="Twitter_Url" />
+                <ScalarProperty Name="Facebook_Url" ColumnName="Facebook_Url" />
+                <ScalarProperty Name="Tax_Rate" ColumnName="Tax_Rate" />
+                <ScalarProperty Name="Sales_Tax_Inclusive_Flag" ColumnName="Sales_Tax_Inclusive_Flag" />
+                <ScalarProperty Name="Sales_Tax_Applicable_Flag" ColumnName="Sales_Tax_Applicable_Flag" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Location_Type_LKP" ColumnName="Location_Type_LKP" />
+                <ScalarProperty Name="Location_Short_Code" ColumnName="Location_Short_Code" />
+                <ScalarProperty Name="Location_Description" ColumnName="Location_Description" />
+                <ScalarProperty Name="Location_Name" ColumnName="Location_Name" />
+                <ScalarProperty Name="Parent_Location_Code" ColumnName="Parent_Location_Code" />
+                <ScalarProperty Name="Location_ID" ColumnName="Location_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_LS_LOCATION_GRID_VW">
+            <EntityTypeMapping TypeName="LocationModel.NAT_LS_LOCATION_GRID_VW">
+              <MappingFragment StoreEntitySet="NAT_LS_LOCATION_GRID_VW">
+                <ScalarProperty Name="City_Short_Name" ColumnName="City_Short_Name" />
+                <ScalarProperty Name="Tax_Rate_5_Label" ColumnName="Tax_Rate_5_Label" />
+                <ScalarProperty Name="Tax_Rate_4_Label" ColumnName="Tax_Rate_4_Label" />
+                <ScalarProperty Name="Tax_Rate_3_Label" ColumnName="Tax_Rate_3_Label" />
+                <ScalarProperty Name="Tax_Rate_2_Label" ColumnName="Tax_Rate_2_Label" />
+                <ScalarProperty Name="Tax_Rate_1_Label" ColumnName="Tax_Rate_1_Label" />
+                <ScalarProperty Name="Manager_Email" ColumnName="Manager_Email" />
+                <ScalarProperty Name="Manager_Number" ColumnName="Manager_Number" />
+                <ScalarProperty Name="Manager_Name" ColumnName="Manager_Name" />
+                <ScalarProperty Name="Standard_Timezone_Code" ColumnName="Standard_Timezone_Code" />
+                <ScalarProperty Name="Standard_Time" ColumnName="Standard_Time" />
+                <ScalarProperty Name="DST_Zone_Code" ColumnName="DST_Zone_Code" />
+                <ScalarProperty Name="DST_Time" ColumnName="DST_Time" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="StateCode" ColumnName="StateCode" />
+                <ScalarProperty Name="Location_Short_Code" ColumnName="Location_Short_Code" />
+                <ScalarProperty Name="Market_ID" ColumnName="Market_ID" />
+                <ScalarProperty Name="Total_In_Person_Tax" ColumnName="Total_In_Person_Tax" />
+                <ScalarProperty Name="Virtual_Tax" ColumnName="Virtual_Tax" />
+                <ScalarProperty Name="Legal_Drinking_Age" ColumnName="Legal_Drinking_Age" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="City_Code" ColumnName="City_Code" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+                <ScalarProperty Name="Tax_Rate_5" ColumnName="Tax_Rate_5" />
+                <ScalarProperty Name="Tax_Rate_4" ColumnName="Tax_Rate_4" />
+                <ScalarProperty Name="Tax_Rate_3" ColumnName="Tax_Rate_3" />
+                <ScalarProperty Name="Tax_Rate_2" ColumnName="Tax_Rate_2" />
+                <ScalarProperty Name="Tax_Rate_1" ColumnName="Tax_Rate_1" />
+                <ScalarProperty Name="Province_Code" ColumnName="Province_Code" />
+                <ScalarProperty Name="Province_Name" ColumnName="Province_Name" />
+                <ScalarProperty Name="Province_ID" ColumnName="Province_ID" />
+                <ScalarProperty Name="Country_Code" ColumnName="Country_Code" />
+                <ScalarProperty Name="Country_Name" ColumnName="Country_Name" />
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

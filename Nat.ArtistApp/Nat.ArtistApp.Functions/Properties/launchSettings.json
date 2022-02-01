@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nat.ArtistApp.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "host start --port 7071"
+    }
+  }
+}

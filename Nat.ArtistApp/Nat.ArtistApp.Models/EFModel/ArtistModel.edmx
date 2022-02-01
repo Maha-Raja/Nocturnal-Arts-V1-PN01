@@ -1,0 +1,1451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ArtistModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NAT_AS_Artist">
+          <Key>
+            <PropertyRef Name="Artist_ID" />
+          </Key>
+          <Property Name="Artist_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_Portfolio_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Artist_Status_LKP_ID" Type="int" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Stripe_ID" Type="int" />
+          <Property Name="Planner_ID" Type="int" />
+          <Property Name="Artist_Extension" Type="varchar" MaxLength="50" />
+          <Property Name="Date_Of_Birth" Type="date" />
+          <Property Name="Artist_Profile_Image_Link" Type="varchar" MaxLength="255" />
+          <Property Name="Artist_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Artist_Middle_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Artist_Last_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Artist_First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Stage_Name" Type="varchar" MaxLength="200" />
+          <Property Name="SIN" Type="varchar" MaxLength="200" />
+          <Property Name="Tax_Number" Type="varchar" MaxLength="200" />
+          <Property Name="Emergency_Contact" Type="varchar" MaxLength="255" />
+          <Property Name="Gender_LKP_ID" Type="int" />
+          <Property Name="Residential_Address_ID" Type="int" />
+          <Property Name="Shipping_Address_ID" Type="int" />
+          <Property Name="Billing_Address_ID" Type="int" />
+          <Property Name="Business_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Contact_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Payment_Cycle_LKP_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Location_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Hours_Per_Week" Type="decimal" Precision="10" Scale="1" />
+          <Property Name="Artist_About" Type="text" />
+          <Property Name="Facebook_Profile_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Twitter_Profile_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Instagram_Profile_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Google_Profile_Url" Type="varchar" MaxLength="2084" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Default_Payment_Method" Type="varchar" MaxLength="255" />
+          <Property Name="Available_Credit" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Company_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="20" />
+          <Property Name="Visible_To_Public" Type="bit" />
+          <Property Name="Events_Visible_To_Public" Type="bit" />
+          <Property Name="Host_Virtual_Event" Type="bit" />
+          <Property Name="Emergency_Contact_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Emergency_Contact_Relationship" Type="varchar" MaxLength="255" />
+          <Property Name="Greeting" Type="varchar" MaxLength="50" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="Biz_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Emergency_Contact_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Type" Type="varchar" MaxLength="50" />
+          <Property Name="Id_Number" Type="varchar" MaxLength="50" />
+          <Property Name="Company_Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Onboarded" Type="varchar" MaxLength="50" />
+          <Property Name="Google_Maps_Url" Type="varchar" MaxLength="2084" />
+          <Property Name="Google_Maps_Url_Supply" Type="varchar" MaxLength="2084" />
+          <Property Name="PerHour" Type="varchar" MaxLength="10" />
+          <Property Name="Video_Key" Type="varchar" MaxLength="100" />
+          <Property Name="Video_Secret" Type="varchar" MaxLength="100" />
+          <Property Name="Video_User" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_Line_1" Type="varchar" MaxLength="255" />
+          <Property Name="Address_Line_2" Type="varchar" MaxLength="255" />
+          <Property Name="Postal_Zip_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Coordinate" Type="int" />
+          <Property Name="City_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Other_City_Flag" Type="varchar" MaxLength="255" />
+          <Property Name="Address_Geography_ID" Type="int" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Address_Geography">
+          <Key>
+            <PropertyRef Name="Address_Geography_ID" />
+          </Key>
+          <Property Name="Address_Geography_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Parent_Geography_ID" Type="int" />
+          <Property Name="Geography_Description" Type="nchar" MaxLength="10" />
+          <Property Name="Geography_Short_Code" Type="int" />
+          <Property Name="Geography_Type_LKP_ID" Type="int" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Bank_Account">
+          <Key>
+            <PropertyRef Name="Artist_Bank_Account_ID" />
+          </Key>
+          <Property Name="Artist_Bank_Account_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" />
+          <Property Name="Bank_Routing_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Bank_LKP_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Bank_Account_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Address_ID" Type="int" />
+          <Property Name="Bank_Type_LKP_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Bank_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Transit_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Institution_Code" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Document">
+          <Key>
+            <PropertyRef Name="Artist_Document_ID" />
+          </Key>
+          <Property Name="Artist_Document_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" />
+          <Property Name="Document_Name" Type="varchar" MaxLength="200" />
+          <Property Name="Document_Url" Type="varchar" MaxLength="2048" />
+          <Property Name="File_Name" Type="varchar" MaxLength="255" />
+          <Property Name="File_Type" Type="varchar" MaxLength="4" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Event_Type_LKP_ID" Type="int" Nullable="false" />
+          <Property Name="Start_Time" Type="datetime" Nullable="false" />
+          <Property Name="End_Time" Type="datetime" Nullable="false" />
+          <Property Name="Reference_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Status_LKP_ID" Type="int" />
+          <Property Name="UDF" Type="nvarchar(max)" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Location_Mapping">
+          <Key>
+            <PropertyRef Name="Artist_Location_Mapping_ID" />
+          </Key>
+          <Property Name="Artist_Location_Mapping_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" Nullable="false" />
+          <Property Name="Location_Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Planner_ID" Type="int" />
+          <Property Name="Effective_Start_Date" Type="date" />
+          <Property Name="Effective_End_Date" Type="date" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Rating">
+          <Key>
+            <PropertyRef Name="Artist_Rating_ID" />
+          </Key>
+          <Property Name="Artist_Rating_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" />
+          <Property Name="Average_Rating_Value" Type="float" Nullable="false" />
+          <Property Name="Number_Of_Ratings" Type="int" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Rating_Log">
+          <Key>
+            <PropertyRef Name="Artist_Rating_Log_ID" />
+          </Key>
+          <Property Name="Artist_Rating_Log_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="Review_Date" Type="datetime" />
+          <Property Name="Review_Detail" Type="varchar" MaxLength="255" />
+          <Property Name="Rating_Value" Type="float" Nullable="false" />
+          <Property Name="Review_Title" Type="varchar" MaxLength="50" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Skill">
+          <Key>
+            <PropertyRef Name="Artist_Skill_ID" />
+          </Key>
+          <Property Name="Artist_Skill_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" />
+          <Property Name="Skill_LKP_ID" Type="int" />
+          <Property Name="Skill_Rating" Type="int" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Venue_Preference">
+          <Key>
+            <PropertyRef Name="Venue_Preference_ID" />
+          </Key>
+          <Property Name="Venue_Preference_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Venue_ID" Type="int" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nat-dev.dbo.NAT_ARTIST_DISBURSEMENT_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NAT_ARTIST_DISBURSEMENT_VW">
+          <Key>
+            
+            <PropertyRef Name="NID" />
+          </Key>
+          <Property Name="NID" Type="bigint" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" Nullable="false" />
+          <Property Name="PerHour" Type="varchar" MaxLength="10" />
+          <Property Name="Event_Category_LKP_ID" Type="int" />
+          <Property Name="Event_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Virtual" Type="bit" />
+          <Property Name="Gold" Type="int" />
+          <Property Name="Basic" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nat-dev.dbo.NAT_Artist_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NAT_Artist_VW">
+          <Key>
+            <PropertyRef Name="Artist_ID" />
+            <PropertyRef Name="Next_Event_Confirmed" />
+          </Key>
+          <Property Name="Artist_ID" Type="int" Nullable="false" />
+          <Property Name="Stage_Name" Type="varchar" MaxLength="231" />
+          <Property Name="STATUS" Type="varchar" MaxLength="8" />
+          <Property Name="Artist_First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Artist_Middle_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Artist_Last_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Location_Code" Type="varchar" MaxLength="50" />
+          <Property Name="Artist-Stage-Name-ID" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Market_Code" Type="varchar" MaxLength="8000" />
+          <Property Name="Artist_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Artist_Phone_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Next_Event_Confirmed" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="Next_Event_Date" Type="datetime" />
+          <Property Name="Next_Event_End_Time" Type="datetime" />
+          <Property Name="Next_Event_Location_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Next_Event_Venue_ID" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Next_Event_Venue_Name" Type="varchar" MaxLength="300" />
+          <Property Name="Next_Event_Description" Type="varchar(max)" />
+          <Property Name="Last_Event_Date" Type="datetime" />
+          <Property Name="Last_Event_End_Time" Type="datetime" />
+          <Property Name="Last_Event_Location_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Company_Name" Type="varchar" MaxLength="20" />
+          <Property Name="Company_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Company_Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Onboarded" Type="varchar" MaxLength="50" />
+          <Property Name="Emergency_Contact_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Emergency_Contact" Type="varchar" MaxLength="255" />
+          <Property Name="Emergency_Contact_Email" Type="varchar" MaxLength="50" />
+          <Property Name="Emergency_Contact_Relationship" Type="varchar" MaxLength="255" />
+          <Property Name="Artist_About" Type="text" />
+          <Property Name="Tax_Number" Type="varchar" MaxLength="200" />
+          <Property Name="SIN" Type="varchar" MaxLength="200" />
+          <Property Name="Notes" Type="text" />
+          <Property Name="Artist_Address" Type="varchar" MaxLength="511" />
+          <Property Name="Postal_Zip_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Artist_City_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Artist_State_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Artist_Country_Name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__NAT_AS_Ar__Artis__1BC821DD">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist_Skill" Type="Self.NAT_AS_Artist_Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Skill">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_AS_Ar__Billi__16644E42">
+          <End Role="NAT_AS_Artist_Address" Type="Self.NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist">
+              <PropertyRef Name="Billing_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_AS_Ar__Resid__147C05D0">
+          <End Role="NAT_AS_Artist_Address" Type="Self.NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist">
+              <PropertyRef Name="Residential_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_AS_Ar__Shipp__15702A09">
+          <End Role="NAT_AS_Artist_Address" Type="Self.NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist">
+              <PropertyRef Name="Shipping_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography">
+          <End Role="NAT_AS_Artist_Address_Geography" Type="Self.NAT_AS_Artist_Address_Geography" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist_Address_Geography1" Type="Self.NAT_AS_Artist_Address_Geography" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address_Geography">
+              <PropertyRef Name="Address_Geography_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Address_Geography1">
+              <PropertyRef Name="Parent_Geography_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist_Bank_Account" Type="Self.NAT_AS_Artist_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Bank_Account">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address">
+          <End Role="NAT_AS_Artist_Address" Type="Self.NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist_Bank_Account" Type="Self.NAT_AS_Artist_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Bank_Account">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Document_NAT_AS_Artist">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist_Document" Type="Self.NAT_AS_Artist_Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Document">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="1" />
+          <End Role="NAT_AS_Artist_Location_Mapping" Type="Self.NAT_AS_Artist_Location_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Location_Mapping">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="1" />
+          <End Role="NAT_AS_Artist_Event" Type="Self.NAT_AS_Artist_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Event">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist_Rating_Log" Type="Self.NAT_AS_Artist_Rating_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Rating_Log">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Rating_NAT_AS_Artist">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="0..1" />
+          <End Role="NAT_AS_Artist_Rating" Type="Self.NAT_AS_Artist_Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Rating">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist">
+          <End Role="NAT_AS_Artist" Type="Self.NAT_AS_Artist" Multiplicity="1" />
+          <End Role="NAT_AS_Artist_Venue_Preference" Type="Self.NAT_AS_Artist_Venue_Preference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Venue_Preference">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ArtistModelStoreContainer">
+          <EntitySet Name="NAT_AS_Artist" EntityType="Self.NAT_AS_Artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Address" EntityType="Self.NAT_AS_Artist_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Address_Geography" EntityType="Self.NAT_AS_Artist_Address_Geography" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Bank_Account" EntityType="Self.NAT_AS_Artist_Bank_Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Document" EntityType="Self.NAT_AS_Artist_Document" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Event" EntityType="Self.NAT_AS_Artist_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Location_Mapping" EntityType="Self.NAT_AS_Artist_Location_Mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Rating" EntityType="Self.NAT_AS_Artist_Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Rating_Log" EntityType="Self.NAT_AS_Artist_Rating_Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Skill" EntityType="Self.NAT_AS_Artist_Skill" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_AS_Artist_Venue_Preference" EntityType="Self.NAT_AS_Artist_Venue_Preference" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ARTIST_DISBURSEMENT_VW" EntityType="Self.NAT_ARTIST_DISBURSEMENT_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NAT_ARTIST_DISBURSEMENT_VW].[NID] AS [NID], 
+    [NAT_ARTIST_DISBURSEMENT_VW].[Artist_ID] AS [Artist_ID], 
+    [NAT_ARTIST_DISBURSEMENT_VW].[PerHour] AS [PerHour], 
+    [NAT_ARTIST_DISBURSEMENT_VW].[Event_Category_LKP_ID] AS [Event_Category_LKP_ID], 
+    [NAT_ARTIST_DISBURSEMENT_VW].[Event_Code] AS [Event_Code], 
+    [NAT_ARTIST_DISBURSEMENT_VW].[Virtual] AS [Virtual], 
+    [NAT_ARTIST_DISBURSEMENT_VW].[Gold] AS [Gold], 
+    [NAT_ARTIST_DISBURSEMENT_VW].[Basic] AS [Basic]
+    FROM [dbo].[NAT_ARTIST_DISBURSEMENT_VW] AS [NAT_ARTIST_DISBURSEMENT_VW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NAT_Artist_VW" EntityType="Self.NAT_Artist_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NAT_Artist_VW].[Artist_ID] AS [Artist_ID], 
+    [NAT_Artist_VW].[Stage_Name] AS [Stage_Name], 
+    [NAT_Artist_VW].[STATUS] AS [STATUS], 
+    [NAT_Artist_VW].[Artist_First_Name] AS [Artist_First_Name], 
+    [NAT_Artist_VW].[Artist_Middle_Name] AS [Artist_Middle_Name], 
+    [NAT_Artist_VW].[Artist_Last_Name] AS [Artist_Last_Name], 
+    [NAT_Artist_VW].[Location_Code] AS [Location_Code], 
+    [NAT_Artist_VW].[Artist-Stage-Name-ID] AS [Artist-Stage-Name-ID], 
+    [NAT_Artist_VW].[Market_Code] AS [Market_Code], 
+    [NAT_Artist_VW].[Artist_Email] AS [Artist_Email], 
+    [NAT_Artist_VW].[Artist_Phone_Number] AS [Artist_Phone_Number], 
+    [NAT_Artist_VW].[Next_Event_Confirmed] AS [Next_Event_Confirmed], 
+    [NAT_Artist_VW].[Next_Event_Date] AS [Next_Event_Date], 
+    [NAT_Artist_VW].[Next_Event_End_Time] AS [Next_Event_End_Time], 
+    [NAT_Artist_VW].[Next_Event_Location_Code] AS [Next_Event_Location_Code], 
+    [NAT_Artist_VW].[Next_Event_Venue_ID] AS [Next_Event_Venue_ID], 
+    [NAT_Artist_VW].[Next_Event_Venue_Name] AS [Next_Event_Venue_Name], 
+    [NAT_Artist_VW].[Next_Event_Description] AS [Next_Event_Description], 
+    [NAT_Artist_VW].[Last_Event_Date] AS [Last_Event_Date], 
+    [NAT_Artist_VW].[Last_Event_End_Time] AS [Last_Event_End_Time], 
+    [NAT_Artist_VW].[Last_Event_Location_Code] AS [Last_Event_Location_Code], 
+    [NAT_Artist_VW].[Last_Updated_Date] AS [Last_Updated_Date], 
+    [NAT_Artist_VW].[Last_Updated_By] AS [Last_Updated_By], 
+    [NAT_Artist_VW].[Company_Name] AS [Company_Name], 
+    [NAT_Artist_VW].[Company_Email] AS [Company_Email], 
+    [NAT_Artist_VW].[Company_Phone] AS [Company_Phone], 
+    [NAT_Artist_VW].[Onboarded] AS [Onboarded], 
+    [NAT_Artist_VW].[Emergency_Contact_Name] AS [Emergency_Contact_Name], 
+    [NAT_Artist_VW].[Emergency_Contact] AS [Emergency_Contact], 
+    [NAT_Artist_VW].[Emergency_Contact_Email] AS [Emergency_Contact_Email], 
+    [NAT_Artist_VW].[Emergency_Contact_Relationship] AS [Emergency_Contact_Relationship], 
+    [NAT_Artist_VW].[Artist_About] AS [Artist_About], 
+    [NAT_Artist_VW].[Tax_Number] AS [Tax_Number], 
+    [NAT_Artist_VW].[SIN] AS [SIN], 
+    [NAT_Artist_VW].[Notes] AS [Notes], 
+    [NAT_Artist_VW].[Artist_Address] AS [Artist_Address], 
+    [NAT_Artist_VW].[Postal_Zip_Code] AS [Postal_Zip_Code], 
+    [NAT_Artist_VW].[Artist_City_Name] AS [Artist_City_Name], 
+    [NAT_Artist_VW].[Artist_State_Name] AS [Artist_State_Name], 
+    [NAT_Artist_VW].[Artist_Country_Name] AS [Artist_Country_Name]
+    FROM [dbo].[NAT_Artist_VW] AS [NAT_Artist_VW]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__NAT_AS_Ar__Artis__1BC821DD" Association="Self.FK__NAT_AS_Ar__Artis__1BC821DD">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Skill" EntitySet="NAT_AS_Artist_Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_AS_Ar__Billi__16644E42" Association="Self.FK__NAT_AS_Ar__Billi__16644E42">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_AS_Ar__Resid__147C05D0" Association="Self.FK__NAT_AS_Ar__Resid__147C05D0">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_AS_Ar__Shipp__15702A09" Association="Self.FK__NAT_AS_Ar__Shipp__15702A09">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography" Association="Self.FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography">
+            <End Role="NAT_AS_Artist_Address_Geography" EntitySet="NAT_AS_Artist_Address_Geography" />
+            <End Role="NAT_AS_Artist_Address_Geography1" EntitySet="NAT_AS_Artist_Address_Geography" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist" Association="Self.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Bank_Account" EntitySet="NAT_AS_Artist_Bank_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address" Association="Self.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist_Bank_Account" EntitySet="NAT_AS_Artist_Bank_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Document_NAT_AS_Artist" Association="Self.FK_NAT_AS_Artist_Document_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Document" EntitySet="NAT_AS_Artist_Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist" Association="Self.FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Location_Mapping" EntitySet="NAT_AS_Artist_Location_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID" Association="Self.FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Event" EntitySet="NAT_AS_Artist_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist" Association="Self.FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Rating_Log" EntitySet="NAT_AS_Artist_Rating_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Rating_NAT_AS_Artist" Association="Self.FK_NAT_AS_Artist_Rating_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Rating" EntitySet="NAT_AS_Artist_Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist" Association="Self.FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Venue_Preference" EntitySet="NAT_AS_Artist_Venue_Preference" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArtistModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ArtistEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NAT_AS_Artist_Address" EntityType="ArtistModel.NAT_AS_Artist_Address" />
+          <EntitySet Name="NAT_AS_Artist_Address_Geography" EntityType="ArtistModel.NAT_AS_Artist_Address_Geography" />
+          <EntitySet Name="NAT_AS_Artist_Document" EntityType="ArtistModel.NAT_AS_Artist_Document" />
+          <EntitySet Name="NAT_AS_Artist_Event" EntityType="ArtistModel.NAT_AS_Artist_Event" />
+          <EntitySet Name="NAT_AS_Artist_Rating" EntityType="ArtistModel.NAT_AS_Artist_Rating" />
+          <EntitySet Name="NAT_AS_Artist_Skill" EntityType="ArtistModel.NAT_AS_Artist_Skill" />
+          <AssociationSet Name="FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography" Association="ArtistModel.FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography">
+            <End Role="NAT_AS_Artist_Address_Geography" EntitySet="NAT_AS_Artist_Address_Geography" />
+            <End Role="NAT_AS_Artist_Address_Geography1" EntitySet="NAT_AS_Artist_Address_Geography" />
+          </AssociationSet>
+          <EntitySet Name="NAT_AS_Artist_Rating_Log" EntityType="ArtistModel.NAT_AS_Artist_Rating_Log" />
+          <EntitySet Name="NAT_AS_Artist_Location_Mapping" EntityType="ArtistModel.NAT_AS_Artist_Location_Mapping" />
+          <EntitySet Name="NAT_AS_Artist" EntityType="ArtistModel.NAT_AS_Artist" />
+          <AssociationSet Name="FK__NAT_AS_Ar__Artis__1BC821DD" Association="ArtistModel.FK__NAT_AS_Ar__Artis__1BC821DD">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Skill" EntitySet="NAT_AS_Artist_Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_AS_Ar__Billi__16644E42" Association="ArtistModel.FK__NAT_AS_Ar__Billi__16644E42">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_AS_Ar__Resid__147C05D0" Association="ArtistModel.FK__NAT_AS_Ar__Resid__147C05D0">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NAT_AS_Ar__Shipp__15702A09" Association="ArtistModel.FK__NAT_AS_Ar__Shipp__15702A09">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Document_NAT_AS_Artist" Association="ArtistModel.FK_NAT_AS_Artist_Document_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Document" EntitySet="NAT_AS_Artist_Document" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist" Association="ArtistModel.FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Location_Mapping" EntitySet="NAT_AS_Artist_Location_Mapping" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID" Association="ArtistModel.FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Event" EntitySet="NAT_AS_Artist_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist" Association="ArtistModel.FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Rating_Log" EntitySet="NAT_AS_Artist_Rating_Log" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Rating_NAT_AS_Artist" Association="ArtistModel.FK_NAT_AS_Artist_Rating_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Rating" EntitySet="NAT_AS_Artist_Rating" />
+          </AssociationSet>
+          <EntitySet Name="NAT_AS_Artist_Venue_Preference" EntityType="ArtistModel.NAT_AS_Artist_Venue_Preference" />
+          <AssociationSet Name="FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist" Association="ArtistModel.FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Venue_Preference" EntitySet="NAT_AS_Artist_Venue_Preference" />
+          </AssociationSet>
+          <EntitySet Name="NAT_Artist_VW" EntityType="ArtistModel.NAT_Artist_VW" />
+          <EntitySet Name="NAT_AS_Artist_Bank_Account" EntityType="ArtistModel.NAT_AS_Artist_Bank_Account" />
+          <AssociationSet Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist" Association="ArtistModel.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist">
+            <End Role="NAT_AS_Artist" EntitySet="NAT_AS_Artist" />
+            <End Role="NAT_AS_Artist_Bank_Account" EntitySet="NAT_AS_Artist_Bank_Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address" Association="ArtistModel.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address">
+            <End Role="NAT_AS_Artist_Address" EntitySet="NAT_AS_Artist_Address" />
+            <End Role="NAT_AS_Artist_Bank_Account" EntitySet="NAT_AS_Artist_Bank_Account" />
+          </AssociationSet>
+          <EntitySet Name="NAT_ARTIST_DISBURSEMENT_VW" EntityType="ArtistModel.NAT_ARTIST_DISBURSEMENT_VW" />
+        </EntityContainer>
+        <EntityType Name="NAT_AS_Artist_Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_Line_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Line_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Postal_Zip_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Coordinate" Type="Int32" />
+          <Property Name="City_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Other_City_Flag" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK__NAT_AS_Ar__Billi__16644E42" FromRole="NAT_AS_Artist_Address" ToRole="NAT_AS_Artist" />
+          <NavigationProperty Name="NAT_AS_Artist1" Relationship="ArtistModel.FK__NAT_AS_Ar__Resid__147C05D0" FromRole="NAT_AS_Artist_Address" ToRole="NAT_AS_Artist" />
+          <NavigationProperty Name="NAT_AS_Artist2" Relationship="ArtistModel.FK__NAT_AS_Ar__Shipp__15702A09" FromRole="NAT_AS_Artist_Address" ToRole="NAT_AS_Artist" />
+          <Property Name="Address_Geography_ID" Type="Int32" />
+          <NavigationProperty Name="NAT_AS_Artist_Bank_Account" Relationship="ArtistModel.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address" FromRole="NAT_AS_Artist_Address" ToRole="NAT_AS_Artist_Bank_Account" />
+          </EntityType>
+        <EntityType Name="NAT_AS_Artist_Address_Geography">
+          <Key>
+            <PropertyRef Name="Address_Geography_ID" />
+          </Key>
+          <Property Name="Address_Geography_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Parent_Geography_ID" Type="Int32" />
+          <Property Name="Geography_Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Geography_Short_Code" Type="Int32" />
+          <Property Name="Geography_Type_LKP_ID" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist_Address_Geography1" Relationship="ArtistModel.FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography" FromRole="NAT_AS_Artist_Address_Geography" ToRole="NAT_AS_Artist_Address_Geography1" />
+          <NavigationProperty Name="NAT_AS_Artist_Address_Geography2" Relationship="ArtistModel.FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography" FromRole="NAT_AS_Artist_Address_Geography1" ToRole="NAT_AS_Artist_Address_Geography" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Document">
+          <Key>
+            <PropertyRef Name="Artist_Document_ID" />
+          </Key>
+          <Property Name="Artist_Document_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" />
+          <Property Name="Document_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Document_Url" Type="String" MaxLength="2048" FixedLength="false" Unicode="false" />
+          <Property Name="File_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="File_Type" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK_NAT_AS_Artist_Document_NAT_AS_Artist" FromRole="NAT_AS_Artist_Document" ToRole="NAT_AS_Artist" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Type_LKP_ID" Type="Int32" Nullable="false" />
+          <Property Name="Start_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="End_Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Reference_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status_LKP_ID" Type="Int32" />
+          <Property Name="UDF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID" FromRole="NAT_AS_Artist_Event" ToRole="NAT_AS_Artist" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Rating">
+          <Key>
+            <PropertyRef Name="Artist_Rating_ID" />
+          </Key>
+          <Property Name="Artist_Rating_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" />
+          <Property Name="Average_Rating_Value" Type="Double" Nullable="false" />
+          <Property Name="Number_Of_Ratings" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK_NAT_AS_Artist_Rating_NAT_AS_Artist" FromRole="NAT_AS_Artist_Rating" ToRole="NAT_AS_Artist" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Skill">
+          <Key>
+            <PropertyRef Name="Artist_Skill_ID" />
+          </Key>
+          <Property Name="Artist_Skill_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" />
+          <Property Name="Skill_LKP_ID" Type="Int32" />
+          <Property Name="Skill_Rating" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK__NAT_AS_Ar__Artis__1BC821DD" FromRole="NAT_AS_Artist_Skill" ToRole="NAT_AS_Artist" />
+        </EntityType>
+        <Association Name="FK_NAT_AS_Artist_Address_Geography_NAT_AS_Artist_Address_Geography">
+          <End Type="ArtistModel.NAT_AS_Artist_Address_Geography" Role="NAT_AS_Artist_Address_Geography" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Address_Geography" Role="NAT_AS_Artist_Address_Geography1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address_Geography">
+              <PropertyRef Name="Address_Geography_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Address_Geography1">
+              <PropertyRef Name="Parent_Geography_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_AS_Artist_Rating_Log">
+          <Key>
+            <PropertyRef Name="Artist_Rating_Log_ID" />
+          </Key>
+          <Property Name="Artist_Rating_Log_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Review_Date" Type="DateTime" Precision="3" />
+          <Property Name="Review_Detail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Rating_Value" Type="Double" Nullable="false" />
+          <Property Name="Review_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist" FromRole="NAT_AS_Artist_Rating_Log" ToRole="NAT_AS_Artist" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Location_Mapping">
+          <Key>
+            <PropertyRef Name="Artist_Location_Mapping_ID" />
+          </Key>
+          <Property Name="Artist_Location_Mapping_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" Nullable="false" />
+          <Property Name="Location_Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist" FromRole="NAT_AS_Artist_Location_Mapping" ToRole="NAT_AS_Artist" />
+          <Property Name="Planner_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist">
+          <Key>
+            <PropertyRef Name="Artist_ID" />
+          </Key>
+          <Property Name="Artist_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_Portfolio_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Status_LKP_ID" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Stripe_ID" Type="Int32" />
+          <Property Name="Planner_ID" Type="Int32" />
+          <Property Name="Artist_Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
+          <Property Name="Artist_Profile_Image_Link" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Middle_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Stage_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SIN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Number" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Emergency_Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Gender_LKP_ID" Type="Int32" />
+          <Property Name="Residential_Address_ID" Type="Int32" />
+          <Property Name="Shipping_Address_ID" Type="Int32" />
+          <Property Name="Billing_Address_ID" Type="Int32" />
+          <Property Name="Business_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Payment_Cycle_LKP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hours_Per_Week" Type="Decimal" Precision="10" Scale="1" />
+          <Property Name="Artist_About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook_Profile_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Twitter_Profile_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Instagram_Profile_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Google_Profile_Url" Type="String" MaxLength="2084" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Default_Payment_Method" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Available_Credit" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="NAT_AS_Artist_Skill" Relationship="ArtistModel.FK__NAT_AS_Ar__Artis__1BC821DD" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Skill" />
+          <NavigationProperty Name="NAT_AS_Artist_Address" Relationship="ArtistModel.FK__NAT_AS_Ar__Billi__16644E42" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Address" />
+          <NavigationProperty Name="NAT_AS_Artist_Residential_Address" Relationship="ArtistModel.FK__NAT_AS_Ar__Resid__147C05D0" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Address" />
+          <NavigationProperty Name="NAT_AS_Artist_Address2" Relationship="ArtistModel.FK__NAT_AS_Ar__Shipp__15702A09" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Address" />
+          <NavigationProperty Name="NAT_AS_Artist_Document" Relationship="ArtistModel.FK_NAT_AS_Artist_Document_NAT_AS_Artist" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Document" />
+          <NavigationProperty Name="NAT_AS_Artist_Location_Mapping" Relationship="ArtistModel.FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Location_Mapping" />
+          <NavigationProperty Name="NAT_AS_Artist_Event" Relationship="ArtistModel.FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Event" />
+          <NavigationProperty Name="NAT_AS_Artist_Rating_Log" Relationship="ArtistModel.FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Rating_Log" />
+          <NavigationProperty Name="NAT_AS_Artist_Rating" Relationship="ArtistModel.FK_NAT_AS_Artist_Rating_NAT_AS_Artist" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Rating" />
+          <Property Name="Company_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Visible_To_Public" Type="Boolean" />
+          <Property Name="Events_Visible_To_Public" Type="Boolean" />
+          <Property Name="Host_Virtual_Event" Type="Boolean" />
+          <Property Name="Emergency_Contact_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Emergency_Contact_Relationship" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Greeting" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Biz_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_AS_Artist_Venue_Preference" Relationship="ArtistModel.FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Venue_Preference" />
+          <Property Name="Emergency_Contact_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Onboarded" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Google_Maps_Url" Type="String" MaxLength="2084" FixedLength="false" Unicode="false" />
+          <Property Name="Google_Maps_Url_Supply" Type="String" MaxLength="2084" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_AS_Artist_Bank_Account" Relationship="ArtistModel.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist" FromRole="NAT_AS_Artist" ToRole="NAT_AS_Artist_Bank_Account" />
+          <Property Name="PerHour" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Video_Key" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Video_Secret" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Video_User" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__NAT_AS_Ar__Artis__1BC821DD">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Skill" Role="NAT_AS_Artist_Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Skill">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_AS_Ar__Billi__16644E42">
+          <End Type="ArtistModel.NAT_AS_Artist_Address" Role="NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist">
+              <PropertyRef Name="Billing_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_AS_Ar__Resid__147C05D0">
+          <End Type="ArtistModel.NAT_AS_Artist_Address" Role="NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist">
+              <PropertyRef Name="Residential_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NAT_AS_Ar__Shipp__15702A09">
+          <End Type="ArtistModel.NAT_AS_Artist_Address" Role="NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist">
+              <PropertyRef Name="Shipping_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Document_NAT_AS_Artist">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Document" Role="NAT_AS_Artist_Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Document">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Location_Mapping_NAT_AS_Artist">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Location_Mapping" Role="NAT_AS_Artist_Location_Mapping" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Location_Mapping">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_NAT_AS_Artist_Event_Artist_ID">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Event" Role="NAT_AS_Artist_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Event">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Rating_Log_NAT_AS_Artist">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Rating_Log" Role="NAT_AS_Artist_Rating_Log" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Rating_Log">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Rating_NAT_AS_Artist">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Rating" Role="NAT_AS_Artist_Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Rating">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_AS_Artist_Venue_Preference">
+          <Key>
+            <PropertyRef Name="Venue_Preference_ID" />
+          </Key>
+          <Property Name="Venue_Preference_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Venue_ID" Type="Int32" Nullable="false" />
+          <Property Name="Artist_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist" FromRole="NAT_AS_Artist_Venue_Preference" ToRole="NAT_AS_Artist" />
+        </EntityType>
+        <Association Name="FK_NAT_AS_Artist_Venue_Preference_NAT_AS_Artist">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Venue_Preference" Role="NAT_AS_Artist_Venue_Preference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Venue_Preference">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_Artist_VW">
+          <Key>
+            <PropertyRef Name="Artist_ID" />
+            <PropertyRef Name="Next_Event_Confirmed" />
+          </Key>
+          <Property Name="Artist_ID" Type="Int32" Nullable="false" />
+          <Property Name="Stage_Name" Type="String" MaxLength="231" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Middle_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Location_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Stage_Name_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Market_Code" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Phone_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Next_Event_Confirmed" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Next_Event_Date" Type="DateTime" Precision="3" />
+          <Property Name="Next_Event_End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Next_Event_Location_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Next_Event_Venue_ID" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Next_Event_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Event_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Event_End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Last_Event_Location_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Company_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Onboarded" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emergency_Contact_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Emergency_Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Emergency_Contact_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emergency_Contact_Relationship" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_About" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tax_Number" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="SIN" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Address" Type="String" MaxLength="511" FixedLength="false" Unicode="false" />
+          <Property Name="Postal_Zip_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_City_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_State_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Artist_Country_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Next_Event_Venue_Name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NAT_AS_Artist_Bank_Account">
+          <Key>
+            <PropertyRef Name="Artist_Bank_Account_ID" />
+          </Key>
+          <Property Name="Artist_Bank_Account_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" />
+          <Property Name="Bank_Routing_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Bank_LKP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Bank_Account_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Address_ID" Type="Int32" />
+          <Property Name="Bank_Type_LKP_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Bank_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Transit_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Institution_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_AS_Artist" Relationship="ArtistModel.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist" FromRole="NAT_AS_Artist_Bank_Account" ToRole="NAT_AS_Artist" />
+          <NavigationProperty Name="NAT_AS_Artist_Address" Relationship="ArtistModel.FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address" FromRole="NAT_AS_Artist_Bank_Account" ToRole="NAT_AS_Artist_Address" />
+        </EntityType>
+        <Association Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist">
+          <End Type="ArtistModel.NAT_AS_Artist" Role="NAT_AS_Artist" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Bank_Account" Role="NAT_AS_Artist_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist">
+              <PropertyRef Name="Artist_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Bank_Account">
+              <PropertyRef Name="Artist_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_AS_Artist_Bank_Account_NAT_AS_Artist_Address">
+          <End Type="ArtistModel.NAT_AS_Artist_Address" Role="NAT_AS_Artist_Address" Multiplicity="0..1" />
+          <End Type="ArtistModel.NAT_AS_Artist_Bank_Account" Role="NAT_AS_Artist_Bank_Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_AS_Artist_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_AS_Artist_Bank_Account">
+              <PropertyRef Name="Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_ARTIST_DISBURSEMENT_VW">
+          <Key>
+            <PropertyRef Name="NID" />
+          </Key>
+          <Property Name="NID" Type="Int64" Nullable="false" />
+          <Property Name="Artist_ID" Type="Int32" Nullable="false" />
+          <Property Name="PerHour" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Category_LKP_ID" Type="Int32" />
+          <Property Name="Event_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Virtual" Type="Boolean" />
+          <Property Name="Gold" Type="Int32" />
+          <Property Name="Basic" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArtistModelStoreContainer" CdmEntityContainer="ArtistEntities">
+          <EntitySetMapping Name="NAT_AS_Artist_Address">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Address">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Address">
+                <ScalarProperty Name="Address_Geography_ID" ColumnName="Address_Geography_ID" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Other_City_Flag" ColumnName="Other_City_Flag" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="Coordinate" ColumnName="Coordinate" />
+                <ScalarProperty Name="Postal_Zip_Code" ColumnName="Postal_Zip_Code" />
+                <ScalarProperty Name="Address_Line_2" ColumnName="Address_Line_2" />
+                <ScalarProperty Name="Address_Line_1" ColumnName="Address_Line_1" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Address_Geography">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Address_Geography">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Address_Geography">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Geography_Type_LKP_ID" ColumnName="Geography_Type_LKP_ID" />
+                <ScalarProperty Name="Geography_Short_Code" ColumnName="Geography_Short_Code" />
+                <ScalarProperty Name="Geography_Description" ColumnName="Geography_Description" />
+                <ScalarProperty Name="Parent_Geography_ID" ColumnName="Parent_Geography_ID" />
+                <ScalarProperty Name="Address_Geography_ID" ColumnName="Address_Geography_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Document">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Document">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Document">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+                <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+                <ScalarProperty Name="Document_Url" ColumnName="Document_Url" />
+                <ScalarProperty Name="Document_Name" ColumnName="Document_Name" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Artist_Document_ID" ColumnName="Artist_Document_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Event">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Event">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Event">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="UDF" ColumnName="UDF" />
+                <ScalarProperty Name="Status_LKP_ID" ColumnName="Status_LKP_ID" />
+                <ScalarProperty Name="Reference_ID" ColumnName="Reference_ID" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="Event_Type_LKP_ID" ColumnName="Event_Type_LKP_ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Rating">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Rating">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Rating">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Number_Of_Ratings" ColumnName="Number_Of_Ratings" />
+                <ScalarProperty Name="Average_Rating_Value" ColumnName="Average_Rating_Value" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Artist_Rating_ID" ColumnName="Artist_Rating_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Skill">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Skill">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Skill">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Skill_Rating" ColumnName="Skill_Rating" />
+                <ScalarProperty Name="Skill_LKP_ID" ColumnName="Skill_LKP_ID" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Artist_Skill_ID" ColumnName="Artist_Skill_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Rating_Log">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Rating_Log">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Rating_Log">
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Review_Title" ColumnName="Review_Title" />
+                <ScalarProperty Name="Rating_Value" ColumnName="Rating_Value" />
+                <ScalarProperty Name="Review_Detail" ColumnName="Review_Detail" />
+                <ScalarProperty Name="Review_Date" ColumnName="Review_Date" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Artist_Rating_Log_ID" ColumnName="Artist_Rating_Log_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Location_Mapping">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Location_Mapping">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Location_Mapping">
+                <ScalarProperty Name="Planner_ID" ColumnName="Planner_ID" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Location_Code" ColumnName="Location_Code" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Artist_Location_Mapping_ID" ColumnName="Artist_Location_Mapping_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist">
+                <ScalarProperty Name="Video_User" ColumnName="Video_User" />
+                <ScalarProperty Name="Video_Secret" ColumnName="Video_Secret" />
+                <ScalarProperty Name="Video_Key" ColumnName="Video_Key" />
+                <ScalarProperty Name="PerHour" ColumnName="PerHour" />
+                <ScalarProperty Name="Google_Maps_Url_Supply" ColumnName="Google_Maps_Url_Supply" />
+                <ScalarProperty Name="Google_Maps_Url" ColumnName="Google_Maps_Url" />
+                <ScalarProperty Name="Onboarded" ColumnName="Onboarded" />
+                <ScalarProperty Name="Company_Phone" ColumnName="Company_Phone" />
+                <ScalarProperty Name="Id_Number" ColumnName="Id_Number" />
+                <ScalarProperty Name="Id_Type" ColumnName="Id_Type" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Emergency_Contact_Email" ColumnName="Emergency_Contact_Email" />
+                <ScalarProperty Name="Biz_Number" ColumnName="Biz_Number" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Greeting" ColumnName="Greeting" />
+                <ScalarProperty Name="Emergency_Contact_Relationship" ColumnName="Emergency_Contact_Relationship" />
+                <ScalarProperty Name="Emergency_Contact_Name" ColumnName="Emergency_Contact_Name" />
+                <ScalarProperty Name="Host_Virtual_Event" ColumnName="Host_Virtual_Event" />
+                <ScalarProperty Name="Events_Visible_To_Public" ColumnName="Events_Visible_To_Public" />
+                <ScalarProperty Name="Visible_To_Public" ColumnName="Visible_To_Public" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Company_Email" ColumnName="Company_Email" />
+                <ScalarProperty Name="Available_Credit" ColumnName="Available_Credit" />
+                <ScalarProperty Name="Default_Payment_Method" ColumnName="Default_Payment_Method" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Google_Profile_Url" ColumnName="Google_Profile_Url" />
+                <ScalarProperty Name="Instagram_Profile_Url" ColumnName="Instagram_Profile_Url" />
+                <ScalarProperty Name="Twitter_Profile_Url" ColumnName="Twitter_Profile_Url" />
+                <ScalarProperty Name="Facebook_Profile_Url" ColumnName="Facebook_Profile_Url" />
+                <ScalarProperty Name="Artist_About" ColumnName="Artist_About" />
+                <ScalarProperty Name="Hours_Per_Week" ColumnName="Hours_Per_Week" />
+                <ScalarProperty Name="Location_Code" ColumnName="Location_Code" />
+                <ScalarProperty Name="Payment_Cycle_LKP_ID" ColumnName="Payment_Cycle_LKP_ID" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="Business_Name" ColumnName="Business_Name" />
+                <ScalarProperty Name="Billing_Address_ID" ColumnName="Billing_Address_ID" />
+                <ScalarProperty Name="Shipping_Address_ID" ColumnName="Shipping_Address_ID" />
+                <ScalarProperty Name="Residential_Address_ID" ColumnName="Residential_Address_ID" />
+                <ScalarProperty Name="Gender_LKP_ID" ColumnName="Gender_LKP_ID" />
+                <ScalarProperty Name="Emergency_Contact" ColumnName="Emergency_Contact" />
+                <ScalarProperty Name="Tax_Number" ColumnName="Tax_Number" />
+                <ScalarProperty Name="SIN" ColumnName="SIN" />
+                <ScalarProperty Name="Stage_Name" ColumnName="Stage_Name" />
+                <ScalarProperty Name="Artist_First_Name" ColumnName="Artist_First_Name" />
+                <ScalarProperty Name="Artist_Last_Name" ColumnName="Artist_Last_Name" />
+                <ScalarProperty Name="Artist_Middle_Name" ColumnName="Artist_Middle_Name" />
+                <ScalarProperty Name="Artist_Email" ColumnName="Artist_Email" />
+                <ScalarProperty Name="Artist_Profile_Image_Link" ColumnName="Artist_Profile_Image_Link" />
+                <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+                <ScalarProperty Name="Artist_Extension" ColumnName="Artist_Extension" />
+                <ScalarProperty Name="Planner_ID" ColumnName="Planner_ID" />
+                <ScalarProperty Name="Stripe_ID" ColumnName="Stripe_ID" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Artist_Status_LKP_ID" ColumnName="Artist_Status_LKP_ID" />
+                <ScalarProperty Name="Artist_Portfolio_Url" ColumnName="Artist_Portfolio_Url" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Venue_Preference">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Venue_Preference">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Venue_Preference">
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Venue_Preference_ID" ColumnName="Venue_Preference_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_Artist_VW">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_Artist_VW">
+              <MappingFragment StoreEntitySet="NAT_Artist_VW">
+                <ScalarProperty Name="Next_Event_Venue_Name" ColumnName="Next_Event_Venue_Name" />
+                <ScalarProperty Name="Artist_Country_Name" ColumnName="Artist_Country_Name" />
+                <ScalarProperty Name="Artist_State_Name" ColumnName="Artist_State_Name" />
+                <ScalarProperty Name="Artist_City_Name" ColumnName="Artist_City_Name" />
+                <ScalarProperty Name="Postal_Zip_Code" ColumnName="Postal_Zip_Code" />
+                <ScalarProperty Name="Artist_Address" ColumnName="Artist_Address" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="SIN" ColumnName="SIN" />
+                <ScalarProperty Name="Tax_Number" ColumnName="Tax_Number" />
+                <ScalarProperty Name="Artist_About" ColumnName="Artist_About" />
+                <ScalarProperty Name="Emergency_Contact_Relationship" ColumnName="Emergency_Contact_Relationship" />
+                <ScalarProperty Name="Emergency_Contact_Email" ColumnName="Emergency_Contact_Email" />
+                <ScalarProperty Name="Emergency_Contact" ColumnName="Emergency_Contact" />
+                <ScalarProperty Name="Emergency_Contact_Name" ColumnName="Emergency_Contact_Name" />
+                <ScalarProperty Name="Onboarded" ColumnName="Onboarded" />
+                <ScalarProperty Name="Company_Phone" ColumnName="Company_Phone" />
+                <ScalarProperty Name="Company_Email" ColumnName="Company_Email" />
+                <ScalarProperty Name="Company_Name" ColumnName="Company_Name" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Last_Event_Location_Code" ColumnName="Last_Event_Location_Code" />
+                <ScalarProperty Name="Last_Event_End_Time" ColumnName="Last_Event_End_Time" />
+                <ScalarProperty Name="Last_Event_Date" ColumnName="Last_Event_Date" />
+                <ScalarProperty Name="Next_Event_Description" ColumnName="Next_Event_Description" />
+                <ScalarProperty Name="Next_Event_Venue_ID" ColumnName="Next_Event_Venue_ID" />
+                <ScalarProperty Name="Next_Event_Location_Code" ColumnName="Next_Event_Location_Code" />
+                <ScalarProperty Name="Next_Event_End_Time" ColumnName="Next_Event_End_Time" />
+                <ScalarProperty Name="Next_Event_Date" ColumnName="Next_Event_Date" />
+                <ScalarProperty Name="Next_Event_Confirmed" ColumnName="Next_Event_Confirmed" />
+                <ScalarProperty Name="Artist_Phone_Number" ColumnName="Artist_Phone_Number" />
+                <ScalarProperty Name="Artist_Email" ColumnName="Artist_Email" />
+                <ScalarProperty Name="Market_Code" ColumnName="Market_Code" />
+                <ScalarProperty Name="Artist_Stage_Name_ID" ColumnName="Artist-Stage-Name-ID" />
+                <ScalarProperty Name="Location_Code" ColumnName="Location_Code" />
+                <ScalarProperty Name="Artist_Last_Name" ColumnName="Artist_Last_Name" />
+                <ScalarProperty Name="Artist_Middle_Name" ColumnName="Artist_Middle_Name" />
+                <ScalarProperty Name="Artist_First_Name" ColumnName="Artist_First_Name" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="Stage_Name" ColumnName="Stage_Name" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_AS_Artist_Bank_Account">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_AS_Artist_Bank_Account">
+              <MappingFragment StoreEntitySet="NAT_AS_Artist_Bank_Account">
+                <ScalarProperty Name="Institution_Code" ColumnName="Institution_Code" />
+                <ScalarProperty Name="Transit_Number" ColumnName="Transit_Number" />
+                <ScalarProperty Name="Bank_Code" ColumnName="Bank_Code" />
+                <ScalarProperty Name="Bank_Type_LKP_ID" ColumnName="Bank_Type_LKP_ID" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Bank_Account_Number" ColumnName="Bank_Account_Number" />
+                <ScalarProperty Name="Bank_LKP_ID" ColumnName="Bank_LKP_ID" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Bank_Routing_Number" ColumnName="Bank_Routing_Number" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Artist_Bank_Account_ID" ColumnName="Artist_Bank_Account_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ARTIST_DISBURSEMENT_VW">
+            <EntityTypeMapping TypeName="ArtistModel.NAT_ARTIST_DISBURSEMENT_VW">
+              <MappingFragment StoreEntitySet="NAT_ARTIST_DISBURSEMENT_VW">
+                <ScalarProperty Name="Basic" ColumnName="Basic" />
+                <ScalarProperty Name="Gold" ColumnName="Gold" />
+                <ScalarProperty Name="Virtual" ColumnName="Virtual" />
+                <ScalarProperty Name="Event_Code" ColumnName="Event_Code" />
+                <ScalarProperty Name="Event_Category_LKP_ID" ColumnName="Event_Category_LKP_ID" />
+                <ScalarProperty Name="PerHour" ColumnName="PerHour" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="NID" ColumnName="NID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

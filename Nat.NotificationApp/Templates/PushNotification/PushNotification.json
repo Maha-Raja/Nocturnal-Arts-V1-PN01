@@ -1,0 +1,4 @@
+{
+  "EventCreated-Venue": "Your venue have been booked on {{EventDate}} for {{EventDuration}}.",
+  "EventCreated-Artist": ""
+}

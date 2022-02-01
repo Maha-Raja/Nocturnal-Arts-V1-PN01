@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AzureFunctionsVersion>v1</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.26" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="TLX.CloudCore.Configuration" Version="1.0.0.2" />
+    <PackageReference Include="TLX.CloudCore.KendoX" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.DataMapper" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Service" Version="1.0.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nat.Core\Nat.Core.csproj" />
+    <ProjectReference Include="..\Nat.CustomerApp.Models\Nat.CustomerApp.Models.csproj" />
+    <ProjectReference Include="..\Nat.CustomerApp.Services\Nat.CustomerApp.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>

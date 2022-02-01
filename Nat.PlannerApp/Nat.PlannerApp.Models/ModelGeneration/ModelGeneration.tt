@@ -1,0 +1,469 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace = "System.Reflection" #>
+<#@ import namespace = "System.IO" #>
+<#@ import namespace = "System.Text.RegularExpressions" #>
+<# //System.Diagnostics.Debugger.Launch(); #>
+<# 
+
+Assembly EFassembly = null;
+Assembly ServiceModelAssembly = null;
+Assembly ViewModelAssembly = null;
+
+    string tablePrefix = "NAT_PLS";
+    string ComplexPropertyPrefix = "NatPls";
+    string EFModelEntitiesClass = "PlannerEntities";
+
+    string topNamespace = "Nat.PlannerApp";
+    string EFModelNamespace = topNamespace + ".Models.EFModel";
+    string ServiceModelNamespace = topNamespace + ".Services.ServiceModels";
+    string ViewModelNamespace = topNamespace + ".Functions.ViewModels";
+
+
+try
+{
+	Assembly.ReflectionOnlyLoadFrom("C:\\Program Files (x86)\\Reference Assemblies\\Microsoft\\Framework\\.NETFramework\\v4.5.1\\System.Core.dll");  //change to System.Core.dll or System.dll if not working
+	
+	var currentlocation = Host.ResolvePath("") + "\\..\\..\\";
+
+	var modelpath = currentlocation + topNamespace + ".Models\\bin\\Debug\\";
+    var servicemodelpath = currentlocation + topNamespace + ".Services\\bin\\Debug\\";
+    var viewmodelpath = currentlocation + topNamespace + ".Functions\\bin\\Debug\\net472\\bin\\";
+
+
+	Assembly.Load(File.ReadAllBytes(modelpath + "TLX.CloudCore.Patterns.Repository.Ef6.dll"));
+	Assembly.Load(File.ReadAllBytes(modelpath + "EntityFramework.dll"));
+	Assembly.Load(File.ReadAllBytes(modelpath + "TLX.CloudCore.Patterns.Repository.dll"));
+	Assembly.Load(File.ReadAllBytes(modelpath + "TLX.CloudCore.Patterns.Service.dll"));
+	Assembly.Load(File.ReadAllBytes(modelpath + "TLX.CloudCore.KendoX.dll"));
+	Assembly.Load(File.ReadAllBytes(modelpath + "System.Web.Http.dll"));
+	//Assembly.Load(File.ReadAllBytes(viewmodelpath + "Swashbuckle.Core.dll"));
+	Assembly.Load(File.ReadAllBytes(modelpath + "TLX.CloudCore.Storage.dll"));
+	Assembly.Load(File.ReadAllBytes(modelpath + "Microsoft.WindowsAzure.Storage.dll"));	
+	Assembly.Load(File.ReadAllBytes(modelpath + "System.Net.Http.Formatting.dll"));	
+	//Assembly.Load(File.ReadAllBytes( currentlocation + "external-lib\\Telerik.Reporting.Services.WebApi.dll"));
+	Assembly.Load(File.ReadAllBytes("C:\\Program Files (x86)\\Reference Assemblies\\Microsoft\\Framework\\.NETFramework\\v4.5.1\\System.Web.dll"));
+	Assembly.Load(File.ReadAllBytes("C:\\Program Files (x86)\\Reference Assemblies\\Microsoft\\Framework\\.NETFramework\\v4.5.1\\System.Net.Http.dll"));
+	//Assembly.Load(File.ReadAllBytes("C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET MVC 4\\Assemblies\\System.Web.Http.dll"));
+
+
+	EFassembly = Assembly.Load(File.ReadAllBytes(modelpath + topNamespace + ".Models.dll"));
+	ServiceModelAssembly = Assembly.Load(File.ReadAllBytes(servicemodelpath + topNamespace + ".Services.dll"));
+	ViewModelAssembly = Assembly.Load(File.ReadAllBytes(viewmodelpath + topNamespace + ".Functions.dll"));
+}
+catch (ReflectionTypeLoadException ex)
+{
+    StringBuilder sb = new StringBuilder();
+    foreach (Exception exSub in ex.LoaderExceptions)
+    {
+        sb.AppendLine(exSub.Message);
+        FileNotFoundException exFileNotFound = exSub as FileNotFoundException;
+        if (exFileNotFound != null)
+        {                
+            if(!string.IsNullOrEmpty(exFileNotFound.FusionLog))
+            {
+                sb.AppendLine("Fusion Log:");
+                sb.AppendLine(exFileNotFound.FusionLog);
+            }
+        }
+        sb.AppendLine();
+    }
+    string errorMessage = sb.ToString();  
+}
+
+
+Func<Type, string> GetTypeNameSimple = (propertyType) =>
+{
+	string typename = propertyType.Name;
+
+	if (propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+	{
+        typename = propertyType.GetGenericArguments()[0].Name;
+		typename = "Nullable<" + typename + ">";
+	}
+	else if(propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(ICollection<>))
+	{
+        typename = propertyType.GetGenericArguments()[0].Name;
+		typename = "ICollection<" + typename + ">";
+	}
+
+	return typename;
+};
+
+
+Func<Type, string, string> GetTypeName = (propertyType, append) =>
+{
+
+	bool typeIsNullable = false;
+	bool typeIsCollection = false;
+
+	string typename = propertyType.Name;
+
+	if (propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+	{
+        typeIsNullable = true;
+        typename = propertyType.GetGenericArguments()[0].Name;
+	}
+	else if(propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(ICollection<>))
+	{
+        typeIsCollection = true;
+        typename = propertyType.GetGenericArguments()[0].Name;
+	}
+
+    if(typename == "DbGeography")
+    {
+        typename = "System.Data.Entity.Spatial.DbGeography";
+    }
+
+    if(Regex.Match(typename, "(?i)"+tablePrefix+"(?-i)").Success)
+    {
+        typename = Regex.Replace(typename, "(?i)"+tablePrefix+"(?-i)", "") + append;
+    }
+
+    if(typeIsCollection)
+    {
+        typename = "ICollection<" + typename + ">";
+    }
+
+    if(typeIsNullable)
+    {
+        typename = "Nullable<" + typename + ">";
+    }
+
+    typename = String.Join("", typename.Split('_'));
+
+	return typename;
+};
+
+
+Func<string, string> GetPropertyName = (propertyname) =>
+{
+	propertyname = Regex.Replace(propertyname, "(?i)"+tablePrefix+"(?-i)", ComplexPropertyPrefix);
+    
+    propertyname = String.Join("", propertyname.Split('_'));
+
+	propertyname = Regex.Replace(propertyname, "ID", "Id");
+
+	return propertyname;
+};
+
+Func<Assembly, IEnumerable<Type>> GetTypes = (asm) =>
+{
+	Type[] EFtypes;
+	try
+	{
+		EFtypes = asm.GetTypes();
+	}
+	catch (ReflectionTypeLoadException e)
+	{
+		EFtypes = e.Types;
+	}
+	return EFtypes.Where(t => t != null);
+};
+
+string templateDirectory = Path.GetDirectoryName(Host.TemplateFile);
+
+
+//loop for creating and finding differences in service models
+var EFTypes = GetTypes(EFassembly);
+var ServiceTypes = GetTypes(ServiceModelAssembly);
+var ViewModelTypes = GetTypes(ViewModelAssembly);
+foreach (var type in EFTypes) 
+{
+
+	if (type.Namespace != EFModelNamespace) 
+	{ 
+		continue;
+	}
+
+	if(type.Name == EFModelEntitiesClass)
+	{
+		continue;
+	}
+
+	string serviceModelName = Regex.Replace(type.Name, "(?i)"+tablePrefix+"(?-i)", "");
+	serviceModelName = String.Join("", serviceModelName.Split('_')) + "Model";
+
+	bool serviceModelAlreadyExists = false;
+
+	foreach (var servicemodeltype in ServiceTypes) 
+	{
+	if (servicemodeltype.Name.Contains("<") && servicemodeltype.Name.Contains(">"))//Dont remove this line, if you dont know what you are doing
+		{
+			continue;
+		}
+		if (servicemodeltype.Namespace != ServiceModelNamespace) 
+		{ 
+			continue;
+		}
+
+		if(servicemodeltype.Name == serviceModelName)
+		{
+			//handle finding differences between EF model and existing service model here
+
+			bool differencefound = false;
+
+			PropertyInfo[] props = type.GetProperties();
+
+			foreach (PropertyInfo property in props)
+			{
+				string typename = GetTypeName(property.PropertyType, "Model");
+				string propertyname = GetPropertyName(property.Name);
+
+				PropertyInfo[] servicemodelprops = servicemodeltype.GetProperties();
+
+				bool found = false;
+
+				foreach (PropertyInfo servicemodelprop in servicemodelprops)
+				{
+					if(servicemodelprop.Name == propertyname)
+					{
+						found = true;
+
+						string servicemodelproptype = GetTypeNameSimple(servicemodelprop.PropertyType);
+
+						if(servicemodelproptype != typename)
+						{
+							differencefound = true;
+#>
+Property <#=servicemodelproptype #> <#=servicemodelprop.Name #> has incorrect type, should be <#=typename #>
+<#
+						}
+					}
+					else if(string.Equals(servicemodelprop.Name, propertyname, StringComparison.OrdinalIgnoreCase))
+					{
+						found = true;
+
+						differencefound = true;
+#>
+Property name <#=servicemodelprop.Name #> has incorrect capitalization, should be <#=propertyname #>
+<#
+					}
+				}
+
+				if(!found)
+				{
+					differencefound = true;
+#>
+public <#=typename #> <#=propertyname #> { get; set; } does not exist
+<#
+				}
+			}
+
+			if(differencefound)
+			{
+				string outputFilePth = Path.Combine(templateDirectory, "ServiceModelChanges\\"+servicemodeltype.Name + "Changes" + ".txt");
+				File.WriteAllText(outputFilePth, this.GenerationEnvironment.ToString()); 
+
+				this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+			}
+			
+			serviceModelAlreadyExists = true;
+			break;
+		}
+	}
+
+	if(serviceModelAlreadyExists)
+	{
+		continue;
+	}
+
+#>
+using System;
+using System.Collections.Generic;
+using TLX.CloudCore.Patterns.Repository.Infrastructure;
+using <#=EFModelNamespace #>;
+using Nat.Core.ServiceModels;
+
+namespace <#=ServiceModelNamespace #>
+{
+	public class <#=serviceModelName #> : BaseServiceModel<<#=type.Name #>, <#=serviceModelName #>>, IObjectState
+	{
+<#	
+
+
+	PropertyInfo[] properties = type.GetProperties();
+
+	foreach (PropertyInfo property in properties)
+	{
+		string typename = GetTypeName(property.PropertyType, "Model");
+		string propertyname = GetPropertyName(property.Name);
+
+
+#>
+		public <#=typename #> <#=propertyname #> { get; set; }
+<#
+
+
+	}
+	
+	
+#>
+	}
+}
+<#	
+
+
+	string outputFilePath = Path.Combine(templateDirectory, "NewServiceModels\\"+serviceModelName + ".cs");
+	File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);	
+}
+
+
+
+//loop for creating and finding differences in view models
+foreach (var type in EFTypes) 
+{
+	if (type.Namespace != EFModelNamespace) 
+	{ 
+		continue;
+	}
+
+	if(type.Name == EFModelEntitiesClass)
+	{
+		continue;
+	}
+
+	string viewModelName = Regex.Replace(type.Name, "(?i)"+tablePrefix+"(?-i)", "");
+	viewModelName = String.Join("", viewModelName.Split('_'));
+
+	string serviceModelName = viewModelName + "Model";
+	viewModelName = viewModelName + "ViewModel";
+
+	bool viewModelAlreadyExists = false;
+
+	foreach (var viewmodeltype in ViewModelTypes) 
+	{
+		if (viewmodeltype.Namespace != ViewModelNamespace) 
+		{ 
+			continue;
+		}
+
+		if(viewmodeltype.Name == viewModelName)
+		{
+			//handle finding differences between ef model and existing view model here
+			
+			bool differencefound = false;
+
+			PropertyInfo[] props = type.GetProperties();
+
+			foreach (PropertyInfo property in props)
+			{
+				string typename = GetTypeName(property.PropertyType, "ViewModel");
+				string propertyname = GetPropertyName(property.Name);
+
+				if(typename == "ObjectState")
+				{
+					continue;
+				}
+
+				PropertyInfo[] viewmodelprops = viewmodeltype.GetProperties();
+
+				bool found = false;
+
+				foreach (PropertyInfo viewmodelprop in viewmodelprops)
+				{
+					if(viewmodelprop.Name == propertyname)
+					{
+						found = true;
+
+						string viewmodelproptype = GetTypeNameSimple(viewmodelprop.PropertyType);
+
+						if(viewmodelproptype != typename)
+						{
+							differencefound = true;
+#>
+Property <#=viewmodelproptype #> <#=viewmodelprop.Name #> has incorrect type, should be <#=typename #>
+<#
+						}
+					}
+					else if(string.Equals(viewmodelprop.Name, propertyname, StringComparison.OrdinalIgnoreCase))
+					{
+						found = true;
+
+						differencefound = true;
+#>
+Property name <#=viewmodelprop.Name #> has incorrect capitalization, should be <#=propertyname #>
+<#
+					}
+				}
+
+				if(!found)
+				{
+					differencefound = true;
+#>
+public <#=typename #> <#=propertyname #> { get; set; } does not exist
+<#
+				}
+			}
+
+			if(differencefound)
+			{
+				string outputFilePth = Path.Combine(templateDirectory, "ViewModelChanges\\"+viewmodeltype.Name + "Changes" + ".txt");
+				File.WriteAllText(outputFilePth, this.GenerationEnvironment.ToString()); 
+
+				this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);
+			}
+			
+			viewModelAlreadyExists = true;
+			break;
+		}
+	}
+
+	if(viewModelAlreadyExists)
+	{
+		continue;
+	}
+
+#>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using TLX.CloudCore.Patterns.DataMapper;
+using <#=ServiceModelNamespace #>;
+using Nat.Core.ViewModels;
+
+namespace <#=ViewModelNamespace #>
+{
+	public class <#=viewModelName #> : BaseAutoViewModel<<#=serviceModelName #>, <#=viewModelName #>>
+	{
+<#	
+
+
+	PropertyInfo[] properties = type.GetProperties();
+
+	foreach (PropertyInfo property in properties)
+	{
+		string typename = GetTypeName(property.PropertyType, "ViewModel");
+		string propertyname = GetPropertyName(property.Name);
+
+		if(typename == "ObjectState")
+		{
+			continue;
+		}
+
+#>
+		public <#=typename #> <#=propertyname #> { get; set; }
+<#
+
+
+	}
+	
+	
+#>
+	}
+}
+<#	
+
+
+	string outputFilePath = Path.Combine(templateDirectory, "NewViewModels\\"+viewModelName + ".cs");
+	File.WriteAllText(outputFilePath, this.GenerationEnvironment.ToString()); 
+
+	this.GenerationEnvironment.Remove(0, this.GenerationEnvironment.Length);	
+}
+#>

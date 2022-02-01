@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4DEC3511-27DD-4008-B2A3-448EF075F4B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Nat.PlannerApp.Models</RootNamespace>
+    <AssemblyName>Nat.PlannerApp.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EFModel\NAT_PLS_Availability.cs">
+      <DependentUpon>PlannerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PLS_Availability_Slot.cs">
+      <DependentUpon>PlannerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PLS_Event.cs">
+      <DependentUpon>PlannerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PLS_Planner.cs">
+      <DependentUpon>PlannerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\NAT_PLS_Slot.cs">
+      <DependentUpon>PlannerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\PlannerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlannerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\PlannerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlannerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EFModel\PlannerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlannerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Interceptors\Configuration.cs" />
+    <Compile Include="ModelGeneration\ModelGeneration1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelGeneration.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\PlannerRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConnectionStrings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <EntityDeploy Include="EFModel\PlannerModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PlannerModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EFModel\PlannerModel.edmx.diagram">
+      <DependentUpon>PlannerModel.edmx</DependentUpon>
+    </None>
+    <None Include="TLXStorage.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EFModel\PlannerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlannerModel.edmx</DependentUpon>
+      <LastGenOutput>PlannerModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EFModel\PlannerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlannerModel.edmx</DependentUpon>
+      <LastGenOutput>PlannerModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelGeneration\ModelGeneration.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelGeneration1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelGeneration\NewServiceModels\" />
+    <Folder Include="ModelGeneration\NewViewModels\" />
+    <Folder Include="ModelGeneration\ServiceModelChanges\" />
+    <Folder Include="ModelGeneration\ViewModelChanges\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nat.Common\Nat.Common.csproj">
+      <Project>{93e4d435-5d9e-467e-a08a-4096d0588558}</Project>
+      <Name>Nat.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Nat.Core\Nat.Core.csproj">
+      <Project>{367527ca-6238-4254-8076-5a68e82a7ff5}</Project>
+      <Name>Nat.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="LinqKit">
+      <Version>1.1.16</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.SqlDatabase.ElasticScale.Client">
+      <Version>1.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.WebJobs">
+      <Version>1.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Web.WebJobs.Publish">
+      <Version>1.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="TLX.CloudCore.Exception">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="TLX.CloudCore.Patterns.DataMapper">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository.Ef6">
+      <Version>1.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="TLX.CloudCore.Patterns.Service">
+      <Version>1.0.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="TLX.CloudCore.Sharding">
+      <Version>1.0.0.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

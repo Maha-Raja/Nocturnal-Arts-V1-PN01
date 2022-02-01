@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="natModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NAT_LUS_Configuration">
+          <Key>
+            <PropertyRef Name="Configuration_ID" />
+          </Key>
+          <Property Name="Configuration_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="User_Editable" Type="bit" Nullable="false" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_LUS_Lookup">
+          <Key>
+            <PropertyRef Name="Lookup_id" />
+          </Key>
+          <Property Name="Lookup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hidden_Value" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Visible_Value" Type="varchar" MaxLength="255" />
+          <Property Name="User_Editable_Flag" Type="bit" Nullable="false" />
+          <Property Name="Lookup_Type" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Lookup_Description" Type="varchar" MaxLength="255" />
+          <Property Name="Filtered_Flag" Type="bit" />
+          <Property Name="Preferred_Flag" Type="bit" />
+          <Property Name="Sort_Order" Type="int" />
+          <Property Name="Effective_Start_Date" Type="date" />
+          <Property Name="Effective_End_Date" Type="date" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="String_Attribute_1" Type="varchar" MaxLength="500" />
+          <Property Name="String_Attribute_2" Type="varchar" MaxLength="500" />
+          <Property Name="String_Attribute_3" Type="varchar" MaxLength="500" />
+          <Property Name="String_Attribute_4" Type="varchar" MaxLength="500" />
+          <Property Name="String_Attribute_5" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="natModelStoreContainer">
+          <EntitySet Name="NAT_LUS_Configuration" EntityType="Self.NAT_LUS_Configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_LUS_Lookup" EntityType="Self.NAT_LUS_Lookup" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="natModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LookupEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="NAT_LUS_Configuration" EntityType="natModel.NAT_LUS_Configuration" />
+          <EntitySet Name="NAT_LUS_Lookup" EntityType="natModel.NAT_LUS_Lookup" />
+        </EntityContainer>
+        <EntityType Name="NAT_LUS_Configuration">
+          <Key>
+            <PropertyRef Name="Configuration_ID" />
+          </Key>
+          <Property Name="Configuration_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="User_Editable" Type="Boolean" Nullable="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NAT_LUS_Lookup">
+          <Key>
+            <PropertyRef Name="Lookup_id" />
+          </Key>
+          <Property Name="Lookup_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hidden_Value" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Visible_Value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="User_Editable_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Lookup_Type" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Lookup_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Filtered_Flag" Type="Boolean" />
+          <Property Name="Preferred_Flag" Type="Boolean" />
+          <Property Name="Sort_Order" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="String_Attribute_1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="String_Attribute_2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="String_Attribute_3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="String_Attribute_4" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="String_Attribute_5" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="natModelStoreContainer" CdmEntityContainer="LookupEntities">
+          <EntitySetMapping Name="NAT_LUS_Configuration">
+            <EntityTypeMapping TypeName="natModel.NAT_LUS_Configuration">
+              <MappingFragment StoreEntitySet="NAT_LUS_Configuration">
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="User_Editable" ColumnName="User_Editable" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Configuration_ID" ColumnName="Configuration_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_LUS_Lookup">
+            <EntityTypeMapping TypeName="natModel.NAT_LUS_Lookup">
+              <MappingFragment StoreEntitySet="NAT_LUS_Lookup">
+                <ScalarProperty Name="String_Attribute_5" ColumnName="String_Attribute_5" />
+                <ScalarProperty Name="String_Attribute_4" ColumnName="String_Attribute_4" />
+                <ScalarProperty Name="String_Attribute_3" ColumnName="String_Attribute_3" />
+                <ScalarProperty Name="String_Attribute_2" ColumnName="String_Attribute_2" />
+                <ScalarProperty Name="String_Attribute_1" ColumnName="String_Attribute_1" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Sort_Order" ColumnName="Sort_Order" />
+                <ScalarProperty Name="Preferred_Flag" ColumnName="Preferred_Flag" />
+                <ScalarProperty Name="Filtered_Flag" ColumnName="Filtered_Flag" />
+                <ScalarProperty Name="Lookup_Description" ColumnName="Lookup_Description" />
+                <ScalarProperty Name="Lookup_Type" ColumnName="Lookup_Type" />
+                <ScalarProperty Name="User_Editable_Flag" ColumnName="User_Editable_Flag" />
+                <ScalarProperty Name="Visible_Value" ColumnName="Visible_Value" />
+                <ScalarProperty Name="Hidden_Value" ColumnName="Hidden_Value" />
+                <ScalarProperty Name="Lookup_id" ColumnName="Lookup_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

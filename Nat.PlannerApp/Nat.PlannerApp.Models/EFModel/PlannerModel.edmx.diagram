@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dcea88a1031d4c46b503a6862877d4ee" Name="Diagram1">
+        <EntityTypeShape EntityType="PlannerModel.NAT_PLS_Availability" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlannerModel.NAT_PLS_Availability_Slot" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlannerModel.NAT_PLS_Event" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlannerModel.NAT_PLS_Planner" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PlannerModel.NAT_PLS_Slot" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="PlannerModel.FK_NAT_PLS_Event_NAT_PLS_Planner" ManuallyRouted="false" />
+        <AssociationConnector Association="PlannerModel.FK_NAT_PLS_Slot_NAT_PLS_Planner" ManuallyRouted="false" />
+        <AssociationConnector Association="PlannerModel.FK_NAT_PLS_Availability_NAT_PLS_Planner" />
+        <AssociationConnector Association="PlannerModel.FK_NAT_PLS_Availability_Slot_NAT_PLS_Availability" />
+        <AssociationConnector Association="PlannerModel.FK_NAT_PLS_Slot_NAT_ES_Event" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

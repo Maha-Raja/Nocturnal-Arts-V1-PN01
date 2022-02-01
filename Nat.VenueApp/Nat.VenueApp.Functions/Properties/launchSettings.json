@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nat.VenueApp.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "host start --port 7078"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nat.EventApp.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "host start --port 7073"
+    }
+  }
+}

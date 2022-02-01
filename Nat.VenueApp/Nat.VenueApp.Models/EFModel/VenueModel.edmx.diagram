@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d353893e63ba42ffb7603250f8ac0a57" Name="Diagram1" ZoomLevel="82">
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue" Width="1.5" PointX="3" PointY="14.125" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Address" Width="1.5" PointX="0.75" PointY="16" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Event" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Facility" Width="1.5" PointX="5.25" PointY="25.625" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Hall" Width="1.5" PointX="5.25" PointY="33.25" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Rating" Width="1.5" PointX="5.25" PointY="29.125" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Seat" Width="1.5" PointX="9.75" PointY="33.25" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Seating_Plan" Width="1.5" PointX="7.5" PointY="33.375" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Facility_NAT_VS_Venue" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Hall_Venue_ID" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Address" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_NAT_VS_Venue_Event_VenueID" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Rating_Venue_ID" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Seating_Plan_Venue_Hall_ID" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Seat_Seating_Plan_ID" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Image" Width="1.5" PointX="5.25" PointY="16.625" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Image_Venue_ID" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Rating_Log" Width="1.5" PointX="5.25" PointY="20.375" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Rating_Log_NAT_VS_Venue" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Contact_Person" Width="1.5" PointX="8.25" PointY="14.875" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Contact_Person_Venue_ID" />
+        <AssociationConnector Association="VenueModel.FK__NAT_VS_Ve__Billi__30C33EC3" />
+        <AssociationConnector Association="VenueModel.FK__NAT_VS_Ve__Resid__31B762FC" />
+        <AssociationConnector Association="VenueModel.FK__NAT_VS_Ve__Shipp__32AB8735" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Document" Width="1.5" PointX="5.25" PointY="5.875" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Document_NAT_VS_Venue" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Artist_Preference" Width="1.5" PointX="5.25" PointY="2.875" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Artist_Preference_NAT_VS_Venue" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Bank_Account" Width="1.5" PointX="8.25" PointY="22.875" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Bank_Account_NAT_VS_Venue_Address" />
+        <EntityTypeShape EntityType="VenueModel.NAT_VS_Venue_Metro_City_Mapping" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="VenueModel.FK_NAT_VS_Venue_Metro_City_Mapping_NAT_VS_Venue" />
+        <EntityTypeShape EntityType="VenueModel.NAT_Venue_VW" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

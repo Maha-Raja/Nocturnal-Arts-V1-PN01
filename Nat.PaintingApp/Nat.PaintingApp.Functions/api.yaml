@@ -1,0 +1,170 @@
+openapi: 3.0.2
+info:
+  title: Painting Service
+  version: '1.0'
+  description: >-
+    Painting Service will let Artist access paintings to be used in an Event. It
+    will also enable Artist to submit painting for approval.
+  contact:
+    name: Usman Shaikh
+    email: usman.shaikh@techlogix.com
+servers:
+  - url: 'https://localhost:7075/api'
+components:
+  schemas:
+    Image:
+      type: object
+      properties:
+        ID:
+          type: integer
+        Url:
+          type: string
+        PublicUrl:
+          type: string
+    Painting:
+      type: object
+      properties:
+        ID:
+          type: integer
+        Name:
+          type: string
+        Category:
+          type: string
+          description: |
+            Category of painting
+            * 'AA' - Abstract Artist
+            * 'MO' - Modernism
+            * 'SU' - Surrealism
+          enum:
+            - AA
+            - MO
+            - SU
+        Type:
+          type: string
+          description: |
+            Type of painting
+            * 'WC' - Water Color Painting
+            * 'OP' - Oil Painting
+            * 'IW' - Ink Wash Painting
+            * 'AC' - Acrylic Painting
+          enum:
+            - WC
+            - O
+            - IW
+            - AC
+        ArtistID:
+          type: integer
+          description: ID of artist who owns the painting
+        InspiredFrom:
+          type: string
+        DifficultyLevel:
+          type: integer
+          description: |
+            Difficulty level of the painting
+            * 1 - Beginner
+            * 2 - Easy
+            * 3 - Hard
+        VideoTutorialID:
+          type: integer
+        Images:
+          type: array
+          items:
+            $ref: '#/components/schemas/Image'
+paths:
+  '/image/{imageID}':
+    get:
+      description: ''
+      parameters: 
+        - name: "imageID"
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+  '/image':
+    put:
+      description: Upload image
+      requestBody:
+        content:
+          image/png:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Image'
+  '/painting':
+    get:
+      description: Get list of Approved paintings
+      parameters: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Painting'
+    post:
+      description: 'Submit painting for Approval'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Painting'
+      responses:
+        '200':
+          description: OK
+  '/painting/approve/{paintingID}':
+    put:
+      description: Approve Painting
+      parameters:
+        - name: "paintingID"
+          in: path
+          required: true
+          schema: 
+            type: integer
+      responses:
+        '200':
+          description: OK
+  '/painting/searchForEvent':
+    put:
+      description: Search painting for an event based on following parameters
+        DifficultyLevel, Category, Type, SearchText.
+        SearchText will be searched in Name and Description of painting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                DifficultyLevel:
+                  type: integer
+                Category:
+                  type: string
+                Type:
+                  type: string
+                SearchText:
+                  type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Painting'
+
+                
+

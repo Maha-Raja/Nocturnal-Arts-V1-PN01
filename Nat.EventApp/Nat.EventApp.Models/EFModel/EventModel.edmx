@@ -1,0 +1,1092 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EventModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NAT_ES_Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist_ID" Type="int" />
+          <Property Name="Event_Type_LKP_ID" Type="int" Nullable="false" />
+          <Property Name="Event_Status_LKP_ID" Type="int" Nullable="false" />
+          <Property Name="Painting_ID" Type="int" Nullable="false" />
+          <Property Name="Painting_Updated_Date" Type="datetime" />
+          <Property Name="Seating_Plan_ID" Type="int" />
+          <Property Name="Location_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Venue_City_Code" Type="varchar" MaxLength="500" />
+          <Property Name="Event_Age_Group_Type_LKP_ID" Type="int" />
+          <Property Name="Event_Category_LKP_ID" Type="int" />
+          <Property Name="Venue_ID" Type="int" />
+          <Property Name="Venue_Hall_ID" Type="int" />
+          <Property Name="Event_Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Max_Ticket_Price" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Min_Ticket_Price" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Is_Featured" Type="bit" />
+          <Property Name="Event_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Event_Date" Type="datetime" />
+          <Property Name="Event_Start_Time" Type="datetime" />
+          <Property Name="Event_End_Time" Type="datetime" />
+          <Property Name="Private_Event_Flag" Type="bit" />
+          <Property Name="Fundraising_Event_Flag" Type="bit" />
+          <Property Name="Event_Description" Type="varchar(max)" />
+          <Property Name="Event_Tags" Type="varchar(max)" />
+          <Property Name="Note_To_VCP" Type="varchar" MaxLength="255" />
+          <Property Name="Virtual" Type="bit" Nullable="false" />
+          <Property Name="Google_Hangout_URL" Type="nvarchar(max)" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="Mark_For_Painting_Change" Type="bit" Nullable="false" />
+          <Property Name="Auto_Painting" Type="bit" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Facility">
+          <Key>
+            <PropertyRef Name="Event_Facility_ID" />
+          </Key>
+          <Property Name="Event_Facility_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Facility_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Facility_LKP_ID" Type="int" />
+          <Property Name="Facility_Description" Type="varchar" MaxLength="255" />
+          <Property Name="Event_ID" Type="int" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Feedback">
+          <Key>
+            <PropertyRef Name="Event_Feedback_ID" />
+          </Key>
+          <Property Name="Event_Feedback_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="No_of_Attendees" Type="int" Nullable="false" />
+          <Property Name="Venue_Rating" Type="float" Nullable="false" />
+          <Property Name="Image_Path" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Image">
+          <Key>
+            <PropertyRef Name="Event_Image_ID" />
+          </Key>
+          <Property Name="Event_Image_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Image_Path" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Image_Type_LKP" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Iteration">
+          <Key>
+            <PropertyRef Name="Iteration_ID" />
+          </Key>
+          <Property Name="Iteration_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Iteration_Status" Type="int" Nullable="false" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Value" Type="varchar(max)" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Seat">
+          <Key>
+            <PropertyRef Name="Seat_ID" />
+          </Key>
+          <Property Name="Seat_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Seating_Plan_ID" Type="int" />
+          <Property Name="Seat_Type_LKP_ID" Type="int" />
+          <Property Name="Seat_Allocation_Type_LKP_ID" Type="int" />
+          <Property Name="Label" Type="varchar" MaxLength="100" />
+          <Property Name="Row_Number" Type="varchar" MaxLength="50" />
+          <Property Name="Seat_Number" Type="varchar" MaxLength="200" />
+          <Property Name="Offset_X" Type="int" />
+          <Property Name="Offset_Y" Type="int" />
+          <Property Name="Radius" Type="int" />
+          <Property Name="Status_LKP" Type="varchar" MaxLength="50" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Seating_Plan">
+          <Key>
+            <PropertyRef Name="Seating_Plan_ID" />
+          </Key>
+          <Property Name="Seating_Plan_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event_ID" Type="int" />
+          <Property Name="Reference_ID" Type="int" />
+          <Property Name="Event_Seating_Plan_Name" Type="varchar" MaxLength="500" />
+          <Property Name="Total_Seats" Type="int" />
+          <Property Name="Default_Plan" Type="bit" />
+          <Property Name="Background_Image" Type="varchar" MaxLength="255" />
+          <Property Name="Effective_Start_Date" Type="datetime" />
+          <Property Name="Effective_End_Date" Type="datetime" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Ticket_Price">
+          <Key>
+            <PropertyRef Name="Event_Ticket_Price_ID" />
+          </Key>
+          <Property Name="Event_Ticket_Price_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Seat_Type_LKP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Wait_List">
+          <Key>
+            <PropertyRef Name="Event_Wait_List_ID" />
+          </Key>
+          <Property Name="Event_Wait_List_ID" Type="int" Nullable="false" />
+          <Property Name="Event_ID" Type="int" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" Nullable="false" />
+          <Property Name="Event_Wait_List_Name" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Effective_Start_Date" Type="date" Nullable="false" />
+          <Property Name="Effective_End_Date" Type="date" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nat-dev.dbo.NAT_BOOKED_TICKET_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NAT_BOOKED_TICKET_VW">
+          <Key>
+            <PropertyRef Name="Booking_ID" />
+            <PropertyRef Name="Ticket_ID" />
+            <PropertyRef Name="Ticket_Code" />
+            <PropertyRef Name="Created_Date" />
+            <PropertyRef Name="Active_Flag" />
+            <PropertyRef Name="EventStatus" />
+          </Key>
+          <Property Name="Booking_ID" Type="int" Nullable="false" />
+          <Property Name="Ticket_ID" Type="int" Nullable="false" />
+          <Property Name="Ticket_Code" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Row_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Seat_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Cancellation_Reason" Type="varchar" MaxLength="255" />
+          <Property Name="Ticket_Type_LKP" Type="varchar" MaxLength="255" />
+          <Property Name="Ticket_Type" Type="varchar" MaxLength="255" />
+          <Property Name="Status_LKP" Type="varchar" MaxLength="255" />
+          <Property Name="Customer_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Customer_Email" Type="varchar" MaxLength="255" />
+          <Property Name="Customer_Contact" Type="varchar" MaxLength="255" />
+          <Property Name="Customer_Age" Type="int" />
+          <Property Name="Image_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Checked_In" Type="bit" />
+          <Property Name="Checked_In_Time" Type="datetime" />
+          <Property Name="Checked_In_By" Type="int" />
+          <Property Name="QRCode_Image_Url" Type="varchar" MaxLength="255" />
+          <Property Name="Event_Painting_ID" Type="int" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Has_Disability" Type="bit" />
+          <Property Name="Booking_Date" Type="datetime" />
+          <Property Name="Booking_Number" Type="varchar" MaxLength="255" />
+          <Property Name="Event_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Invoice_ID" Type="int" />
+          <Property Name="Event_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Event_Start_Time" Type="datetime" />
+          <Property Name="Event_End_Time" Type="datetime" />
+          <Property Name="Event_ID" Type="int" />
+          <Property Name="Location_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Virtual" Type="bit" />
+          <Property Name="EventStatus" Type="varchar" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'nat-dev.dbo.NAT_TICKET_SUMMARY_VW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="NAT_TICKET_SUMMARY_VW">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="Event_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Seat_Type" Type="varchar" MaxLength="30" />
+          <Property Name="Ticket_Status" Type="varchar" MaxLength="255" />
+          <Property Name="Ticket_Count" Type="int" />
+          <Property Name="Total_Seats" Type="int" />
+          <Property Name="Ticket_Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Checked_In_Ticket_Count" Type="int" />
+        </EntityType>
+        <Association Name="FK_EventID">
+          <End Role="NAT_ES_Event" Type="Self.NAT_ES_Event" Multiplicity="1" />
+          <End Role="NAT_ES_Event_Feedback" Type="Self.NAT_ES_Event_Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Feedback">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Facility_NAT_ES_Event">
+          <End Role="NAT_ES_Event" Type="Self.NAT_ES_Event" Multiplicity="0..1" />
+          <End Role="NAT_ES_Event_Facility" Type="Self.NAT_ES_Event_Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Facility">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Image_ID_NAT_ES_Event">
+          <End Role="NAT_ES_Event" Type="Self.NAT_ES_Event" Multiplicity="1" />
+          <End Role="NAT_ES_Event_Image" Type="Self.NAT_ES_Event_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Image">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Iteration_NAT_ES_Event">
+          <End Role="NAT_ES_Event" Type="Self.NAT_ES_Event" Multiplicity="1" />
+          <End Role="NAT_ES_Event_Iteration" Type="Self.NAT_ES_Event_Iteration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Iteration">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan">
+          <End Role="NAT_ES_Event_Seating_Plan" Type="Self.NAT_ES_Event_Seating_Plan" Multiplicity="0..1" />
+          <End Role="NAT_ES_Event_Seat" Type="Self.NAT_ES_Event_Seat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event_Seating_Plan">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Seat">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event">
+          <End Role="NAT_ES_Event" Type="Self.NAT_ES_Event" Multiplicity="0..1" />
+          <End Role="NAT_ES_Event_Seating_Plan" Type="Self.NAT_ES_Event_Seating_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Seating_Plan">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event">
+          <End Role="NAT_ES_Event" Type="Self.NAT_ES_Event" Multiplicity="1" />
+          <End Role="NAT_ES_Event_Ticket_Price" Type="Self.NAT_ES_Event_Ticket_Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Ticket_Price">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Wait_List_NAT_ES_Event">
+          <End Role="NAT_ES_Event" Type="Self.NAT_ES_Event" Multiplicity="1" />
+          <End Role="NAT_ES_Event_Wait_List" Type="Self.NAT_ES_Event_Wait_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Wait_List">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetNextSequenceEventCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="EventModelStoreContainer">
+          <EntitySet Name="NAT_ES_Event" EntityType="Self.NAT_ES_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Facility" EntityType="Self.NAT_ES_Event_Facility" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Feedback" EntityType="Self.NAT_ES_Event_Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Image" EntityType="Self.NAT_ES_Event_Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Iteration" EntityType="Self.NAT_ES_Event_Iteration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Seat" EntityType="Self.NAT_ES_Event_Seat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Seating_Plan" EntityType="Self.NAT_ES_Event_Seating_Plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Ticket_Price" EntityType="Self.NAT_ES_Event_Ticket_Price" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_ES_Event_Wait_List" EntityType="Self.NAT_ES_Event_Wait_List" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_BOOKED_TICKET_VW" EntityType="Self.NAT_BOOKED_TICKET_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NAT_BOOKED_TICKET_VW].[Booking_ID] AS [Booking_ID], 
+    [NAT_BOOKED_TICKET_VW].[Ticket_ID] AS [Ticket_ID], 
+    [NAT_BOOKED_TICKET_VW].[Ticket_Code] AS [Ticket_Code], 
+    [NAT_BOOKED_TICKET_VW].[Row_Number] AS [Row_Number], 
+    [NAT_BOOKED_TICKET_VW].[Seat_Number] AS [Seat_Number], 
+    [NAT_BOOKED_TICKET_VW].[Cancellation_Reason] AS [Cancellation_Reason], 
+    [NAT_BOOKED_TICKET_VW].[Ticket_Type_LKP] AS [Ticket_Type_LKP], 
+    [NAT_BOOKED_TICKET_VW].[Ticket_Type] AS [Ticket_Type], 
+    [NAT_BOOKED_TICKET_VW].[Status_LKP] AS [Status_LKP], 
+    [NAT_BOOKED_TICKET_VW].[Customer_Name] AS [Customer_Name], 
+    [NAT_BOOKED_TICKET_VW].[Customer_Email] AS [Customer_Email], 
+    [NAT_BOOKED_TICKET_VW].[Customer_Contact] AS [Customer_Contact], 
+    [NAT_BOOKED_TICKET_VW].[Customer_Age] AS [Customer_Age], 
+    [NAT_BOOKED_TICKET_VW].[Image_Url] AS [Image_Url], 
+    [NAT_BOOKED_TICKET_VW].[Checked_In] AS [Checked_In], 
+    [NAT_BOOKED_TICKET_VW].[Checked_In_Time] AS [Checked_In_Time], 
+    [NAT_BOOKED_TICKET_VW].[Checked_In_By] AS [Checked_In_By], 
+    [NAT_BOOKED_TICKET_VW].[QRCode_Image_Url] AS [QRCode_Image_Url], 
+    [NAT_BOOKED_TICKET_VW].[Event_Painting_ID] AS [Event_Painting_ID], 
+    [NAT_BOOKED_TICKET_VW].[Created_Date] AS [Created_Date], 
+    [NAT_BOOKED_TICKET_VW].[Created_By] AS [Created_By], 
+    [NAT_BOOKED_TICKET_VW].[Last_Updated_Date] AS [Last_Updated_Date], 
+    [NAT_BOOKED_TICKET_VW].[Last_Updated_By] AS [Last_Updated_By], 
+    [NAT_BOOKED_TICKET_VW].[Active_Flag] AS [Active_Flag], 
+    [NAT_BOOKED_TICKET_VW].[Has_Disability] AS [Has_Disability], 
+    [NAT_BOOKED_TICKET_VW].[Booking_Date] AS [Booking_Date], 
+    [NAT_BOOKED_TICKET_VW].[Booking_Number] AS [Booking_Number], 
+    [NAT_BOOKED_TICKET_VW].[Event_Code] AS [Event_Code], 
+    [NAT_BOOKED_TICKET_VW].[Invoice_ID] AS [Invoice_ID], 
+    [NAT_BOOKED_TICKET_VW].[Event_Name] AS [Event_Name], 
+    [NAT_BOOKED_TICKET_VW].[Event_Start_Time] AS [Event_Start_Time], 
+    [NAT_BOOKED_TICKET_VW].[Event_End_Time] AS [Event_End_Time], 
+    [NAT_BOOKED_TICKET_VW].[Event_ID] AS [Event_ID], 
+    [NAT_BOOKED_TICKET_VW].[Location_Code] AS [Location_Code], 
+    [NAT_BOOKED_TICKET_VW].[Virtual] AS [Virtual], 
+    [NAT_BOOKED_TICKET_VW].[EventStatus] AS [EventStatus]
+    FROM [dbo].[NAT_BOOKED_TICKET_VW] AS [NAT_BOOKED_TICKET_VW]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="NAT_TICKET_SUMMARY_VW" EntityType="Self.NAT_TICKET_SUMMARY_VW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [NAT_TICKET_SUMMARY_VW].[ID] AS [ID], 
+    [NAT_TICKET_SUMMARY_VW].[Event_Code] AS [Event_Code], 
+    [NAT_TICKET_SUMMARY_VW].[Seat_Type] AS [Seat_Type], 
+    [NAT_TICKET_SUMMARY_VW].[Ticket_Status] AS [Ticket_Status], 
+    [NAT_TICKET_SUMMARY_VW].[Ticket_Count] AS [Ticket_Count], 
+    [NAT_TICKET_SUMMARY_VW].[Total_Seats] AS [Total_Seats], 
+    [NAT_TICKET_SUMMARY_VW].[Ticket_Price] AS [Ticket_Price], 
+    [NAT_TICKET_SUMMARY_VW].[Checked_In_Ticket_Count] AS [Checked_In_Ticket_Count]
+    FROM [dbo].[NAT_TICKET_SUMMARY_VW] AS [NAT_TICKET_SUMMARY_VW]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_EventID" Association="Self.FK_EventID">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Feedback" EntitySet="NAT_ES_Event_Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Facility_NAT_ES_Event" Association="Self.FK_NAT_ES_Event_Facility_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Facility" EntitySet="NAT_ES_Event_Facility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Image_ID_NAT_ES_Event" Association="Self.FK_NAT_ES_Event_Image_ID_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Image" EntitySet="NAT_ES_Event_Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Iteration_NAT_ES_Event" Association="Self.FK_NAT_ES_Event_Iteration_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Iteration" EntitySet="NAT_ES_Event_Iteration" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan" Association="Self.FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan">
+            <End Role="NAT_ES_Event_Seating_Plan" EntitySet="NAT_ES_Event_Seating_Plan" />
+            <End Role="NAT_ES_Event_Seat" EntitySet="NAT_ES_Event_Seat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event" Association="Self.FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Seating_Plan" EntitySet="NAT_ES_Event_Seating_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event" Association="Self.FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Ticket_Price" EntitySet="NAT_ES_Event_Ticket_Price" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Wait_List_NAT_ES_Event" Association="Self.FK_NAT_ES_Event_Wait_List_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Wait_List" EntitySet="NAT_ES_Event_Wait_List" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EventModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EventEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GetNextSequenceEventCode" ReturnType="Collection(Int64)" />
+          <EntitySet Name="NAT_ES_Event" EntityType="EventModel.NAT_ES_Event" />
+          <EntitySet Name="NAT_ES_Event_Facility" EntityType="EventModel.NAT_ES_Event_Facility" />
+          <EntitySet Name="NAT_ES_Event_Feedback" EntityType="EventModel.NAT_ES_Event_Feedback" />
+          <EntitySet Name="NAT_ES_Event_Seat" EntityType="EventModel.NAT_ES_Event_Seat" />
+          <EntitySet Name="NAT_ES_Event_Seating_Plan" EntityType="EventModel.NAT_ES_Event_Seating_Plan" />
+          <EntitySet Name="NAT_ES_Event_Ticket_Price" EntityType="EventModel.NAT_ES_Event_Ticket_Price" />
+          <EntitySet Name="NAT_ES_Event_Wait_List" EntityType="EventModel.NAT_ES_Event_Wait_List" />
+          <AssociationSet Name="FK_EventID" Association="EventModel.FK_EventID">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Feedback" EntitySet="NAT_ES_Event_Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Facility_NAT_ES_Event" Association="EventModel.FK_NAT_ES_Event_Facility_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Facility" EntitySet="NAT_ES_Event_Facility" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event" Association="EventModel.FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Seating_Plan" EntitySet="NAT_ES_Event_Seating_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event" Association="EventModel.FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Ticket_Price" EntitySet="NAT_ES_Event_Ticket_Price" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Wait_List_NAT_ES_Event" Association="EventModel.FK_NAT_ES_Event_Wait_List_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Wait_List" EntitySet="NAT_ES_Event_Wait_List" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan" Association="EventModel.FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan">
+            <End Role="NAT_ES_Event_Seating_Plan" EntitySet="NAT_ES_Event_Seating_Plan" />
+            <End Role="NAT_ES_Event_Seat" EntitySet="NAT_ES_Event_Seat" />
+          </AssociationSet>
+          <EntitySet Name="NAT_ES_Event_Image" EntityType="EventModel.NAT_ES_Event_Image" />
+          <AssociationSet Name="FK_NAT_ES_Event_Image_ID_NAT_ES_Event" Association="EventModel.FK_NAT_ES_Event_Image_ID_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Image" EntitySet="NAT_ES_Event_Image" />
+          </AssociationSet>
+          <EntitySet Name="NAT_TICKET_SUMMARY_VW" EntityType="EventModel.NAT_TICKET_SUMMARY_VW" />
+          <EntitySet Name="NAT_ES_Event_Iteration" EntityType="EventModel.NAT_ES_Event_Iteration" />
+          <AssociationSet Name="FK_NAT_ES_Event_Iteration_NAT_ES_Event" Association="EventModel.FK_NAT_ES_Event_Iteration_NAT_ES_Event">
+            <End Role="NAT_ES_Event" EntitySet="NAT_ES_Event" />
+            <End Role="NAT_ES_Event_Iteration" EntitySet="NAT_ES_Event_Iteration" />
+          </AssociationSet>
+          <EntitySet Name="NAT_BOOKED_TICKET_VW" EntityType="EventModel.NAT_BOOKED_TICKET_VW" />
+          </EntityContainer>
+        <EntityType Name="NAT_ES_Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist_ID" Type="Int32" />
+          <Property Name="Event_Type_LKP_ID" Type="Int32" Nullable="false" />
+          <Property Name="Event_Status_LKP_ID" Type="Int32" Nullable="false" />
+          <Property Name="Painting_ID" Type="Int32" Nullable="false" />
+          <Property Name="Seating_Plan_ID" Type="Int32" />
+          <Property Name="Location_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Venue_City_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Age_Group_Type_LKP_ID" Type="Int32" />
+          <Property Name="Event_Category_LKP_ID" Type="Int32" />
+          <Property Name="Venue_ID" Type="Int32" />
+          <Property Name="Venue_Hall_ID" Type="Int32" />
+          <Property Name="Event_Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Max_Ticket_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Min_Ticket_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Is_Featured" Type="Boolean" />
+          <Property Name="Event_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Event_Date" Type="DateTime" Precision="3" />
+          <Property Name="Event_Start_Time" Type="DateTime" Precision="3" />
+          <Property Name="Event_End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Private_Event_Flag" Type="Boolean" />
+          <Property Name="Fundraising_Event_Flag" Type="Boolean" />
+          <Property Name="Event_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Tags" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Note_To_VCP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Virtual" Type="Boolean" Nullable="false" />
+          <Property Name="Google_Hangout_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event_Feedback" Relationship="EventModel.FK_EventID" FromRole="NAT_ES_Event" ToRole="NAT_ES_Event_Feedback" />
+          <NavigationProperty Name="NAT_ES_Event_Facility" Relationship="EventModel.FK_NAT_ES_Event_Facility_NAT_ES_Event" FromRole="NAT_ES_Event" ToRole="NAT_ES_Event_Facility" />
+          <NavigationProperty Name="NAT_ES_Event_Seating_Plan" Relationship="EventModel.FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event" FromRole="NAT_ES_Event" ToRole="NAT_ES_Event_Seating_Plan" />
+          <NavigationProperty Name="NAT_ES_Event_Ticket_Price" Relationship="EventModel.FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event" FromRole="NAT_ES_Event" ToRole="NAT_ES_Event_Ticket_Price" />
+          <NavigationProperty Name="NAT_ES_Event_Wait_List" Relationship="EventModel.FK_NAT_ES_Event_Wait_List_NAT_ES_Event" FromRole="NAT_ES_Event" ToRole="NAT_ES_Event_Wait_List" />
+          <Property Name="Painting_Updated_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="NAT_ES_Event_Image" Relationship="EventModel.FK_NAT_ES_Event_Image_ID_NAT_ES_Event" FromRole="NAT_ES_Event" ToRole="NAT_ES_Event_Image" />
+          <Property Name="Mark_For_Painting_Change" Type="Boolean" Nullable="false" />
+          <Property Name="Auto_Painting" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event_Iteration" Relationship="EventModel.FK_NAT_ES_Event_Iteration_NAT_ES_Event" FromRole="NAT_ES_Event" ToRole="NAT_ES_Event_Iteration" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Facility">
+          <Key>
+            <PropertyRef Name="Event_Facility_ID" />
+          </Key>
+          <Property Name="Event_Facility_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Facility_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Facility_LKP_ID" Type="Int32" />
+          <Property Name="Facility_Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Event_ID" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event" Relationship="EventModel.FK_NAT_ES_Event_Facility_NAT_ES_Event" FromRole="NAT_ES_Event_Facility" ToRole="NAT_ES_Event" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Feedback">
+          <Key>
+            <PropertyRef Name="Event_Feedback_ID" />
+          </Key>
+          <Property Name="Event_Feedback_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="No_of_Attendees" Type="Int32" Nullable="false" />
+          <Property Name="Venue_Rating" Type="Double" Nullable="false" />
+          <Property Name="Image_Path" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event" Relationship="EventModel.FK_EventID" FromRole="NAT_ES_Event_Feedback" ToRole="NAT_ES_Event" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Seat">
+          <Key>
+            <PropertyRef Name="Seat_ID" />
+          </Key>
+          <Property Name="Seat_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Seating_Plan_ID" Type="Int32" />
+          <Property Name="Seat_Type_LKP_ID" Type="Int32" />
+          <Property Name="Seat_Allocation_Type_LKP_ID" Type="Int32" />
+          <Property Name="Row_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Seat_Number" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status_LKP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event_Seating_Plan" Relationship="EventModel.FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan" FromRole="NAT_ES_Event_Seat" ToRole="NAT_ES_Event_Seating_Plan" />
+          <Property Name="Label" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Offset_X" Type="Int32" />
+          <Property Name="Offset_Y" Type="Int32" />
+          <Property Name="Radius" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Seating_Plan">
+          <Key>
+            <PropertyRef Name="Seating_Plan_ID" />
+          </Key>
+          <Property Name="Seating_Plan_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" />
+          <Property Name="Event_Seating_Plan_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Total_Seats" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="3" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event" Relationship="EventModel.FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event" FromRole="NAT_ES_Event_Seating_Plan" ToRole="NAT_ES_Event" />
+          <NavigationProperty Name="NAT_ES_Event_Seat" Relationship="EventModel.FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan" FromRole="NAT_ES_Event_Seating_Plan" ToRole="NAT_ES_Event_Seat" />
+          <Property Name="Default_Plan" Type="Boolean" />
+          <Property Name="Background_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Reference_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Ticket_Price">
+          <Key>
+            <PropertyRef Name="Event_Ticket_Price_ID" />
+          </Key>
+          <Property Name="Event_Ticket_Price_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Seat_Type_LKP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event" Relationship="EventModel.FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event" FromRole="NAT_ES_Event_Ticket_Price" ToRole="NAT_ES_Event" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Wait_List">
+          <Key>
+            <PropertyRef Name="Event_Wait_List_ID" />
+          </Key>
+          <Property Name="Event_Wait_List_ID" Type="Int32" Nullable="false" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Event_Wait_List_Name" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Effective_End_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_ES_Event" Relationship="EventModel.FK_NAT_ES_Event_Wait_List_NAT_ES_Event" FromRole="NAT_ES_Event_Wait_List" ToRole="NAT_ES_Event" />
+        </EntityType>
+        <Association Name="FK_EventID">
+          <End Type="EventModel.NAT_ES_Event" Role="NAT_ES_Event" Multiplicity="1" />
+          <End Type="EventModel.NAT_ES_Event_Feedback" Role="NAT_ES_Event_Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Feedback">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Facility_NAT_ES_Event">
+          <End Type="EventModel.NAT_ES_Event" Role="NAT_ES_Event" Multiplicity="0..1" />
+          <End Type="EventModel.NAT_ES_Event_Facility" Role="NAT_ES_Event_Facility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Facility">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Seating_Plan_NAT_ES_Event">
+          <End Type="EventModel.NAT_ES_Event" Role="NAT_ES_Event" Multiplicity="0..1" />
+          <End Type="EventModel.NAT_ES_Event_Seating_Plan" Role="NAT_ES_Event_Seating_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Seating_Plan">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Ticket_Price_NAT_ES_Event">
+          <End Type="EventModel.NAT_ES_Event" Role="NAT_ES_Event" Multiplicity="1" />
+          <End Type="EventModel.NAT_ES_Event_Ticket_Price" Role="NAT_ES_Event_Ticket_Price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Ticket_Price">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Wait_List_NAT_ES_Event">
+          <End Type="EventModel.NAT_ES_Event" Role="NAT_ES_Event" Multiplicity="1" />
+          <End Type="EventModel.NAT_ES_Event_Wait_List" Role="NAT_ES_Event_Wait_List" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Wait_List">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_ES_Event_Seat_NAT_ES_Event_Seating_Plan">
+          <End Type="EventModel.NAT_ES_Event_Seating_Plan" Role="NAT_ES_Event_Seating_Plan" Multiplicity="0..1" />
+          <End Type="EventModel.NAT_ES_Event_Seat" Role="NAT_ES_Event_Seat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event_Seating_Plan">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Seat">
+              <PropertyRef Name="Seating_Plan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_ES_Event_Image">
+          <Key>
+            <PropertyRef Name="Event_Image_ID" />
+          </Key>
+          <Property Name="Event_Image_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Image_Path" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Image_Type_LKP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_ES_Event" Relationship="EventModel.FK_NAT_ES_Event_Image_ID_NAT_ES_Event" FromRole="NAT_ES_Event_Image" ToRole="NAT_ES_Event" />
+        </EntityType>
+        <Association Name="FK_NAT_ES_Event_Image_ID_NAT_ES_Event">
+          <End Type="EventModel.NAT_ES_Event" Role="NAT_ES_Event" Multiplicity="1" />
+          <End Type="EventModel.NAT_ES_Event_Image" Role="NAT_ES_Event_Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Image">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_TICKET_SUMMARY_VW">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Event_Code" Type="String" Nullable="true" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Seat_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Ticket_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Ticket_Count" Type="Int32" />
+          <Property Name="Total_Seats" Type="Int32" />
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="Ticket_Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Checked_In_Ticket_Count" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NAT_ES_Event_Iteration">
+          <Key>
+            <PropertyRef Name="Iteration_ID" />
+          </Key>
+          <Property Name="Iteration_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Iteration_Status" Type="Int32" Nullable="false" />
+          <Property Name="Event_ID" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Created_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="NAT_ES_Event" Relationship="EventModel.FK_NAT_ES_Event_Iteration_NAT_ES_Event" FromRole="NAT_ES_Event_Iteration" ToRole="NAT_ES_Event" />
+        </EntityType>
+        <Association Name="FK_NAT_ES_Event_Iteration_NAT_ES_Event">
+          <End Type="EventModel.NAT_ES_Event" Role="NAT_ES_Event" Multiplicity="1" />
+          <End Type="EventModel.NAT_ES_Event_Iteration" Role="NAT_ES_Event_Iteration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_ES_Event">
+              <PropertyRef Name="Event_ID" />
+            </Principal>
+            <Dependent Role="NAT_ES_Event_Iteration">
+              <PropertyRef Name="Event_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NAT_BOOKED_TICKET_VW">
+          <Key>
+            <PropertyRef Name="Booking_ID" />
+            <PropertyRef Name="Ticket_Code" />
+            <PropertyRef Name="Created_Date" />
+            <PropertyRef Name="Active_Flag" />
+            <PropertyRef Name="EventStatus" />
+            <PropertyRef Name="Ticket_ID" />
+          </Key>
+          <Property Name="Booking_ID" Type="Int32" Nullable="false" />
+          <Property Name="Ticket_Code" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Row_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Seat_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Cancellation_Reason" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Ticket_Type_LKP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Ticket_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status_LKP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Contact" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Customer_Age" Type="Int32" />
+          <Property Name="Image_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Checked_In" Type="Boolean" />
+          <Property Name="Checked_In_Time" Type="DateTime" Precision="3" />
+          <Property Name="Checked_In_By" Type="Int32" />
+          <Property Name="QRCode_Image_Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Painting_ID" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Has_Disability" Type="Boolean" />
+          <Property Name="Booking_Date" Type="DateTime" Precision="3" />
+          <Property Name="Booking_Number" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Invoice_ID" Type="Int32" />
+          <Property Name="Event_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Start_Time" Type="DateTime" Precision="3" />
+          <Property Name="Event_End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Event_ID" Type="Int32" />
+          <Property Name="Location_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Virtual" Type="Boolean" />
+          <Property Name="EventStatus" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="Ticket_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EventModelStoreContainer" CdmEntityContainer="EventEntities">
+          <FunctionImportMapping FunctionImportName="GetNextSequenceEventCode" FunctionName="EventModel.Store.GetNextSequenceEventCode" />
+          <EntitySetMapping Name="NAT_ES_Event">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event">
+              <MappingFragment StoreEntitySet="NAT_ES_Event">
+                <ScalarProperty Name="Auto_Painting" ColumnName="Auto_Painting" />
+                <ScalarProperty Name="Mark_For_Painting_Change" ColumnName="Mark_For_Painting_Change" />
+                <ScalarProperty Name="Painting_Updated_Date" ColumnName="Painting_Updated_Date" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Google_Hangout_URL" ColumnName="Google_Hangout_URL" />
+                <ScalarProperty Name="Virtual" ColumnName="Virtual" />
+                <ScalarProperty Name="Note_To_VCP" ColumnName="Note_To_VCP" />
+                <ScalarProperty Name="Event_Tags" ColumnName="Event_Tags" />
+                <ScalarProperty Name="Event_Description" ColumnName="Event_Description" />
+                <ScalarProperty Name="Fundraising_Event_Flag" ColumnName="Fundraising_Event_Flag" />
+                <ScalarProperty Name="Private_Event_Flag" ColumnName="Private_Event_Flag" />
+                <ScalarProperty Name="Event_End_Time" ColumnName="Event_End_Time" />
+                <ScalarProperty Name="Event_Start_Time" ColumnName="Event_Start_Time" />
+                <ScalarProperty Name="Event_Date" ColumnName="Event_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Event_Code" ColumnName="Event_Code" />
+                <ScalarProperty Name="Is_Featured" ColumnName="Is_Featured" />
+                <ScalarProperty Name="Min_Ticket_Price" ColumnName="Min_Ticket_Price" />
+                <ScalarProperty Name="Max_Ticket_Price" ColumnName="Max_Ticket_Price" />
+                <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+                <ScalarProperty Name="Venue_Hall_ID" ColumnName="Venue_Hall_ID" />
+                <ScalarProperty Name="Venue_ID" ColumnName="Venue_ID" />
+                <ScalarProperty Name="Event_Category_LKP_ID" ColumnName="Event_Category_LKP_ID" />
+                <ScalarProperty Name="Event_Age_Group_Type_LKP_ID" ColumnName="Event_Age_Group_Type_LKP_ID" />
+                <ScalarProperty Name="Venue_City_Code" ColumnName="Venue_City_Code" />
+                <ScalarProperty Name="Location_Code" ColumnName="Location_Code" />
+                <ScalarProperty Name="Seating_Plan_ID" ColumnName="Seating_Plan_ID" />
+                <ScalarProperty Name="Painting_ID" ColumnName="Painting_ID" />
+                <ScalarProperty Name="Event_Status_LKP_ID" ColumnName="Event_Status_LKP_ID" />
+                <ScalarProperty Name="Event_Type_LKP_ID" ColumnName="Event_Type_LKP_ID" />
+                <ScalarProperty Name="Artist_ID" ColumnName="Artist_ID" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Facility">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Facility">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Facility">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Facility_Description" ColumnName="Facility_Description" />
+                <ScalarProperty Name="Facility_LKP_ID" ColumnName="Facility_LKP_ID" />
+                <ScalarProperty Name="Facility_Name" ColumnName="Facility_Name" />
+                <ScalarProperty Name="Event_Facility_ID" ColumnName="Event_Facility_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Feedback">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Feedback">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Feedback">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Venue_Rating" ColumnName="Venue_Rating" />
+                <ScalarProperty Name="No_of_Attendees" ColumnName="No_of_Attendees" />
+                <ScalarProperty Name="Event_Feedback_ID" ColumnName="Event_Feedback_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Seat">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Seat">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Seat">
+                <ScalarProperty Name="Radius" ColumnName="Radius" />
+                <ScalarProperty Name="Offset_Y" ColumnName="Offset_Y" />
+                <ScalarProperty Name="Offset_X" ColumnName="Offset_X" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Status_LKP" ColumnName="Status_LKP" />
+                <ScalarProperty Name="Seat_Number" ColumnName="Seat_Number" />
+                <ScalarProperty Name="Row_Number" ColumnName="Row_Number" />
+                <ScalarProperty Name="Seat_Allocation_Type_LKP_ID" ColumnName="Seat_Allocation_Type_LKP_ID" />
+                <ScalarProperty Name="Seat_Type_LKP_ID" ColumnName="Seat_Type_LKP_ID" />
+                <ScalarProperty Name="Seating_Plan_ID" ColumnName="Seating_Plan_ID" />
+                <ScalarProperty Name="Seat_ID" ColumnName="Seat_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Seating_Plan">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Seating_Plan">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Seating_Plan">
+                <ScalarProperty Name="Reference_ID" ColumnName="Reference_ID" />
+                <ScalarProperty Name="Background_Image" ColumnName="Background_Image" />
+                <ScalarProperty Name="Default_Plan" ColumnName="Default_Plan" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Total_Seats" ColumnName="Total_Seats" />
+                <ScalarProperty Name="Event_Seating_Plan_Name" ColumnName="Event_Seating_Plan_Name" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Seating_Plan_ID" ColumnName="Seating_Plan_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Ticket_Price">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Ticket_Price">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Ticket_Price">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Seat_Type_LKP" ColumnName="Seat_Type_LKP" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Event_Ticket_Price_ID" ColumnName="Event_Ticket_Price_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Wait_List">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Wait_List">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Wait_List">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Event_Wait_List_Name" ColumnName="Event_Wait_List_Name" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Event_Wait_List_ID" ColumnName="Event_Wait_List_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Image">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Image">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Image">
+                <ScalarProperty Name="Image_Type_LKP" ColumnName="Image_Type_LKP" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Event_Image_ID" ColumnName="Event_Image_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_TICKET_SUMMARY_VW">
+            <EntityTypeMapping TypeName="EventModel.NAT_TICKET_SUMMARY_VW">
+              <MappingFragment StoreEntitySet="NAT_TICKET_SUMMARY_VW">
+                <ScalarProperty Name="Checked_In_Ticket_Count" ColumnName="Checked_In_Ticket_Count" />
+                <ScalarProperty Name="Ticket_Price" ColumnName="Ticket_Price" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Total_Seats" ColumnName="Total_Seats" />
+                <ScalarProperty Name="Ticket_Count" ColumnName="Ticket_Count" />
+                <ScalarProperty Name="Ticket_Status" ColumnName="Ticket_Status" />
+                <ScalarProperty Name="Seat_Type" ColumnName="Seat_Type" />
+                <ScalarProperty Name="Event_Code" ColumnName="Event_Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_ES_Event_Iteration">
+            <EntityTypeMapping TypeName="EventModel.NAT_ES_Event_Iteration">
+              <MappingFragment StoreEntitySet="NAT_ES_Event_Iteration">
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Iteration_Status" ColumnName="Iteration_Status" />
+                <ScalarProperty Name="Iteration_ID" ColumnName="Iteration_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_BOOKED_TICKET_VW">
+            <EntityTypeMapping TypeName="EventModel.NAT_BOOKED_TICKET_VW">
+              <MappingFragment StoreEntitySet="NAT_BOOKED_TICKET_VW">
+                <ScalarProperty Name="Ticket_ID" ColumnName="Ticket_ID" />
+                <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+                <ScalarProperty Name="Virtual" ColumnName="Virtual" />
+                <ScalarProperty Name="Location_Code" ColumnName="Location_Code" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+                <ScalarProperty Name="Event_End_Time" ColumnName="Event_End_Time" />
+                <ScalarProperty Name="Event_Start_Time" ColumnName="Event_Start_Time" />
+                <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+                <ScalarProperty Name="Invoice_ID" ColumnName="Invoice_ID" />
+                <ScalarProperty Name="Event_Code" ColumnName="Event_Code" />
+                <ScalarProperty Name="Booking_Number" ColumnName="Booking_Number" />
+                <ScalarProperty Name="Booking_Date" ColumnName="Booking_Date" />
+                <ScalarProperty Name="Has_Disability" ColumnName="Has_Disability" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Event_Painting_ID" ColumnName="Event_Painting_ID" />
+                <ScalarProperty Name="QRCode_Image_Url" ColumnName="QRCode_Image_Url" />
+                <ScalarProperty Name="Checked_In_By" ColumnName="Checked_In_By" />
+                <ScalarProperty Name="Checked_In_Time" ColumnName="Checked_In_Time" />
+                <ScalarProperty Name="Checked_In" ColumnName="Checked_In" />
+                <ScalarProperty Name="Image_Url" ColumnName="Image_Url" />
+                <ScalarProperty Name="Customer_Age" ColumnName="Customer_Age" />
+                <ScalarProperty Name="Customer_Contact" ColumnName="Customer_Contact" />
+                <ScalarProperty Name="Customer_Email" ColumnName="Customer_Email" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Status_LKP" ColumnName="Status_LKP" />
+                <ScalarProperty Name="Ticket_Type" ColumnName="Ticket_Type" />
+                <ScalarProperty Name="Ticket_Type_LKP" ColumnName="Ticket_Type_LKP" />
+                <ScalarProperty Name="Cancellation_Reason" ColumnName="Cancellation_Reason" />
+                <ScalarProperty Name="Seat_Number" ColumnName="Seat_Number" />
+                <ScalarProperty Name="Row_Number" ColumnName="Row_Number" />
+                <ScalarProperty Name="Ticket_Code" ColumnName="Ticket_Code" />
+                <ScalarProperty Name="Booking_ID" ColumnName="Booking_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

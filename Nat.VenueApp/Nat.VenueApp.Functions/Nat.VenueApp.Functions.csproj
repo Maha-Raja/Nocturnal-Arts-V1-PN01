@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AzureFunctionsVersion>v1</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="bin\**" />
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="bin\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.26" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="TLX.CloudCore.Configuration" Version="1.0.0.2" />
+    <PackageReference Include="TLX.CloudCore.Exception" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.KendoX" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Logger" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Notification" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.DataMapper" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository.Ef6" Version="1.0.0.3" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Service" Version="1.0.0.1" />
+    <PackageReference Include="TLX.CloudCore.Sharding" Version="1.0.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nat.Core\Nat.Core.csproj" />
+    <ProjectReference Include="..\Nat.VenueApp.Models\Nat.VenueApp.Models.csproj" />
+    <ProjectReference Include="..\Nat.VenueApp.Services\Nat.VenueApp.Services.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>

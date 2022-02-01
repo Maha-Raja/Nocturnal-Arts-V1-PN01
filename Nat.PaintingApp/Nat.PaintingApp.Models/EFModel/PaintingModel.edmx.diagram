@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="03f83e92e21d44dbba0d04f900e2f21c" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Rating" Width="1.5" PointX="5.25" PointY="1.5" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Rating_Log" Width="1.5" PointX="5.25" PointY="5.5" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_Painting_Kit_Item" Width="1.5" PointX="5.25" PointY="15.625" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Attachment" Width="1.5" PointX="5.25" PointY="19.5" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Event" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Requests" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="PaintingModel.FK_NAT_Painting_Kit_Item_NAT_PS_Painting" />
+        <AssociationConnector Association="PaintingModel.FK_NAT_PS_Painting_Attachment_NAT_PS_Painting" />
+        <AssociationConnector Association="PaintingModel.FK_NAT_PS_Painting_NAT_PS_Painting_Requests" />
+        <AssociationConnector Association="PaintingModel.FK_NAT_PS_Painting_Rating_Log_Painting_ID" />
+        <AssociationConnector Association="PaintingModel.FK_NAT_PS_Painting_Rating_Painting_ID" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Image" Width="1.5" PointX="5.25" PointY="23.875" />
+        <AssociationConnector Association="PaintingModel.FK_NAT_PS_Painting_Image_Painting_ID" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Supply" Width="1.5" PointX="7.5" PointY="10.875" />
+        <EntityTypeShape EntityType="PaintingModel.NAT_PS_Painting_Video" Width="1.5" PointX="5.25" PointY="10.5" />
+        <AssociationConnector Association="PaintingModel.FK_NAT_PS_Painting_Video_Painting_ID" />
+        <AssociationConnector Association="PaintingModel.NAT_PS_Painting_Supply_Painting_Video_ID" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

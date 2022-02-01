@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AzureFunctionsVersion>v1</AzureFunctionsVersion>
+    <AssemblyName>Nat.PlannerApp.Functions</AssemblyName>
+    <RootNamespace>Nat.PlannerApp.Functions</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="ModelGeneration\**" />
+    <EmbeddedResource Remove="ModelGeneration\**" />
+    <None Remove="ModelGeneration\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.26" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.14.0" Version="14.3.25407" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.10.0" Version="10.0.30320" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.11.0" Version="11.0.50728" />
+    <PackageReference Include="Microsoft.VisualStudio.TextTemplating.Interfaces.14.0" Version="14.3.25407" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="TLX.CloudCore.Configuration" Version="1.0.0.2" />
+    <PackageReference Include="TLX.CloudCore.Exception" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.KendoX" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Logger" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Notification" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.DataMapper" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository" Version="1.0.0" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Repository.Ef6" Version="1.0.0.3" />
+    <PackageReference Include="TLX.CloudCore.Patterns.Service" Version="1.0.0.1" />
+    <PackageReference Include="TLX.CloudCore.Sharding" Version="1.0.0.2" />
+    <PackageReference Include="TLX.CloudCore.Storage" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Web.Extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Nat.Common\Nat.Common.csproj" />
+    <ProjectReference Include="..\..\Nat.Core\Nat.Core.csproj" />
+    <ProjectReference Include="..\Nat.PlannerApp.Models\Nat.PlannerApp.Models.csproj" />
+    <ProjectReference Include="..\Nat.PlannerApp.Services\Nat.PlannerApp.Services.csproj" />
+  </ItemGroup>
+</Project>

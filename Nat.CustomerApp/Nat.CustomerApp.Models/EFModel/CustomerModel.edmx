@@ -1,0 +1,609 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CustomerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="NAT_CS_Customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Status_LKP_ID" Type="int" />
+          <Property Name="Effective_Start_Date" Type="date" />
+          <Property Name="Effective_End_Date" Type="date" />
+          <Property Name="Gender_LKP_ID" Type="int" />
+          <Property Name="Residential_Address_ID" Type="int" />
+          <Property Name="Shopping_Address_ID" Type="int" />
+          <Property Name="Billing_Address_ID" Type="int" />
+          <Property Name="Person_First_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Person_Last_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Person_Middle_Name" Type="varchar" MaxLength="100" />
+          <Property Name="Person_Email" Type="varchar" MaxLength="100" />
+          <Property Name="Person_Profile_Image_Link" Type="varchar" MaxLength="200" />
+          <Property Name="Date_Of_Birth" Type="date" />
+          <Property Name="Person_Extension" Type="varchar" MaxLength="50" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Has_Disability" Type="bit" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address_Line_1" Type="varchar" MaxLength="255" />
+          <Property Name="Address_Line_2" Type="varchar" MaxLength="255" />
+          <Property Name="Postal_Zip_Code" Type="int" />
+          <Property Name="Coordinate" Type="int" />
+          <Property Name="City_Name" Type="varchar" MaxLength="255" />
+          <Property Name="Other_City_Flag" Type="varchar" MaxLength="255" />
+          <Property Name="Address_Geography_Code" Type="varchar" MaxLength="255" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Event">
+          <Key>
+            <PropertyRef Name="Customer_Event_ID" />
+          </Key>
+          <Property Name="Customer_Event_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_ID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Event_Type_LKP_ID" Type="int" />
+          <Property Name="Start_Time" Type="datetime" />
+          <Property Name="End_Time" Type="datetime" />
+          <Property Name="Reference_ID" Type="varchar" MaxLength="255" />
+          <Property Name="Status_LKP_ID" Type="int" />
+          <Property Name="Tickets_Bought" Type="int" />
+          <Property Name="Transaction_ID" Type="int" />
+          <Property Name="UDF" Type="nvarchar(max)" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Following">
+          <Key>
+            <PropertyRef Name="Customer_Following_ID" />
+          </Key>
+          <Property Name="Customer_Following_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reference_ID" Type="int" />
+          <Property Name="Reference_Type" Type="varchar" MaxLength="255" />
+          <Property Name="Effective_Start_Date" Type="date" />
+          <Property Name="Effective_End_Date" Type="date" />
+          <Property Name="Customer_ID" Type="int" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Inquiries">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Request_ID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Email_Address" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Subject" Type="varchar(max)" Nullable="false" />
+          <Property Name="Message" Type="varchar(max)" Nullable="false" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Liked_Events">
+          <Key>
+            <PropertyRef Name="Customer_Liked_Events_ID" />
+          </Key>
+          <Property Name="Customer_Liked_Events_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Event_Code" Type="varchar" MaxLength="300" />
+          <Property Name="Effective_Start_Date" Type="date" />
+          <Property Name="Effective_End_Date" Type="date" />
+          <Property Name="Customer_ID" Type="int" Nullable="false" />
+          <Property Name="Created_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" />
+          <Property Name="Last_Updated_By" Type="varchar" MaxLength="255" />
+          <Property Name="Active_Flag" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_NAT_CS_Customer_Event_NAT_CS_Customer">
+          <End Role="NAT_CS_Customer" Type="Self.NAT_CS_Customer" Multiplicity="1" />
+          <End Role="NAT_CS_Customer_Event" Type="Self.NAT_CS_Customer_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer_Event">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_Following_NAT_CS_Customer">
+          <End Role="NAT_CS_Customer" Type="Self.NAT_CS_Customer" Multiplicity="0..1" />
+          <End Role="NAT_CS_Customer_Following" Type="Self.NAT_CS_Customer_Following" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer_Following">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer">
+          <End Role="NAT_CS_Customer" Type="Self.NAT_CS_Customer" Multiplicity="1" />
+          <End Role="NAT_CS_Customer_Liked_Events" Type="Self.NAT_CS_Customer_Liked_Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer_Liked_Events">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address">
+          <End Role="NAT_CS_Customer_Address" Type="Self.NAT_CS_Customer_Address" Multiplicity="0..1" />
+          <End Role="NAT_CS_Customer" Type="Self.NAT_CS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer">
+              <PropertyRef Name="Residential_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address1">
+          <End Role="NAT_CS_Customer_Address" Type="Self.NAT_CS_Customer_Address" Multiplicity="0..1" />
+          <End Role="NAT_CS_Customer" Type="Self.NAT_CS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer">
+              <PropertyRef Name="Shopping_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address2">
+          <End Role="NAT_CS_Customer_Address" Type="Self.NAT_CS_Customer_Address" Multiplicity="0..1" />
+          <End Role="NAT_CS_Customer" Type="Self.NAT_CS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer">
+              <PropertyRef Name="Billing_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetNextSequenceCustomerRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="CustomerModelStoreContainer">
+          <EntitySet Name="NAT_CS_Customer" EntityType="Self.NAT_CS_Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_CS_Customer_Address" EntityType="Self.NAT_CS_Customer_Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_CS_Customer_Event" EntityType="Self.NAT_CS_Customer_Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_CS_Customer_Following" EntityType="Self.NAT_CS_Customer_Following" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_CS_Customer_Inquiries" EntityType="Self.NAT_CS_Customer_Inquiries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAT_CS_Customer_Liked_Events" EntityType="Self.NAT_CS_Customer_Liked_Events" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_NAT_CS_Customer_Event_NAT_CS_Customer" Association="Self.FK_NAT_CS_Customer_Event_NAT_CS_Customer">
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+            <End Role="NAT_CS_Customer_Event" EntitySet="NAT_CS_Customer_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_Following_NAT_CS_Customer" Association="Self.FK_NAT_CS_Customer_Following_NAT_CS_Customer">
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+            <End Role="NAT_CS_Customer_Following" EntitySet="NAT_CS_Customer_Following" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer" Association="Self.FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer">
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+            <End Role="NAT_CS_Customer_Liked_Events" EntitySet="NAT_CS_Customer_Liked_Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address" Association="Self.FK_NAT_CS_Customer_NAT_CS_Customer_Address">
+            <End Role="NAT_CS_Customer_Address" EntitySet="NAT_CS_Customer_Address" />
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address1" Association="Self.FK_NAT_CS_Customer_NAT_CS_Customer_Address1">
+            <End Role="NAT_CS_Customer_Address" EntitySet="NAT_CS_Customer_Address" />
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address2" Association="Self.FK_NAT_CS_Customer_NAT_CS_Customer_Address2">
+            <End Role="NAT_CS_Customer_Address" EntitySet="NAT_CS_Customer_Address" />
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CustomerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CustomerEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GetNextSequenceCustomerRequest" ReturnType="Collection(Int64)" />
+          <EntitySet Name="NAT_CS_Customer" EntityType="CustomerModel.NAT_CS_Customer" />
+          <EntitySet Name="NAT_CS_Customer_Address" EntityType="CustomerModel.NAT_CS_Customer_Address" />
+          <EntitySet Name="NAT_CS_Customer_Event" EntityType="CustomerModel.NAT_CS_Customer_Event" />
+          <EntitySet Name="NAT_CS_Customer_Following" EntityType="CustomerModel.NAT_CS_Customer_Following" />
+          <EntitySet Name="NAT_CS_Customer_Inquiries" EntityType="CustomerModel.NAT_CS_Customer_Inquiries" />
+          <EntitySet Name="NAT_CS_Customer_Liked_Events" EntityType="CustomerModel.NAT_CS_Customer_Liked_Events" />
+          <AssociationSet Name="FK_NAT_CS_Customer_Event_NAT_CS_Customer" Association="CustomerModel.FK_NAT_CS_Customer_Event_NAT_CS_Customer">
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+            <End Role="NAT_CS_Customer_Event" EntitySet="NAT_CS_Customer_Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_Following_NAT_CS_Customer" Association="CustomerModel.FK_NAT_CS_Customer_Following_NAT_CS_Customer">
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+            <End Role="NAT_CS_Customer_Following" EntitySet="NAT_CS_Customer_Following" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer" Association="CustomerModel.FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer">
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+            <End Role="NAT_CS_Customer_Liked_Events" EntitySet="NAT_CS_Customer_Liked_Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address" Association="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address">
+            <End Role="NAT_CS_Customer_Address" EntitySet="NAT_CS_Customer_Address" />
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address1" Association="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address1">
+            <End Role="NAT_CS_Customer_Address" EntitySet="NAT_CS_Customer_Address" />
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address2" Association="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address2">
+            <End Role="NAT_CS_Customer_Address" EntitySet="NAT_CS_Customer_Address" />
+            <End Role="NAT_CS_Customer" EntitySet="NAT_CS_Customer" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="NAT_CS_Customer">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Status_LKP_ID" Type="Int32" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Gender_LKP_ID" Type="Int32" />
+          <Property Name="Residential_Address_ID" Type="Int32" />
+          <Property Name="Shopping_Address_ID" Type="Int32" />
+          <Property Name="Billing_Address_ID" Type="Int32" />
+          <Property Name="Person_First_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Person_Last_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Person_Middle_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Person_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Person_Profile_Image_Link" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Date_Of_Birth" Type="DateTime" Precision="0" />
+          <Property Name="Person_Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_CS_Customer_Event" Relationship="CustomerModel.FK_NAT_CS_Customer_Event_NAT_CS_Customer" FromRole="NAT_CS_Customer" ToRole="NAT_CS_Customer_Event" />
+          <NavigationProperty Name="NAT_CS_Customer_Following" Relationship="CustomerModel.FK_NAT_CS_Customer_Following_NAT_CS_Customer" FromRole="NAT_CS_Customer" ToRole="NAT_CS_Customer_Following" />
+          <NavigationProperty Name="NAT_CS_Customer_Liked_Events" Relationship="CustomerModel.FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer" FromRole="NAT_CS_Customer" ToRole="NAT_CS_Customer_Liked_Events" />
+          <NavigationProperty Name="NAT_CS_Customer_Residential_Address" Relationship="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address" FromRole="NAT_CS_Customer" ToRole="NAT_CS_Customer_Address" />
+          <NavigationProperty Name="NAT_CS_Customer_Shipping_Address" Relationship="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address1" FromRole="NAT_CS_Customer" ToRole="NAT_CS_Customer_Address" />
+          <NavigationProperty Name="NAT_CS_Customer_Billing_Address" Relationship="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address2" FromRole="NAT_CS_Customer" ToRole="NAT_CS_Customer_Address" />
+          <Property Name="Has_Disability" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Address">
+          <Key>
+            <PropertyRef Name="Address_ID" />
+          </Key>
+          <Property Name="Address_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address_Line_1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Line_2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Postal_Zip_Code" Type="Int32" />
+          <Property Name="Coordinate" Type="Int32" />
+          <Property Name="City_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Other_City_Flag" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address_Geography_Code" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_CS_Customer" Relationship="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address" FromRole="NAT_CS_Customer_Address" ToRole="NAT_CS_Customer" />
+          <NavigationProperty Name="NAT_CS_Customer1" Relationship="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address1" FromRole="NAT_CS_Customer_Address" ToRole="NAT_CS_Customer" />
+          <NavigationProperty Name="NAT_CS_Customer2" Relationship="CustomerModel.FK_NAT_CS_Customer_NAT_CS_Customer_Address2" FromRole="NAT_CS_Customer_Address" ToRole="NAT_CS_Customer" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Event">
+          <Key>
+            <PropertyRef Name="Customer_Event_ID" />
+          </Key>
+          <Property Name="Customer_Event_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Event_Type_LKP_ID" Type="Int32" />
+          <Property Name="Start_Time" Type="DateTime" Precision="3" />
+          <Property Name="End_Time" Type="DateTime" Precision="3" />
+          <Property Name="Reference_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Status_LKP_ID" Type="Int32" />
+          <Property Name="Tickets_Bought" Type="Int32" />
+          <Property Name="Transaction_ID" Type="Int32" />
+          <Property Name="UDF" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_CS_Customer" Relationship="CustomerModel.FK_NAT_CS_Customer_Event_NAT_CS_Customer" FromRole="NAT_CS_Customer_Event" ToRole="NAT_CS_Customer" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Following">
+          <Key>
+            <PropertyRef Name="Customer_Following_ID" />
+          </Key>
+          <Property Name="Customer_Following_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reference_ID" Type="Int32" />
+          <Property Name="Reference_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_CS_Customer" Relationship="CustomerModel.FK_NAT_CS_Customer_Following_NAT_CS_Customer" FromRole="NAT_CS_Customer_Following" ToRole="NAT_CS_Customer" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Inquiries">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Request_ID" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email_Address" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="NAT_CS_Customer_Liked_Events">
+          <Key>
+            <PropertyRef Name="Customer_Liked_Events_ID" />
+          </Key>
+          <Property Name="Customer_Liked_Events_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Event_Code" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Effective_Start_Date" Type="DateTime" Precision="0" />
+          <Property Name="Effective_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+          <Property Name="Created_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated_By" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active_Flag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="NAT_CS_Customer" Relationship="CustomerModel.FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer" FromRole="NAT_CS_Customer_Liked_Events" ToRole="NAT_CS_Customer" />
+        </EntityType>
+        <Association Name="FK_NAT_CS_Customer_Event_NAT_CS_Customer">
+          <End Type="CustomerModel.NAT_CS_Customer" Role="NAT_CS_Customer" Multiplicity="1" />
+          <End Type="CustomerModel.NAT_CS_Customer_Event" Role="NAT_CS_Customer_Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer_Event">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_Following_NAT_CS_Customer">
+          <End Type="CustomerModel.NAT_CS_Customer" Role="NAT_CS_Customer" Multiplicity="0..1" />
+          <End Type="CustomerModel.NAT_CS_Customer_Following" Role="NAT_CS_Customer_Following" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer_Following">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_Liked_Events_NAT_CS_Customer">
+          <End Type="CustomerModel.NAT_CS_Customer" Role="NAT_CS_Customer" Multiplicity="1" />
+          <End Type="CustomerModel.NAT_CS_Customer_Liked_Events" Role="NAT_CS_Customer_Liked_Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer_Liked_Events">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address">
+          <End Type="CustomerModel.NAT_CS_Customer_Address" Role="NAT_CS_Customer_Address" Multiplicity="0..1" />
+          <End Type="CustomerModel.NAT_CS_Customer" Role="NAT_CS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer">
+              <PropertyRef Name="Residential_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address1">
+          <End Type="CustomerModel.NAT_CS_Customer_Address" Role="NAT_CS_Customer_Address" Multiplicity="0..1" />
+          <End Type="CustomerModel.NAT_CS_Customer" Role="NAT_CS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer">
+              <PropertyRef Name="Shopping_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAT_CS_Customer_NAT_CS_Customer_Address2">
+          <End Type="CustomerModel.NAT_CS_Customer_Address" Role="NAT_CS_Customer_Address" Multiplicity="0..1" />
+          <End Type="CustomerModel.NAT_CS_Customer" Role="NAT_CS_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NAT_CS_Customer_Address">
+              <PropertyRef Name="Address_ID" />
+            </Principal>
+            <Dependent Role="NAT_CS_Customer">
+              <PropertyRef Name="Billing_Address_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CustomerModelStoreContainer" CdmEntityContainer="CustomerEntities">
+          <FunctionImportMapping FunctionImportName="GetNextSequenceCustomerRequest" FunctionName="CustomerModel.Store.GetNextSequenceCustomerRequest" />
+          <EntitySetMapping Name="NAT_CS_Customer">
+            <EntityTypeMapping TypeName="CustomerModel.NAT_CS_Customer">
+              <MappingFragment StoreEntitySet="NAT_CS_Customer">
+                <ScalarProperty Name="Has_Disability" ColumnName="Has_Disability" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Person_Extension" ColumnName="Person_Extension" />
+                <ScalarProperty Name="Date_Of_Birth" ColumnName="Date_Of_Birth" />
+                <ScalarProperty Name="Person_Profile_Image_Link" ColumnName="Person_Profile_Image_Link" />
+                <ScalarProperty Name="Person_Email" ColumnName="Person_Email" />
+                <ScalarProperty Name="Person_Middle_Name" ColumnName="Person_Middle_Name" />
+                <ScalarProperty Name="Person_Last_Name" ColumnName="Person_Last_Name" />
+                <ScalarProperty Name="Person_First_Name" ColumnName="Person_First_Name" />
+                <ScalarProperty Name="Billing_Address_ID" ColumnName="Billing_Address_ID" />
+                <ScalarProperty Name="Shopping_Address_ID" ColumnName="Shopping_Address_ID" />
+                <ScalarProperty Name="Residential_Address_ID" ColumnName="Residential_Address_ID" />
+                <ScalarProperty Name="Gender_LKP_ID" ColumnName="Gender_LKP_ID" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Customer_Status_LKP_ID" ColumnName="Customer_Status_LKP_ID" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_CS_Customer_Address">
+            <EntityTypeMapping TypeName="CustomerModel.NAT_CS_Customer_Address">
+              <MappingFragment StoreEntitySet="NAT_CS_Customer_Address">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Address_Geography_Code" ColumnName="Address_Geography_Code" />
+                <ScalarProperty Name="Other_City_Flag" ColumnName="Other_City_Flag" />
+                <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+                <ScalarProperty Name="Coordinate" ColumnName="Coordinate" />
+                <ScalarProperty Name="Postal_Zip_Code" ColumnName="Postal_Zip_Code" />
+                <ScalarProperty Name="Address_Line_2" ColumnName="Address_Line_2" />
+                <ScalarProperty Name="Address_Line_1" ColumnName="Address_Line_1" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_CS_Customer_Event">
+            <EntityTypeMapping TypeName="CustomerModel.NAT_CS_Customer_Event">
+              <MappingFragment StoreEntitySet="NAT_CS_Customer_Event">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="UDF" ColumnName="UDF" />
+                <ScalarProperty Name="Transaction_ID" ColumnName="Transaction_ID" />
+                <ScalarProperty Name="Tickets_Bought" ColumnName="Tickets_Bought" />
+                <ScalarProperty Name="Status_LKP_ID" ColumnName="Status_LKP_ID" />
+                <ScalarProperty Name="Reference_ID" ColumnName="Reference_ID" />
+                <ScalarProperty Name="End_Time" ColumnName="End_Time" />
+                <ScalarProperty Name="Start_Time" ColumnName="Start_Time" />
+                <ScalarProperty Name="Event_Type_LKP_ID" ColumnName="Event_Type_LKP_ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Customer_Event_ID" ColumnName="Customer_Event_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_CS_Customer_Following">
+            <EntityTypeMapping TypeName="CustomerModel.NAT_CS_Customer_Following">
+              <MappingFragment StoreEntitySet="NAT_CS_Customer_Following">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Reference_Type" ColumnName="Reference_Type" />
+                <ScalarProperty Name="Reference_ID" ColumnName="Reference_ID" />
+                <ScalarProperty Name="Customer_Following_ID" ColumnName="Customer_Following_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_CS_Customer_Inquiries">
+            <EntityTypeMapping TypeName="CustomerModel.NAT_CS_Customer_Inquiries">
+              <MappingFragment StoreEntitySet="NAT_CS_Customer_Inquiries">
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Email_Address" ColumnName="Email_Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Request_ID" ColumnName="Request_ID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAT_CS_Customer_Liked_Events">
+            <EntityTypeMapping TypeName="CustomerModel.NAT_CS_Customer_Liked_Events">
+              <MappingFragment StoreEntitySet="NAT_CS_Customer_Liked_Events">
+                <ScalarProperty Name="Active_Flag" ColumnName="Active_Flag" />
+                <ScalarProperty Name="Last_Updated_By" ColumnName="Last_Updated_By" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Effective_End_Date" ColumnName="Effective_End_Date" />
+                <ScalarProperty Name="Effective_Start_Date" ColumnName="Effective_Start_Date" />
+                <ScalarProperty Name="Event_Code" ColumnName="Event_Code" />
+                <ScalarProperty Name="Customer_Liked_Events_ID" ColumnName="Customer_Liked_Events_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

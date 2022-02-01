@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Nat.AuthApp.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "host start --port 7079"
+    }
+  }
+}
